@@ -245,6 +245,7 @@ a.mast-names:hover{color:var(--terracotta)}
 }
 @media(min-width:44rem){
   .venue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
+  .venue-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 .venue-grid img{
   display:block; width:100%; height:auto;
@@ -1234,6 +1235,12 @@ a.mast-names:hover{color:var(--terracotta)}
 
   <p class="lede">If you've been to Bali before you'll know the food is extraordinary.
   These are our favourites and our friends' favourites.</p>
+
+  <div class="venue-grid is-three">
+    <img loading="lazy" width="866" height="1018" src="images/food-1.jpg" alt="A spread of shared dishes">
+    <img loading="lazy" width="964" height="1150" src="images/food-2.jpg" alt="Grilled salmon with asparagus">
+    <img loading="lazy" width="533" height="800" src="images/food-3.jpg" alt="A coffee being poured at Revolver">
+  </div>
 
   <div class="eat-grp">Lunch &amp; dinner</div>
     <table class="eat-tbl">
