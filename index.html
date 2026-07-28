@@ -383,19 +383,28 @@ a.mast-names:hover{color:var(--terracotta)}
 .tip-table td{padding:.7rem 0}
 .tip-table td:last-child{text-align:right;color:var(--umber);white-space:nowrap}
 
-/* ═══════════════════════════════════════════════════════════
-   EAT
-   ═══════════════════════════════════════════════════════════ */
-.eat{display:flex;align-items:baseline;gap:.75rem;padding:.85rem 0;border-bottom:1px solid var(--line-soft)}
-.eat:last-child{border-bottom:none}
-.eat-name{font-size:1rem;color:var(--soil)}
-.eat-dot{flex:1;border-bottom:1px dotted var(--line);min-width:1.5rem;transform:translateY(-.2rem)}
-.eat-kind{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
-.eat-star{color:var(--terracotta);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:.15rem}
-.eat-name a{color:var(--soil);border:none}
-.eat-name a:hover{color:var(--terracotta)}
-.eat-ig{border:none;display:inline-flex;align-items:center;margin-left:.4rem;vertical-align:-2px;opacity:.65;transition:opacity .18s}
-.eat-ig:hover{opacity:1}
+.eat-grp{
+  font-size:.6rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--terracotta); font-weight:500; margin:2.25rem 0 .5rem;
+}
+.eat-grp:first-of-type{margin-top:0}
+.eat-tbl{width:100%;border-collapse:collapse}
+.eat-tbl tr{border-bottom:1px solid var(--line-soft)}
+.eat-tbl tr:last-child{border-bottom:none}
+.eat-tbl td{padding:.75rem .3rem;vertical-align:baseline}
+.et-n{font-size:1rem;color:var(--soil)}
+.et-n .pick{
+  display:block; font-size:.58rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--terracotta); margin-top:.1rem;
+}
+.et-c{font-size:.75rem;color:var(--sage);padding-left:.75rem!important}
+.et-t{font-size:.7rem;color:var(--terracotta);white-space:nowrap;text-align:right}
+.et-l{text-align:right;white-space:nowrap;width:3.4rem}
+.et-l a{border:none;display:inline-flex;vertical-align:middle;margin-left:.45rem;opacity:.6;transition:opacity .18s}
+.et-l a:hover{opacity:1}
+@media(max-width:30rem){
+  .et-c{display:none}
+}
 
 /* ═══════════════════════════════════════════════════════════
    RSVP
@@ -1186,33 +1195,32 @@ a.mast-names:hover{color:var(--terracotta)}
     </p>
   </div>
 
-  <div class="section-label">Eat &amp; drink <span class="tbc">Links to come</span></div>
+  <div class="section-label">Eat &amp; drink</div>
 
   <p class="lede">If you've been to Bali before you'll know the food is extraordinary.
-  These are our favourites and our friends' favourites in Uluwatu.</p>
+  These are our favourites and our friends' favourites. Walking times are from Teja.</p>
 
-  <div class="grid grid-2">
-    <div>
-      <div style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.75rem">Lunch &amp; dinner</div>
-      <div class="eat"><span class="eat-name"><a href="https://www.yuki-bali.com/uluwatu" target="_blank" rel="noopener">YUKI</a><a class="eat-ig" href="https://www.instagram.com/yukibali_/?hl=en" target="_blank" rel="noopener" aria-label="YUKI on Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.2" fill="#A63820"/></svg></a></span><span class="eat-dot"></span><span class="eat-kind">Japanese</span></div>
-      <div class="eat"><span class="eat-name"><a href="https://kalauluwatu.com/" target="_blank" rel="noopener">KALA Uluwatu</a><a class="eat-ig" href="https://www.instagram.com/kala.uluwatu/?hl=en" target="_blank" rel="noopener" aria-label="KALA Uluwatu on Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.2" fill="#A63820"/></svg></a></span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
-      <div class="eat"><span class="eat-name"><a href="https://www.instagram.com/thecashewtree.collective/?hl=en" target="_blank" rel="noopener">Cashew Tree</a><a class="eat-ig" href="https://www.instagram.com/thecashewtree.collective/?hl=en" target="_blank" rel="noopener" aria-label="Cashew Tree on Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.2" fill="#A63820"/></svg></a></span><span class="eat-dot"></span><span class="eat-kind">Fresh &amp; healthy</span></div>
-      <div class="eat"><span class="eat-name">Masonry</span><span class="eat-dot"></span><span class="eat-kind">Mediterranean</span></div>
-      <div class="eat"><span class="eat-name">Ulu Cliffhouse</span><span class="eat-dot"></span><span class="eat-kind">Clifftop</span></div>
-      <div class="eat"><span class="eat-name">Warung Local</span><span class="eat-dot"></span><span class="eat-kind">Indonesian</span></div>
-      <div class="eat"><span class="eat-name">Malini Uluwatu</span><span class="eat-dot"></span><span class="eat-kind">Seafood</span></div>
-      <div class="eat"><span class="eat-name">Alvi</span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
-      <div class="eat"><span class="eat-name">La Baracca Bali</span><span class="eat-dot"></span><span class="eat-kind">Italian</span></div>
-    </div>
-    <div>
-      <div style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.75rem">Coffee &amp; easy lunch</div>
-      <div class="eat"><span class="eat-name">Revolver Espresso<span class="eat-star">Our pick</span></span><span class="eat-dot"></span><span class="eat-kind">Coffee</span></div>
-      <div class="eat"><span class="eat-name">Milk &amp; Madu</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
-      <div class="eat"><span class="eat-name">Suka</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
-      <div class="eat"><span class="eat-name">Baked</span><span class="eat-dot"></span><span class="eat-kind">Pastries &amp; coffee</span></div>
-      <div class="eat"><span class="eat-name">Alchemy</span><span class="eat-dot"></span><span class="eat-kind">Plant-based</span></div>
-    </div>
-  </div>
+  <div class="eat-grp">Walking distance from Teja</div>
+    <table class="eat-tbl">
+      <tr><td class="et-n">Ulu Cliffhouse</td><td class="et-c">Clifftop dining</td><td class="et-t">3 min</td><td class="et-l"><a href="https://ulucliffhouse.com/" target="_blank" rel="noopener" aria-label="Ulu Cliffhouse website"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="#A63820" stroke-width="1.7"/><ellipse cx="12" cy="12" rx="4" ry="9.2" stroke="#A63820" stroke-width="1.5"/><path d="M3 9.5h18M3 14.5h18" stroke="#A63820" stroke-width="1.5"/></svg></a><a href="https://www.instagram.com/ulucliffhouse/?hl=en" target="_blank" rel="noopener" aria-label="Ulu Cliffhouse on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">Masonry</td><td class="et-c">Mediterranean</td><td class="et-t">3 min</td><td class="et-l"><a href="https://masonrybali.com/uluwatu" target="_blank" rel="noopener" aria-label="Masonry website"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="#A63820" stroke-width="1.7"/><ellipse cx="12" cy="12" rx="4" ry="9.2" stroke="#A63820" stroke-width="1.5"/><path d="M3 9.5h18M3 14.5h18" stroke="#A63820" stroke-width="1.5"/></svg></a><a href="https://www.instagram.com/masonry.bali/?hl=en" target="_blank" rel="noopener" aria-label="Masonry on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">Baked</td><td class="et-c">Bakery &amp; coffee</td><td class="et-t">3 min</td><td class="et-l"></td></tr>
+      <tr><td class="et-n">YUKI</td><td class="et-c">Japanese</td><td class="et-t">5 min</td><td class="et-l"><a href="https://www.yuki-bali.com/uluwatu" target="_blank" rel="noopener" aria-label="YUKI website"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="#A63820" stroke-width="1.7"/><ellipse cx="12" cy="12" rx="4" ry="9.2" stroke="#A63820" stroke-width="1.5"/><path d="M3 9.5h18M3 14.5h18" stroke="#A63820" stroke-width="1.5"/></svg></a><a href="https://www.instagram.com/yukibali_/?hl=en" target="_blank" rel="noopener" aria-label="YUKI on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">AVLI Uluwatu</td><td class="et-c">Modern Greek</td><td class="et-t">8 min</td><td class="et-l"></td></tr>
+      <tr><td class="et-n">Suka</td><td class="et-c">Cafe &amp; brunch</td><td class="et-t">9 min</td><td class="et-l"></td></tr>
+      <tr><td class="et-n">La Baracca</td><td class="et-c">Italian</td><td class="et-t">9 min</td><td class="et-l"></td></tr>
+    </table>
+
+  <div class="eat-grp">Short drive</div>
+    <table class="eat-tbl">
+      <tr><td class="et-n">KALA Uluwatu</td><td class="et-c">Greek grill</td><td class="et-t"></td><td class="et-l"><a href="https://kalauluwatu.com/" target="_blank" rel="noopener" aria-label="KALA Uluwatu website"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="#A63820" stroke-width="1.7"/><ellipse cx="12" cy="12" rx="4" ry="9.2" stroke="#A63820" stroke-width="1.5"/><path d="M3 9.5h18M3 14.5h18" stroke="#A63820" stroke-width="1.5"/></svg></a><a href="https://www.instagram.com/kala.uluwatu/?hl=en" target="_blank" rel="noopener" aria-label="KALA Uluwatu on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">Malini Uluwatu</td><td class="et-c">Seafood &amp; sunset</td><td class="et-t"></td><td class="et-l"><a href="https://www.instagram.com/maliniuluwatubali/?hl=en" target="_blank" rel="noopener" aria-label="Malini Uluwatu on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">Milk &amp; Madu</td><td class="et-c">Cafe &amp; family</td><td class="et-t"></td><td class="et-l"></td></tr>
+      <tr><td class="et-n">Alchemy</td><td class="et-c">Plant-based</td><td class="et-t"></td><td class="et-l"></td></tr>
+      <tr><td class="et-n">Warung Local</td><td class="et-c">Indonesian</td><td class="et-t"></td><td class="et-l"><a href="https://www.instagram.com/warunglocal/?hl=en" target="_blank" rel="noopener" aria-label="Warung Local on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">The Cashew Tree</td><td class="et-c">Fresh &amp; healthy</td><td class="et-t"></td><td class="et-l"><a href="https://www.instagram.com/thecashewtree.collective/?hl=en" target="_blank" rel="noopener" aria-label="The Cashew Tree on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
+      <tr><td class="et-n">Revolver Espresso<span class="pick">Our pick</span></td><td class="et-c">Coffee &mdash; Seminyak</td><td class="et-t">45 min</td><td class="et-l"></td></tr>
+    </table>
 </section>
 
 <!-- ─────────────────────── RSVP ─────────────────────── -->
