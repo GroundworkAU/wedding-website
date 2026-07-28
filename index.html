@@ -272,6 +272,13 @@ a.mast-names:hover{color:var(--terracotta)}
 }
 .origin-bar select:focus{outline:none;border-color:var(--terracotta)}
 .route{display:none}
+.air-tbl{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.5rem}
+.air-tbl tr{border-bottom:1px solid var(--line-soft)}
+.air-tbl tr:last-child{border-bottom:none}
+.air-tbl td{padding:.65rem .3rem;vertical-align:top}
+.air-name{color:var(--soil)}
+.air-name .lcc{display:block;font-size:.66rem;letter-spacing:.06em;color:var(--sage);margin-top:.1rem}
+.air-freq{color:var(--sage);font-size:.8rem;text-align:right;white-space:nowrap}
 .route.is-on{display:block}
 
 .kv{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.75rem}
@@ -727,7 +734,11 @@ a.mast-names:hover{color:var(--terracotta)}
             </div>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Jetstar is the only airline flying this route direct.</p>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Who flies this route direct</h3>
+          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">1-2 a day</td></tr></table>
+        </div>
       </div>
       <div class="route" id="route-MEL" data-origin="MEL">
         <div class="grid grid-2">
@@ -738,7 +749,7 @@ a.mast-names:hover{color:var(--terracotta)}
           </div>
           <div class="card card-white">
             <h3>Coming home</h3>
-            <table class="kv"><tr><td>Return times</td><td>check with Jetstar</td></tr></table>
+            <table class="kv"><tr><td>Return times</td><td>check with the airline</td></tr></table>
             <div class="alert" style="margin-bottom:0">
               <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
               room all day and check out when you leave for the airport, instead of killing eight
@@ -746,14 +757,18 @@ a.mast-names:hover{color:var(--terracotta)}
             </div>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Qantas, Virgin, Garuda and Batik Air also fly direct.</p>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Who flies this route direct</h3>
+          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">3-4 a day</td></tr><tr><td class="air-name">Qantas<span class="lcc">Bags and meals included.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Garuda Indonesia<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
+        </div>
       </div>
       <div class="route" id="route-SYD" data-origin="SYD">
         <div class="grid grid-2">
           <div class="card card-white">
             <h3>Sydney to Denpasar</h3>
-            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 20m.</p>
-            <table class="kv"><tr><td>Departs 6:15am</td><td>arrival varies</td></tr><tr><td>Departs 5:35pm</td><td>arrival varies</td></tr></table>
+            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 30m.</p>
+            <table class="kv"><tr><td>Departs 6:15am</td><td>arrives 10:50am</td></tr><tr><td>Departs 5:35pm</td><td>arrival varies</td></tr></table>
           </div>
           <div class="card card-white">
             <h3>Coming home</h3>
@@ -765,7 +780,11 @@ a.mast-names:hover{color:var(--terracotta)}
             </div>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Qantas, Virgin, Garuda and Batik Air also fly direct.</p>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Who flies this route direct</h3>
+          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">2 a day</td></tr><tr><td class="air-name">Qantas<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">Daily, QF43</td></tr><tr><td class="air-name">Garuda Indonesia<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
+        </div>
       </div>
       <div class="route" id="route-BNE" data-origin="BNE">
         <div class="grid grid-2">
@@ -776,7 +795,7 @@ a.mast-names:hover{color:var(--terracotta)}
           </div>
           <div class="card card-white">
             <h3>Coming home</h3>
-            <table class="kv"><tr><td>Return times</td><td>check with Jetstar</td></tr></table>
+            <table class="kv"><tr><td>Return times</td><td>check with the airline</td></tr></table>
             <div class="alert" style="margin-bottom:0">
               <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
               room all day and check out when you leave for the airport, instead of killing eight
@@ -784,13 +803,17 @@ a.mast-names:hover{color:var(--terracotta)}
             </div>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Virgin and Batik Air also fly direct.</p>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Who flies this route direct</h3>
+          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">1-2 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
+        </div>
       </div>
 
   <div class="alert" style="margin-top:1.5rem">
     <strong>These are current timetables, not June 2027 ones.</strong> Airlines only publish
     schedules about eleven months ahead, so treat these as a guide to what the route usually
-    looks like and check
+    looks like, and check
     <a href="https://www.jetstar.com/au/en/home" target="_blank" rel="noopener">jetstar.com</a>
     when booking opens.
   </div>
