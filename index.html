@@ -393,6 +393,17 @@ a.mast-names:hover{color:var(--terracotta)}
 .fx-eq{font-family:var(--display);font-size:1.4rem;color:var(--terracotta);font-style:italic}
 .fx-out{font-family:var(--display);font-size:2rem;font-weight:300;color:var(--apricot)}
 .fx-note{font-size:.68rem;color:var(--sage);margin-top:1.25rem;line-height:1.6}
+.fx-rule{height:1px;background:rgba(184,168,152,.28);margin:1.75rem 0 1.5rem}
+.fx-sub{
+  font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--sage); margin-bottom:.9rem;
+}
+.fx-tip{width:100%;border-collapse:collapse;font-size:.88rem}
+.fx-tip tr{border-bottom:1px solid rgba(184,168,152,.18)}
+.fx-tip tr:last-child{border-bottom:none}
+.fx-tip td{padding:.7rem 0;vertical-align:top;color:var(--sand)}
+.fx-tip td:last-child{text-align:right;white-space:nowrap;color:var(--apricot)}
+.fx-tip .sm{color:var(--sage);font-size:.76rem;display:block}
 
 .tip-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:1rem}
 .tip-table tr{border-bottom:1px solid var(--line-soft)}
@@ -1198,21 +1209,6 @@ a.mast-names:hover{color:var(--terracotta)}
       <p>You can pay by card almost everywhere. We don't bother bringing cash, we just withdraw rupiah from an ATM once we're there.</p>
       <p>You can also change money easily at the airport when you land.</p>
     </div>
-
-    <div class="card">
-      <h3>Tipping</h3>
-      <p>It's customary to tip for service in Bali.</p>
-      <table class="tip-table">
-        <tr>
-          <td>Breakfast, lunch or dinner<br><span style="color:var(--sage);font-size:.8rem">for two people</span></td>
-          <td>Rp 20-30,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$1.70-2.50</span></td>
-        </tr>
-        <tr>
-          <td>Short car or scooter ride, Gojek</td>
-          <td>Rp 10-20,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$0.80-1.80</span></td>
-        </tr>
-      </table>
-    </div>
   </div>
 
   <div class="fx">
@@ -1229,6 +1225,21 @@ a.mast-names:hover{color:var(--terracotta)}
       Quick mental maths: knock three zeros off the rupiah price and divide by about ten.
       Rp 150,000 is roughly A$15.
     </p>
+
+    <div class="fx-rule"></div>
+
+    <div class="fx-sub">What to tip</div>
+    <table class="fx-tip">
+      <tr>
+        <td>Breakfast, lunch or dinner<span class="sm">for two people</span></td>
+        <td>Rp 20-30,000<span class="sm">≈ A$1.70-2.50</span></td>
+      </tr>
+      <tr>
+        <td>Short car or scooter ride, Gojek</td>
+        <td>Rp 10-20,000<span class="sm">≈ A$0.80-1.80</span></td>
+      </tr>
+    </table>
+    <p class="fx-note" style="margin-top:1rem">It's customary to tip for service in Bali.</p>
   </div>
 
   <div class="section-label">Eat &amp; drink</div>
