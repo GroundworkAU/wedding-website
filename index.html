@@ -715,107 +715,24 @@ a.mast-names:hover{color:var(--terracotta)}
       <option value="SYD">Sydney</option>
       <option value="BNE">Brisbane</option>
     </select>
+    <label for="airlineSelect" style="margin-left:.5rem">Airline</label>
+    <select id="airlineSelect"></select>
   </div>
 
-      <div class="route is-on" id="route-ADL" data-origin="ADL">
-        <div class="grid grid-2">
-          <div class="card card-white">
-            <h3>Adelaide to Denpasar</h3>
-            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 4h 45m.</p>
-            <table class="kv"><tr><td>Departs 6:15am</td><td>arrives 9:10am</td></tr><tr><td>Departs 6:50pm</td><td>arrives 9:50pm</td></tr></table>
-          </div>
-          <div class="card card-white">
-            <h3>Coming home</h3>
-            <table class="kv"><tr><td>Departs 10:15am</td><td>arrives 5:30pm, same day</td></tr><tr><td>Departs 10:55pm</td><td>arrives 6:10am, next morning</td></tr></table>
-            <div class="alert" style="margin-bottom:0">
-              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
-              room all day and check out when you leave for the airport, instead of killing eight
-              hours with your luggage.
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h3>Who flies this route direct</h3>
-          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">1-2 a day</td></tr></table>
-        </div>
-      </div>
-      <div class="route" id="route-MEL" data-origin="MEL">
-        <div class="grid grid-2">
-          <div class="card card-white">
-            <h3>Melbourne to Denpasar</h3>
-            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 10m.</p>
-            <table class="kv"><tr><td>Departs 6:25am</td><td>arrives 10:35am</td></tr><tr><td>Departs 9:15am</td><td>arrives 1:25pm</td></tr><tr><td>Departs 3:50pm</td><td>arrives 8:00pm</td></tr><tr><td>Departs 5:40pm</td><td>arrives 9:50pm</td></tr></table>
-          </div>
-          <div class="card card-white">
-            <h3>Coming home</h3>
-            <table class="kv"><tr><td>Return times</td><td>check with the airline</td></tr></table>
-            <div class="alert" style="margin-bottom:0">
-              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
-              room all day and check out when you leave for the airport, instead of killing eight
-              hours with your luggage.
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h3>Who flies this route direct</h3>
-          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">3-4 a day</td></tr><tr><td class="air-name">Qantas<span class="lcc">Bags and meals included.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Garuda Indonesia<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
-        </div>
-      </div>
-      <div class="route" id="route-SYD" data-origin="SYD">
-        <div class="grid grid-2">
-          <div class="card card-white">
-            <h3>Sydney to Denpasar</h3>
-            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 30m.</p>
-            <table class="kv"><tr><td>Departs 6:15am</td><td>arrives 10:50am</td></tr><tr><td>Departs 5:35pm</td><td>arrival varies</td></tr></table>
-          </div>
-          <div class="card card-white">
-            <h3>Coming home</h3>
-            <table class="kv"><tr><td>Departs 10:20pm</td><td>arrives 6:55am, next morning</td></tr></table>
-            <div class="alert" style="margin-bottom:0">
-              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
-              room all day and check out when you leave for the airport, instead of killing eight
-              hours with your luggage.
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h3>Who flies this route direct</h3>
-          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">2 a day</td></tr><tr><td class="air-name">Qantas<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">Daily, QF43</td></tr><tr><td class="air-name">Garuda Indonesia<span class="lcc">Bags and meals included. Wide-body.</span></td><td class="air-freq">About 1 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
-        </div>
-      </div>
-      <div class="route" id="route-BNE" data-origin="BNE">
-        <div class="grid grid-2">
-          <div class="card card-white">
-            <h3>Brisbane to Denpasar</h3>
-            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 25m.</p>
-            <table class="kv"><tr><td>Departs 7:15am</td><td>arrives 11:30am</td></tr><tr><td>Departs 4:25pm</td><td>arrives 8:50pm</td></tr></table>
-          </div>
-          <div class="card card-white">
-            <h3>Coming home</h3>
-            <table class="kv"><tr><td>Return times</td><td>check with the airline</td></tr></table>
-            <div class="alert" style="margin-bottom:0">
-              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
-              room all day and check out when you leave for the airport, instead of killing eight
-              hours with your luggage.
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h3>Who flies this route direct</h3>
-          <table class="air-tbl"><tr><td class="air-name">Jetstar<span class="lcc">Budget. Bags and meals cost extra.</span></td><td class="air-freq">1-2 a day</td></tr><tr><td class="air-name">Virgin Australia<span class="lcc">Bags and meals included.</span></td><td class="air-freq">Most days</td></tr><tr><td class="air-name">Batik Air<span class="lcc">Bags included.</span></td><td class="air-freq">About 1 a day</td></tr></table>
-        </div>
-      </div>
+  <div id="routeOut"></div>
 
   <div class="alert" style="margin-top:1.5rem">
+    <strong>Taking a late or overnight flight home?</strong> Book an extra night at your hotel.
+    You keep the room all day and check out when you leave for the airport, instead of killing
+    eight hours with your luggage.
+  </div>
+
+  <div class="alert" style="margin-top:1rem">
     <strong>These are current timetables, not June 2027 ones.</strong> Airlines only publish
     schedules about eleven months ahead, so treat these as a guide to what the route usually
     looks like, and check
-    <a href="https://www.jetstar.com/au/en/home" target="_blank" rel="noopener">jetstar.com</a>
-    when booking opens.
+    <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener">Google Flights</a>
+    or the airline directly when booking opens.
   </div>
 </section>
 
@@ -1541,16 +1458,56 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
   show(location.hash.slice(1) || 'home', false);
 })();
 
-/* ═══════════════ FLIGHT ORIGIN ═══════════════ */
+/* ═══════════════ FLIGHTS: ORIGIN + AIRLINE ═══════════════ */
 (function(){
-  const sel = document.getElementById('originSelect');
-  if(!sel) return;
-  const routes = [...document.querySelectorAll('.route')];
-  function show(){
-    routes.forEach(r => r.classList.toggle('is-on', r.dataset.origin === sel.value));
+  const DATA = {"ADL": {"name": "Adelaide", "dur": "4h 45m", "airlines": {"Jetstar": {"freq": "1-2 daily", "out": [["6:15am", "9:10am"], ["6:50pm", "9:50pm"]], "back": [["10:15am", "5:30pm", "same day"], ["10:55pm", "6:10am", "next morning"]]}}}, "MEL": {"name": "Melbourne", "dur": "6h 10m", "airlines": {"Jetstar": {"freq": "3-4 daily", "out": [["6:25am", "10:35am"], ["9:15am", "1:25pm"], ["3:50pm", "8:00pm"], ["5:40pm", "9:50pm"]], "back": [], "note": "Some evening services leave from Avalon, not Tullamarine. Check which airport before you book."}, "Garuda Indonesia": {"freq": "1 daily", "out": [["7:00am", "11:05am"]], "back": []}, "Qantas": {"freq": "about 1 daily", "out": [["5:45pm", "10:00pm"]], "back": []}, "Virgin Australia": {"freq": "about 1 daily", "out": [], "back": []}, "Batik Air": {"freq": "about 1 daily", "out": [], "back": []}}}, "SYD": {"name": "Sydney", "dur": "6h 35m", "airlines": {"Jetstar": {"freq": "3-4 daily", "out": [], "back": [["10:20pm", "6:55am", "next morning"]], "note": "Departures run from about 6:15am through to 5:35pm."}, "Garuda Indonesia": {"freq": "1-2 daily", "out": [["11:10am", "2:45pm"]], "back": []}, "Qantas": {"freq": "1-2 daily", "out": [], "back": []}, "Virgin Australia": {"freq": "about 1 daily", "out": [], "back": []}, "Batik Air": {"freq": "1-2 daily", "out": [], "back": []}}}, "BNE": {"name": "Brisbane", "dur": "6h 25m", "airlines": {"Jetstar": {"freq": "1-2 daily", "out": [["7:15am", "11:30am"], ["4:25pm", "8:50pm"]], "back": []}, "Virgin Australia": {"freq": "about 1 daily", "out": [], "back": []}, "Batik Air": {"freq": "about 1 daily", "out": [], "back": []}}}};
+  const oSel = document.getElementById('originSelect');
+  const aSel = document.getElementById('airlineSelect');
+  const out  = document.getElementById('routeOut');
+  if(!oSel) return;
+
+  function fillAirlines(){
+    const names = Object.keys(DATA[oSel.value].airlines);
+    aSel.innerHTML = '<option value="all">All airlines</option>' +
+      names.map(n => `<option value="${n}">${n}</option>`).join('');
   }
-  sel.addEventListener('change', show);
-  show();
+
+  function timeRows(list, isReturn){
+    if(!list.length) return '';
+    return '<table class="kv">' + list.map(r => isReturn
+      ? `<tr><td>Departs ${r[0]}</td><td>arrives ${r[1]}, ${r[2]}</td></tr>`
+      : `<tr><td>Departs ${r[0]}</td><td>arrives ${r[1]}</td></tr>`).join('') + '</table>';
+  }
+
+  function card(airline, d){
+    const hasTimes = d.out.length || d.back.length;
+    return `<div class="card card-white">
+      <div class="stay-head" style="align-items:baseline">
+        <h3 style="margin:0">${airline}</h3>
+        <span style="font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);white-space:nowrap">${d.freq}</span>
+      </div>
+      ${d.out.length ? '<p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-top:.9rem">Going</p>' + timeRows(d.out,false) : ''}
+      ${d.back.length ? '<p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-top:.9rem">Coming home</p>' + timeRows(d.back,true) : ''}
+      ${d.note ? `<p style="font-size:.84rem;margin-top:.75rem">${d.note}</p>` : ''}
+      ${!hasTimes && !d.note ? '<p style="font-size:.84rem;margin-top:.75rem;color:var(--sage)">Times vary by day. Check the airline for exact departures.</p>' : ''}
+    </div>`;
+  }
+
+  function render(){
+    const o = DATA[oSel.value];
+    const picked = aSel.value === 'all' ? Object.keys(o.airlines) : [aSel.value];
+    out.innerHTML =
+      `<p style="font-size:.84rem;color:var(--sage);margin-bottom:1rem">
+         ${o.name} to Denpasar, about ${o.dur} non-stop.
+         ${Object.keys(o.airlines).length} airline${Object.keys(o.airlines).length>1?'s fly':' flies'} direct.
+       </p>
+       <div class="grid grid-2">` +
+      picked.map(n => card(n, o.airlines[n])).join('') + '</div>';
+  }
+
+  oSel.addEventListener('change', () => { fillAirlines(); render(); });
+  aSel.addEventListener('change', render);
+  fillAirlines(); render();
 })();
 
 /* ═══════════════ ACCOMMODATION FILTER ═══════════════ */
