@@ -260,6 +260,20 @@ a.mast-names:hover{color:var(--terracotta)}
 }
 .alert strong{color:var(--umber);font-weight:500}
 
+.origin-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.origin-bar label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.origin-bar select{
+  font-family:var(--body); font-size:.9rem; font-weight:300;
+  background:#fff; border:1px solid var(--line); border-radius:3px;
+  padding:.55rem 2rem .55rem .75rem; color:var(--soil);
+  -webkit-appearance:none; appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23A63820' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right .7rem center;
+}
+.origin-bar select:focus{outline:none;border-color:var(--terracotta)}
+.route{display:none}
+.route.is-on{display:block}
+
 .kv{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.75rem}
 .kv tr{border-bottom:1px solid var(--line-soft)}
 .kv tr:last-child{border-bottom:none}
@@ -686,33 +700,99 @@ a.mast-names:hover{color:var(--terracotta)}
 
   <div class="section-label">Flights</div>
 
-  <div class="grid grid-2">
-    <div class="card card-white">
-      <h3>Adelaide → Denpasar</h3>
-      <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">
-        Jetstar, direct. Currently the only airline flying it.</p>
-      <table class="kv">
-        <tr><td>Morning</td><td>6:15am → 9:10am</td></tr>
-        <tr><td>Evening</td><td>6:50pm → 9:50pm</td></tr>
-      </table>
-    </div>
-    <div class="card card-white">
-      <h3>Denpasar → Adelaide</h3>
-      <table class="kv">
-        <tr><td>Overnight</td><td>10:55pm → 6:10am</td></tr>
-        <tr><td>Daytime</td><td>10:15am → 5:30pm</td></tr>
-      </table>
-      <div class="alert" style="margin-bottom:0">
-        <strong>Taking the overnight flight?</strong> Book an extra night at your hotel.
-        You keep the room all day and check out when you leave for the airport, instead
-        of killing eight hours with your luggage.
-      </div>
-    </div>
+  <div class="origin-bar">
+    <label for="originSelect">Flying from</label>
+    <select id="originSelect">
+      <option value="ADL" selected>Adelaide</option>
+      <option value="MEL">Melbourne</option>
+      <option value="SYD">Sydney</option>
+      <option value="BNE">Brisbane</option>
+    </select>
   </div>
 
-  <div class="card" style="margin-top:1rem">
-    <h3>Flying from Sydney or Melbourne? <span class="tbc">TBC</span></h3>
-    <p>We'll add return flight options from Sydney and Melbourne here.</p>
+      <div class="route is-on" id="route-ADL" data-origin="ADL">
+        <div class="grid grid-2">
+          <div class="card card-white">
+            <h3>Adelaide to Denpasar</h3>
+            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 4h 45m.</p>
+            <table class="kv"><tr><td>Departs 6:15am</td><td>arrives 9:10am</td></tr><tr><td>Departs 6:50pm</td><td>arrives 9:50pm</td></tr></table>
+          </div>
+          <div class="card card-white">
+            <h3>Coming home</h3>
+            <table class="kv"><tr><td>Departs 10:15am</td><td>arrives 5:30pm, same day</td></tr><tr><td>Departs 10:55pm</td><td>arrives 6:10am, next morning</td></tr></table>
+            <div class="alert" style="margin-bottom:0">
+              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
+              room all day and check out when you leave for the airport, instead of killing eight
+              hours with your luggage.
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Jetstar is the only airline flying this route direct.</p>
+      </div>
+      <div class="route" id="route-MEL" data-origin="MEL">
+        <div class="grid grid-2">
+          <div class="card card-white">
+            <h3>Melbourne to Denpasar</h3>
+            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 10m.</p>
+            <table class="kv"><tr><td>Departs 6:25am</td><td>arrives 10:35am</td></tr><tr><td>Departs 9:15am</td><td>arrives 1:25pm</td></tr><tr><td>Departs 3:50pm</td><td>arrives 8:00pm</td></tr><tr><td>Departs 5:40pm</td><td>arrives 9:50pm</td></tr></table>
+          </div>
+          <div class="card card-white">
+            <h3>Coming home</h3>
+            <table class="kv"><tr><td>Return times</td><td>check with Jetstar</td></tr></table>
+            <div class="alert" style="margin-bottom:0">
+              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
+              room all day and check out when you leave for the airport, instead of killing eight
+              hours with your luggage.
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Qantas, Virgin, Garuda and Batik Air also fly direct.</p>
+      </div>
+      <div class="route" id="route-SYD" data-origin="SYD">
+        <div class="grid grid-2">
+          <div class="card card-white">
+            <h3>Sydney to Denpasar</h3>
+            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 20m.</p>
+            <table class="kv"><tr><td>Departs 6:15am</td><td>arrival varies</td></tr><tr><td>Departs 5:35pm</td><td>arrival varies</td></tr></table>
+          </div>
+          <div class="card card-white">
+            <h3>Coming home</h3>
+            <table class="kv"><tr><td>Departs 10:20pm</td><td>arrives 6:55am, next morning</td></tr></table>
+            <div class="alert" style="margin-bottom:0">
+              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
+              room all day and check out when you leave for the airport, instead of killing eight
+              hours with your luggage.
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Qantas, Virgin, Garuda and Batik Air also fly direct.</p>
+      </div>
+      <div class="route" id="route-BNE" data-origin="BNE">
+        <div class="grid grid-2">
+          <div class="card card-white">
+            <h3>Brisbane to Denpasar</h3>
+            <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">Jetstar direct, about 6h 25m.</p>
+            <table class="kv"><tr><td>Departs 7:15am</td><td>arrives 11:30am</td></tr><tr><td>Departs 4:25pm</td><td>arrives 8:50pm</td></tr></table>
+          </div>
+          <div class="card card-white">
+            <h3>Coming home</h3>
+            <table class="kv"><tr><td>Return times</td><td>check with Jetstar</td></tr></table>
+            <div class="alert" style="margin-bottom:0">
+              <strong>Taking a late flight?</strong> Book an extra night at your hotel. You keep the
+              room all day and check out when you leave for the airport, instead of killing eight
+              hours with your luggage.
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--sage);margin-top:.75rem">Virgin and Batik Air also fly direct.</p>
+      </div>
+
+  <div class="alert" style="margin-top:1.5rem">
+    <strong>These are current timetables, not June 2027 ones.</strong> Airlines only publish
+    schedules about eleven months ahead, so treat these as a guide to what the route usually
+    looks like and check
+    <a href="https://www.jetstar.com/au/en/home" target="_blank" rel="noopener">jetstar.com</a>
+    when booking opens.
   </div>
 </section>
 
@@ -1436,6 +1516,18 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
 
   window.addEventListener('hashchange', () => show(location.hash.slice(1), false));
   show(location.hash.slice(1) || 'home', false);
+})();
+
+/* ═══════════════ FLIGHT ORIGIN ═══════════════ */
+(function(){
+  const sel = document.getElementById('originSelect');
+  if(!sel) return;
+  const routes = [...document.querySelectorAll('.route')];
+  function show(){
+    routes.forEach(r => r.classList.toggle('is-on', r.dataset.origin === sel.value));
+  }
+  sel.addEventListener('change', show);
+  show();
 })();
 
 /* ═══════════════ ACCOMMODATION FILTER ═══════════════ */
