@@ -63,10 +63,10 @@ Everything is in `index.html`. Some landmarks:
 
 | What | How to find it |
 |---|---|
-| Your names in the hero | Search `REPLACE WITH YOUR NAMES` |
+| Names | Search `hero-names` |
 | Ceremony / reception times | Search `id="day"` |
 | Accommodation list | Search `id="stays"` |
-| Restaurant lists | Search `id="eat"` |
+| Restaurant lists | Search `id="guide"` |
 | Exchange rate | Search `AUD_TO_IDR` |
 | RSVP deadline | Search `1 May 2027` |
 
@@ -122,7 +122,13 @@ using it most. A hardcoded rate with an honest "approximate, checked [date]" not
 is more robust and, for working out whether Rp 20,000 is a reasonable tip,
 just as useful. Update `AUD_TO_IDR` before the trip.
 
-**One page, not several.** Guests read this on phones, often on bad wifi. One
-page means one load, and it means `Ctrl+F` finds anything. It also keeps the RSVP
-form in the same scroll as everything else — a separate RSVP page is a place
-people bounce off before submitting.
+**Tabs, in one file.** Six tabs — Home, The Day, Travel, Stay, Bali Guide, RSVP —
+implemented as hash-routed panels rather than six separate HTML files. Each tab
+has its own URL (`/#stay`, `/#rsvp`) so you can link guests straight to a page,
+and the back button works. The reason it isn't six files is maintenance: one copy
+of the nav, footer and styles instead of six copies to keep in sync every time a
+detail changes.
+
+To add a tab: add a `<button class="tab" role="tab" aria-controls="newid">` and a
+matching `<section class="panel" id="newid" role="tabpanel">`. The router picks it
+up automatically. Any element with `data-goto="newid"` becomes a link to it.

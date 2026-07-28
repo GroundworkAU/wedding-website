@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Wedding · Uluwatu, Bali · 5 June 2027</title>
-<meta name="description" content="Everything you need to know about our wedding in Uluwatu, Bali on Saturday 5 June 2027 — travel, visas, where to stay, and RSVP.">
-<meta property="og:title" content="Our Wedding · Uluwatu, Bali">
+<title>Conor &amp; Georgie · Uluwatu, Bali · 5 June 2027</title>
+<meta name="description" content="Conor McInerney and Georgie Morris are getting married in Uluwatu, Bali on Saturday 5 June 2027. Travel information, accommodation and RSVP.">
+<meta property="og:title" content="Conor &amp; Georgie · Uluwatu, Bali">
 <meta property="og:description" content="Saturday 5 June 2027 · Teja, Uluwatu. Travel info, accommodation and RSVP.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FAF5EE">
@@ -16,165 +16,193 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════
-   TOKENS — all from the wedding style guide
+   TOKENS — from the wedding style guide
    ═══════════════════════════════════════════════════════════ */
 :root{
-  --soil:#2D0D05;
-  --umber:#7E230C;
-  --terracotta:#A63820;
-  --apricot:#E8905A;
-  --blush:#F0D5C0;
-  --sand:#F5EAD8;
-  --sage:#B8A898;
-  --salt:#FAF5EE;
-  --card:#F0E8DC;
-  --line:#D8C4A8;
-  --line-soft:#EAE0D4;
+  --soil:#2D0D05; --umber:#7E230C; --terracotta:#A63820; --apricot:#E8905A;
+  --blush:#F0D5C0; --sand:#F5EAD8; --sage:#B8A898; --salt:#FAF5EE;
+  --card:#F0E8DC; --line:#D8C4A8; --line-soft:#EAE0D4;
 
   --display:'Cormorant Garamond',Georgia,serif;
   --body:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
-  --gut:1.25rem;               /* mobile side padding */
-  --max:64rem;                 /* content max width */
-  --nav-h:3.25rem;
+  --gut:1.25rem;
+  --max:62rem;
 }
 @media(min-width:48rem){ :root{ --gut:2.5rem; } }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
-@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
-
+html{-webkit-text-size-adjust:100%}
 body{
-  font-family:var(--body);
-  font-weight:300;
-  background:var(--salt);
-  color:var(--soil);
-  line-height:1.7;
-  font-size:1rem;
-  overflow-x:hidden;
+  font-family:var(--body); font-weight:300;
+  background:var(--salt); color:var(--soil);
+  line-height:1.7; font-size:1rem; overflow-x:hidden;
 }
-
 img,svg{display:block;max-width:100%}
 a{color:var(--umber);text-decoration:none;border-bottom:1px solid rgba(126,35,12,.3)}
 a:hover{border-bottom-color:var(--umber)}
-
 :focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;border-radius:2px}
 
 .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
-/* ── shared type ─────────────────────────────────────────── */
-.micro{
-  font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--sage);font-weight:500;
+/* ═══════════════════════════════════════════════════════════
+   MASTHEAD — compact, always visible
+   ═══════════════════════════════════════════════════════════ */
+.mast{
+  text-align:center; padding:1.75rem var(--gut) 1.25rem;
 }
-.micro-t{color:var(--terracotta)}
+.mast-emblem{margin:0 auto .75rem}
+.mast-names{
+  font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:1.6rem; line-height:1; color:var(--soil);
+  border:none;
+}
+a.mast-names:hover{color:var(--terracotta)}
+.mast-meta{
+  font-size:.58rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--sage); margin-top:.6rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABS
+   ═══════════════════════════════════════════════════════════ */
+.tabs{
+  position:sticky; top:0; z-index:50;
+  background:rgba(250,245,238,.95);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+}
+.tabs-scroll{
+  display:flex; gap:0; align-items:stretch;
+  overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
+  width:100%; max-width:var(--max); margin:0 auto;
+  padding:0 var(--gut); -webkit-overflow-scrolling:touch;
+}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.tab{
+  font-family:var(--body); font-size:.66rem; font-weight:400;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--sage); background:none; border:none; cursor:pointer;
+  white-space:nowrap; padding:1.05rem 1.1rem;
+  border-bottom:2px solid transparent; margin-bottom:-1px;
+  transition:color .2s, border-color .2s;
+}
+.tab:first-child{padding-left:0}
+.tab:hover{color:var(--terracotta)}
+.tab[aria-selected="true"]{
+  color:var(--terracotta); font-weight:500;
+  border-bottom-color:var(--terracotta);
+}
+.tab-rsvp{color:var(--umber)}
+
+/* ═══════════════════════════════════════════════════════════
+   PANELS
+   ═══════════════════════════════════════════════════════════ */
+.panel{display:none; padding:3rem 0 4.5rem}
+.panel.is-active{display:block; animation:fade .45s ease}
+.panel:focus{outline:none}
+@keyframes fade{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+@media(prefers-reduced-motion:reduce){
+  .panel.is-active{animation:none}
+}
+
+/* page header inside each panel — mirrors the style guide */
+.page-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:1.5rem; border-bottom:1px solid var(--terracotta);
+  padding-bottom:.6rem; margin-bottom:2.5rem;
+}
+.page-head h1{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(2rem,7vw,2.9rem); line-height:1; color:var(--soil);
+  letter-spacing:-.01em;
+}
+.page-head-meta{
+  font-size:.58rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--sage); text-align:right; line-height:1.8; white-space:nowrap;
+}
+.page-head-meta strong{color:var(--terracotta);font-weight:500}
+@media(max-width:34rem){ .page-head-meta{display:none} }
+
+.lede{max-width:46ch; opacity:.85; margin-bottom:2.5rem}
 
 .section-label{
-  display:flex;align-items:center;gap:.75rem;
-  font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--sage);font-weight:500;margin-bottom:1.5rem;
+  display:flex; align-items:center; gap:.75rem;
+  font-size:.64rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--sage); font-weight:500; margin:3rem 0 1.25rem;
 }
+.section-label:first-of-type{margin-top:0}
 .section-label::after{content:'';flex:1;height:1px;background:var(--line)}
 
-h2.sec-title{
-  font-family:var(--display);font-weight:300;font-style:italic;
-  font-size:clamp(2.1rem,7vw,3.2rem);line-height:1.05;
-  color:var(--soil);margin-bottom:.75rem;letter-spacing:-.01em;
-}
-.sec-intro{max-width:44ch;color:var(--soil);opacity:.85;margin-bottom:2.5rem}
-
-section{padding:4rem 0}
-@media(min-width:48rem){ section{padding:5.5rem 0} }
-section + section{border-top:1px solid var(--line-soft)}
-
 /* ═══════════════════════════════════════════════════════════
-   NAV
+   HOME
    ═══════════════════════════════════════════════════════════ */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(250,245,238,.94);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line-soft);
-  height:var(--nav-h);display:flex;align-items:center;
-}
-.nav-scroll{
-  display:flex;gap:1.5rem;align-items:center;
-  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
-  width:100%;max-width:var(--max);margin:0 auto;
-  padding:0 var(--gut);
-  -webkit-overflow-scrolling:touch;
-}
-.nav-scroll::-webkit-scrollbar{display:none}
-.nav-scroll a{
-  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--sage);white-space:nowrap;border:none;padding:.35rem 0;
-  transition:color .2s;
-}
-.nav-scroll a:hover,.nav-scroll a.is-active{color:var(--terracotta)}
-.nav-scroll a.nav-rsvp{color:var(--terracotta);font-weight:500}
-
-/* ═══════════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════════ */
-.hero{
-  min-height:calc(100svh - var(--nav-h));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:3rem var(--gut) 4rem;
-  border-top:none;
-}
-.hero-emblem{margin-bottom:2rem}
+.hero{text-align:center; padding:1.5rem 0 1rem}
 .hero-eyebrow{
-  font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;
-  color:var(--terracotta);margin-bottom:1.75rem;
+  font-size:.62rem; letter-spacing:.34em; text-transform:uppercase;
+  color:var(--terracotta); margin-bottom:1.5rem;
 }
 .hero-names{
-  font-family:var(--display);font-weight:300;font-style:italic;
-  font-size:clamp(3.2rem,16vw,7rem);line-height:.95;
-  color:var(--soil);letter-spacing:-.02em;
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(3rem,15vw,6.5rem); line-height:.94;
+  color:var(--soil); letter-spacing:-.02em;
 }
 .hero-amp{
-  display:block;font-family:var(--display);font-style:italic;font-weight:300;
-  font-size:clamp(1.6rem,6vw,2.6rem);color:var(--terracotta);
-  margin:.35rem 0;
+  display:block; font-size:clamp(1.5rem,5vw,2.3rem);
+  color:var(--terracotta); margin:.3rem 0;
 }
-.hero-rule{
-  width:100%;max-width:22rem;margin:2.5rem auto 2rem;
+.hero-full{
+  font-size:.62rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--sage); margin-top:1.5rem;
 }
+.hero-rule{width:100%;max-width:20rem;margin:2rem auto}
 .hero-meta{
-  font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--soil);line-height:2.2;
+  font-size:.7rem; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--soil); line-height:2.2;
 }
 .hero-meta strong{color:var(--terracotta);font-weight:500}
-.hero-cta{margin-top:2.75rem}
+.hero-cta{margin-top:2.5rem}
 
-/* ── buttons ─────────────────────────────────────────────── */
+.quick{display:grid;gap:.75rem;margin-top:4rem}
+@media(min-width:40rem){ .quick{grid-template-columns:repeat(3,1fr)} }
+.quick-card{
+  background:var(--card); border-radius:6px; padding:1.35rem 1.5rem;
+  border:none; text-align:left; cursor:pointer; font-family:var(--body);
+  transition:background .2s;
+}
+.quick-card:hover{background:var(--blush)}
+.quick-card .qc-label{
+  font-size:.58rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--terracotta); display:block; margin-bottom:.5rem;
+}
+.quick-card .qc-title{
+  font-family:var(--display); font-size:1.3rem; font-weight:400;
+  color:var(--soil); display:block; line-height:1.2; margin-bottom:.3rem;
+}
+.quick-card .qc-sub{font-size:.82rem;color:var(--sage);display:block;line-height:1.5}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════ */
 .btn{
-  display:inline-block;border:none;cursor:pointer;
-  font-family:var(--body);font-size:.7rem;font-weight:500;
-  letter-spacing:.24em;text-transform:uppercase;
-  padding:1rem 2.25rem;border-radius:2px;
-  background:var(--terracotta);color:var(--salt);
-  transition:background .2s,transform .15s;
+  display:inline-block; border:none; cursor:pointer;
+  font-family:var(--body); font-size:.68rem; font-weight:500;
+  letter-spacing:.24em; text-transform:uppercase;
+  padding:1rem 2.25rem; border-radius:2px;
+  background:var(--terracotta); color:var(--salt);
+  transition:background .2s, transform .15s;
 }
 .btn:hover{background:var(--umber);border-bottom:none}
 .btn:active{transform:translateY(1px)}
 .btn[disabled]{opacity:.5;cursor:not-allowed}
-.btn-ghost{
-  background:transparent;color:var(--terracotta);
-  border:1px solid var(--line);
-}
-.btn-ghost:hover{background:var(--card);color:var(--umber)}
 
-/* ═══════════════════════════════════════════════════════════
-   TBC PILL — marks content still to be confirmed
-   ═══════════════════════════════════════════════════════════ */
 .tbc{
-  display:inline-block;font-size:.58rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--apricot);
-  border:1px solid var(--apricot);border-radius:99px;
-  padding:.15rem .6rem;vertical-align:middle;margin-left:.5rem;
-  font-weight:400;
+  display:inline-block; font-size:.55rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--apricot);
+  border:1px solid var(--apricot); border-radius:99px;
+  padding:.15rem .6rem; vertical-align:middle; margin-left:.5rem; font-weight:400;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -184,140 +212,150 @@ section + section{border-top:1px solid var(--line-soft)}
 @media(min-width:40rem){ .grid-2{grid-template-columns:1fr 1fr} }
 @media(min-width:52rem){ .grid-3{grid-template-columns:repeat(3,1fr)} }
 
-.card{
-  background:var(--card);border-radius:6px;padding:1.5rem;
-}
+.card{background:var(--card);border-radius:6px;padding:1.5rem}
 .card-white{background:#fff;border:1px solid var(--line)}
 .card h3{
-  font-family:var(--display);font-weight:400;font-size:1.4rem;
-  line-height:1.2;margin-bottom:.5rem;color:var(--soil);
+  font-family:var(--display); font-weight:400; font-size:1.35rem;
+  line-height:1.2; margin-bottom:.5rem; color:var(--soil);
 }
 .card p{font-size:.92rem;line-height:1.65}
 .card p + p{margin-top:.75rem}
+.card ul{margin:.6rem 0 0 1.1rem;font-size:.92rem}
+.card li{margin-bottom:.3rem}
 
-/* ── numbered admin steps ────────────────────────────────── */
 .step{
-  display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;
-  padding:1.5rem 0;border-bottom:1px solid var(--line-soft);
+  display:grid; grid-template-columns:2.25rem 1fr; gap:1rem;
+  padding:1.5rem 0; border-bottom:1px solid var(--line-soft);
 }
 .step:last-child{border-bottom:none}
 .step-num{
-  font-family:var(--display);font-size:1.6rem;font-weight:300;
-  color:var(--terracotta);line-height:1;padding-top:.15rem;
+  font-family:var(--display); font-size:1.5rem; font-weight:300;
+  color:var(--terracotta); line-height:1; padding-top:.2rem;
 }
-.step h3{
-  font-family:var(--display);font-size:1.45rem;font-weight:400;
-  line-height:1.2;margin-bottom:.4rem;
-}
+.step h3{font-family:var(--display);font-size:1.4rem;font-weight:400;line-height:1.2;margin-bottom:.4rem}
 .step p{font-size:.94rem}
 .step p + p{margin-top:.6rem}
 .step ul{margin:.6rem 0 0 1.1rem;font-size:.94rem}
-.step li{margin-bottom:.3rem}
 
 .alert{
-  background:var(--blush);border-left:3px solid var(--terracotta);
-  border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;
-  font-size:.92rem;
+  background:var(--blush); border-left:3px solid var(--terracotta);
+  border-radius:0 4px 4px 0; padding:1rem 1.25rem; margin:1rem 0; font-size:.92rem;
 }
 .alert strong{color:var(--umber);font-weight:500}
 
-/* ── key/value rows (visa selections, flight times) ──────── */
 .kv{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.75rem}
 .kv tr{border-bottom:1px solid var(--line-soft)}
 .kv tr:last-child{border-bottom:none}
 .kv td{padding:.6rem 0;vertical-align:top}
 .kv td:first-child{
-  color:var(--sage);font-size:.66rem;letter-spacing:.16em;
-  text-transform:uppercase;width:11rem;padding-right:1rem;
+  color:var(--sage); font-size:.62rem; letter-spacing:.16em;
+  text-transform:uppercase; width:10rem; padding-right:1rem;
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ACCOMMODATION FILTER — the signature element
+   ACCOMMODATION FILTER
    ═══════════════════════════════════════════════════════════ */
-.filters{margin-bottom:1.5rem}
 .filter-group{
-  display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;
-  padding:.75rem 0;border-bottom:1px solid var(--line-soft);
+  display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+  padding:.75rem 0; border-bottom:1px solid var(--line-soft);
 }
 .filter-group-label{
-  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--sage);width:100%;margin-bottom:.15rem;
+  font-size:.6rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--sage); width:100%; margin-bottom:.15rem;
 }
-@media(min-width:40rem){
-  .filter-group-label{width:7rem;margin-bottom:0}
-}
+@media(min-width:40rem){ .filter-group-label{width:6.5rem;margin-bottom:0} }
 .chip{
-  font-family:var(--body);font-size:.7rem;letter-spacing:.1em;
-  text-transform:uppercase;font-weight:400;
-  background:transparent;border:1px solid var(--line);
-  color:var(--soil);padding:.4rem .85rem;border-radius:99px;
-  cursor:pointer;transition:all .18s;
+  font-family:var(--body); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; font-weight:400;
+  background:transparent; border:1px solid var(--line); color:var(--soil);
+  padding:.4rem .85rem; border-radius:99px; cursor:pointer; transition:all .18s;
 }
 .chip:hover{border-color:var(--terracotta);color:var(--terracotta)}
-.chip[aria-pressed="true"]{
-  background:var(--terracotta);border-color:var(--terracotta);color:var(--salt);
-}
+.chip[aria-pressed="true"]{background:var(--terracotta);border-color:var(--terracotta);color:var(--salt)}
 .filter-count{
-  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--sage);padding:1rem 0 .5rem;display:block;
+  font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--sage); padding:1.25rem 0 .75rem; display:block;
 }
-
 .stays{display:grid;gap:1rem}
 @media(min-width:44rem){ .stays{grid-template-columns:1fr 1fr} }
-
-.stay{
-  background:var(--card);border-radius:6px;padding:1.35rem 1.5rem;
-  display:flex;flex-direction:column;
-}
+.stay{background:var(--card);border-radius:6px;display:flex;flex-direction:column;overflow:hidden}
 .stay.is-hidden{display:none}
-.stay-name{
-  font-family:var(--display);font-size:1.3rem;font-weight:400;
-  line-height:1.25;margin-bottom:.35rem;
+.stay-body{padding:1.35rem 1.5rem;display:flex;flex-direction:column;flex:1}
+
+/* ── photo gallery ── */
+.gallery{position:relative;background:var(--line-soft)}
+.gallery-track{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;
 }
+.gallery-track::-webkit-scrollbar{display:none}
+.gallery-track img{
+  flex:0 0 100%; width:100%; aspect-ratio:4/3; object-fit:cover;
+  scroll-snap-align:center; background:var(--line-soft);
+}
+.gal-nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:2rem; height:2rem; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(250,245,238,.85); color:var(--soil);
+  font-size:1.1rem; line-height:1; display:none; align-items:center; justify-content:center;
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); transition:background .18s;
+}
+.gal-nav:hover{background:var(--salt)}
+.gal-prev{left:.5rem} .gal-next{right:.5rem}
+@media(hover:hover){ .gallery:hover .gal-nav{display:flex} }
+.gal-dots{
+  position:absolute; bottom:.6rem; left:0; right:0;
+  display:flex; justify-content:center; gap:.3rem; pointer-events:none;
+}
+.gal-dots .dot{
+  width:5px; height:5px; border-radius:50%;
+  background:rgba(250,245,238,.55); transition:background .2s, transform .2s;
+}
+.gal-dots .dot.is-on{background:var(--salt);transform:scale(1.35)}
+
+/* ── name + score ── */
+.stay-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+.stay-name{font-family:var(--display);font-size:1.28rem;font-weight:400;line-height:1.25;margin-bottom:.35rem}
 .stay-name a{border:none;color:var(--soil)}
 .stay-name a:hover{color:var(--terracotta)}
-.stay-dist{
-  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--terracotta);margin-bottom:.85rem;
+.stay-score{flex:0 0 auto;text-align:center;line-height:1}
+.score-num{
+  display:block; font-family:var(--display); font-size:1.15rem; font-weight:500;
+  color:var(--salt); background:var(--terracotta);
+  border-radius:4px 4px 4px 0; padding:.3rem .5rem; min-width:2.2rem;
 }
+.score-lab{
+  display:block; font-size:.5rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--sage); margin-top:.3rem;
+}
+.stay-dist{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.85rem}
 .stay-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}
 .tag{
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--sage);border:1px solid var(--line);
-  padding:.2rem .55rem;border-radius:99px;
+  font-size:.58rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--sage); border:1px solid var(--line); padding:.2rem .55rem; border-radius:99px;
 }
 .stay-link{
-  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--terracotta);margin-top:1rem;border:none;
-  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.64rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--terracotta); margin-top:1rem; border:none; display:inline-block;
 }
 .stay-link:hover{color:var(--umber)}
-.empty-state{
-  grid-column:1/-1;text-align:center;padding:3rem 1rem;
-  color:var(--sage);font-size:.95rem;
-}
+.empty-state{grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--sage);font-size:.95rem}
 
 /* ═══════════════════════════════════════════════════════════
-   CURRENCY CONVERTER
+   CURRENCY + TIPPING
    ═══════════════════════════════════════════════════════════ */
-.fx{
-  background:var(--soil);border-radius:6px;padding:1.75rem;
-  color:var(--sand);
-}
-.fx label{
-  display:block;font-size:.62rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--sage);margin-bottom:.6rem;
-}
+.fx{background:var(--soil);border-radius:6px;padding:1.75rem;color:var(--sand);margin-top:1rem}
+.fx label{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:.6rem}
 .fx-row{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
 .fx input{
-  font-family:var(--display);font-size:2rem;font-weight:300;
-  background:transparent;border:none;border-bottom:1px solid var(--terracotta);
-  color:var(--sand);width:6rem;padding:.2rem 0;
+  font-family:var(--display); font-size:2rem; font-weight:300;
+  background:transparent; border:none; border-bottom:1px solid var(--terracotta);
+  color:var(--sand); width:6rem; padding:.2rem 0;
 }
 .fx input:focus{outline:none;border-bottom-color:var(--apricot)}
 .fx-eq{font-family:var(--display);font-size:1.4rem;color:var(--terracotta);font-style:italic}
 .fx-out{font-family:var(--display);font-size:2rem;font-weight:300;color:var(--apricot)}
-.fx-note{font-size:.7rem;color:var(--sage);margin-top:1.25rem;line-height:1.6}
+.fx-note{font-size:.68rem;color:var(--sage);margin-top:1.25rem;line-height:1.6}
 
 .tip-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:1rem}
 .tip-table tr{border-bottom:1px solid var(--line-soft)}
@@ -326,764 +364,725 @@ section + section{border-top:1px solid var(--line-soft)}
 .tip-table td:last-child{text-align:right;color:var(--umber);white-space:nowrap}
 
 /* ═══════════════════════════════════════════════════════════
-   EAT & DRINK
+   EAT
    ═══════════════════════════════════════════════════════════ */
-.eats{display:grid;gap:.15rem}
-.eat{
-  display:flex;align-items:baseline;gap:.75rem;
-  padding:.85rem 0;border-bottom:1px solid var(--line-soft);
-}
+.eat{display:flex;align-items:baseline;gap:.75rem;padding:.85rem 0;border-bottom:1px solid var(--line-soft)}
 .eat:last-child{border-bottom:none}
 .eat-name{font-size:1rem;color:var(--soil)}
-.eat-name a{color:var(--soil);border:none}
-.eat-name a:hover{color:var(--terracotta)}
 .eat-dot{flex:1;border-bottom:1px dotted var(--line);min-width:1.5rem;transform:translateY(-.2rem)}
-.eat-kind{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
-.eat-star{color:var(--terracotta);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:.15rem}
+.eat-kind{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
+.eat-star{color:var(--terracotta);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:.15rem}
 
 /* ═══════════════════════════════════════════════════════════
-   RSVP FORM
+   RSVP
    ═══════════════════════════════════════════════════════════ */
-.rsvp-sec{background:var(--sand)}
-.form{max-width:36rem;margin:0 auto}
+.form{max-width:34rem;margin:0 auto}
 .field{margin-bottom:1.5rem}
 .field label{
-  display:block;font-size:.64rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--sage);margin-bottom:.5rem;
+  display:block; font-size:.62rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--sage); margin-bottom:.5rem;
 }
 .field .req{color:var(--terracotta)}
-.field input[type=text],
-.field input[type=email],
-.field input[type=tel],
-.field textarea,
-.field select{
-  width:100%;font-family:var(--body);font-size:1rem;font-weight:300;
-  background:#fff;border:1px solid var(--line);border-radius:3px;
-  padding:.85rem 1rem;color:var(--soil);
-  -webkit-appearance:none;appearance:none;
-}
-.field select{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23A63820' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 1rem center;
-  padding-right:2.5rem;
+.field input[type=text],.field input[type=email],.field input[type=tel],.field textarea{
+  width:100%; font-family:var(--body); font-size:1rem; font-weight:300;
+  background:#fff; border:1px solid var(--line); border-radius:3px;
+  padding:.85rem 1rem; color:var(--soil);
+  -webkit-appearance:none; appearance:none;
 }
 .field textarea{min-height:6rem;resize:vertical;line-height:1.6}
-.field input:focus,.field textarea:focus,.field select:focus{
-  outline:none;border-color:var(--terracotta);
-}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--terracotta)}
 .field-hint{font-size:.78rem;color:var(--sage);margin-top:.4rem;line-height:1.5}
 
-/* attendance radio cards */
 .attend{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .attend input{position:absolute;opacity:0;width:0;height:0}
 .attend label{
-  display:block;text-align:center;cursor:pointer;margin:0;
-  background:#fff;border:1px solid var(--line);border-radius:3px;
-  padding:1.1rem .75rem;color:var(--soil);
-  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
-  transition:all .18s;
+  display:block; text-align:center; cursor:pointer; margin:0;
+  background:#fff; border:1px solid var(--line); border-radius:3px;
+  padding:1.1rem .75rem; color:var(--soil);
+  font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; transition:all .18s;
 }
 .attend label:hover{border-color:var(--terracotta)}
-.attend input:checked + label{
-  background:var(--terracotta);border-color:var(--terracotta);color:var(--salt);
-}
+.attend input:checked + label{background:var(--terracotta);border-color:var(--terracotta);color:var(--salt)}
 .attend input:focus-visible + label{outline:2px solid var(--terracotta);outline-offset:3px}
 
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-
-.form-msg{
-  padding:1rem 1.25rem;border-radius:3px;margin-bottom:1.5rem;
-  font-size:.92rem;display:none;
-}
+.form-msg{padding:1rem 1.25rem;border-radius:3px;margin-bottom:1.5rem;font-size:.92rem;display:none}
 .form-msg.is-shown{display:block}
 .form-msg.is-error{background:var(--blush);border-left:3px solid var(--terracotta);color:var(--umber)}
-
 .form-done{display:none;text-align:center;padding:2rem 0}
 .form-done.is-shown{display:block}
-.form-done h3{
-  font-family:var(--display);font-style:italic;font-weight:300;
-  font-size:2.25rem;color:var(--soil);margin:1.5rem 0 .75rem;
-}
-.form-done p{color:var(--soil);opacity:.85;max-width:32ch;margin:0 auto}
+.form-done h3{font-family:var(--display);font-style:italic;font-weight:300;font-size:2.1rem;color:var(--soil);margin:1.5rem 0 .75rem}
+.form-done p{opacity:.85;max-width:32ch;margin:0 auto}
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */
-.foot{
-  text-align:center;padding:3.5rem var(--gut);
-  border-top:1px solid var(--line-soft);
-}
-.foot-quote{
-  font-family:var(--display);font-style:italic;font-weight:300;
-  font-size:1.5rem;color:var(--umber);margin-bottom:1.75rem;
-}
-.foot-meta{
-  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--sage);margin-top:1.5rem;line-height:2;
-}
+.foot{text-align:center;padding:3rem var(--gut);border-top:1px solid var(--line-soft)}
+.foot-quote{font-family:var(--display);font-style:italic;font-weight:300;font-size:1.35rem;color:var(--umber);margin-bottom:1.5rem}
+.foot-meta{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-top:1.25rem;line-height:2}
 
-/* ═══════════════════════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
-.reveal.is-in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-}
-
-@media print{
-  .nav,.filters,.btn{display:none}
-  body{background:#fff}
-}
+@media print{ .tabs{display:none} .panel{display:block!important} }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ NAV ═══════════════════════ -->
-<nav class="nav" aria-label="Sections">
-  <div class="nav-scroll">
-    <a href="#day">The day</a>
-    <a href="#before">Before you book</a>
-    <a href="#flights">Flights</a>
-    <a href="#stay">Where to stay</a>
-    <a href="#know">Good to know</a>
-    <a href="#eat">Eat &amp; drink</a>
-    <a href="#rsvp" class="nav-rsvp">RSVP</a>
-  </div>
-</nav>
-
-<!-- ═══════════════════════ HERO ═══════════════════════ -->
-<header class="hero">
-  <svg class="hero-emblem" width="72" height="46" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+<!-- ═══════════════════════ MASTHEAD ═══════════════════════ -->
+<div class="mast">
+  <svg class="mast-emblem" width="48" height="30" viewBox="0 0 48 30" fill="none" aria-hidden="true">
     <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
     <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
     <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
   </svg>
+  <a class="mast-names" href="#home">Conor &amp; Georgie</a>
+  <div class="mast-meta">Uluwatu, Bali · 5 June 2027</div>
+</div>
 
-  <div class="hero-eyebrow">We're getting married</div>
-
-  <!-- ▼▼ REPLACE WITH YOUR NAMES ▼▼ -->
-  <h1 class="hero-names">
-    Firstname
-    <span class="hero-amp">and</span>
-    Firstname
-  </h1>
-  <!-- ▲▲ REPLACE WITH YOUR NAMES ▲▲ -->
-
-  <svg class="hero-rule" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
-    <line x1="0" y1="7" x2="128" y2="7" stroke="#A63820" stroke-width="0.7"/>
-    <circle cx="150" cy="7" r="4" stroke="#A63820" stroke-width="1"/>
-    <circle cx="150" cy="7" r="1.6" fill="#A63820"/>
-    <line x1="172" y1="7" x2="300" y2="7" stroke="#A63820" stroke-width="0.7"/>
-  </svg>
-
-  <div class="hero-meta">
-    <strong>Saturday 5 June 2027</strong><br>
-    Teja Restaurant · Uluwatu, Bali
+<!-- ═══════════════════════ TABS ═══════════════════════ -->
+<nav class="tabs">
+  <div class="tabs-scroll" role="tablist" aria-label="Wedding information">
+    <button class="tab" role="tab" id="tab-home"   aria-controls="home"   aria-selected="true">Home</button>
+    <button class="tab" role="tab" id="tab-day"    aria-controls="day"    aria-selected="false">The Day</button>
+    <button class="tab" role="tab" id="tab-travel" aria-controls="travel" aria-selected="false">Travel</button>
+    <button class="tab" role="tab" id="tab-stay"   aria-controls="stay"   aria-selected="false">Stay</button>
+    <button class="tab" role="tab" id="tab-guide"  aria-controls="guide"  aria-selected="false">Bali Guide</button>
+    <button class="tab tab-rsvp" role="tab" id="tab-rsvp" aria-controls="rsvp" aria-selected="false">RSVP</button>
   </div>
+</nav>
 
-  <div class="hero-cta">
-    <a href="#rsvp" class="btn">RSVP</a>
-  </div>
-</header>
+<main class="wrap">
 
-<!-- ═══════════════════════ THE DAY ═══════════════════════ -->
-<section id="day">
-  <div class="wrap reveal">
-    <div class="section-label">The day</div>
-    <h2 class="sec-title">Saturday 5 June</h2>
-    <p class="sec-intro">
-      We're getting married at Teja in Uluwatu — a clifftop restaurant on the
-      southern tip of Bali. Full running order to come.
-    </p>
+<!-- ─────────────────────── HOME ─────────────────────── -->
+<section class="panel is-active" id="home" role="tabpanel" aria-labelledby="tab-home" tabindex="-1">
+  <div class="hero">
+    <div class="hero-eyebrow">We're getting married</div>
+    <h1 class="hero-names">Conor<span class="hero-amp">&amp;</span>Georgie</h1>
+    <div class="hero-full">Conor McInerney &amp; Georgie Morris</div>
 
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Ceremony <span class="tbc">TBC</span></h3>
-        <p><strong>0:00pm</strong><br>Teja Restaurant, Uluwatu</p>
-        <p>Arrive from 0:00pm. We'll share the exact address and a pin closer to the date.</p>
-      </div>
-      <div class="card">
-        <h3>Reception <span class="tbc">TBC</span></h3>
-        <p><strong>0:00pm until late</strong><br>Same venue</p>
-        <p>Dinner, drinks and dancing. Sunset is around 6:30pm.</p>
-      </div>
-      <div class="card">
-        <h3>Dress code <span class="tbc">TBC</span></h3>
-        <p>To be confirmed.</p>
-        <p>Whatever we land on, plan for warm, dry evening air and an outdoor clifftop setting — think about your shoes on uneven ground.</p>
-      </div>
+    <svg class="hero-rule" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <line x1="0" y1="7" x2="128" y2="7" stroke="#A63820" stroke-width="0.7"/>
+      <circle cx="150" cy="7" r="4" stroke="#A63820" stroke-width="1"/>
+      <circle cx="150" cy="7" r="1.6" fill="#A63820"/>
+      <line x1="172" y1="7" x2="300" y2="7" stroke="#A63820" stroke-width="0.7"/>
+    </svg>
+
+    <div class="hero-meta">
+      <strong>Saturday 5 June 2027</strong><br>
+      Teja Restaurant · Uluwatu, Bali
     </div>
 
-    <div class="alert" style="margin-top:2rem">
-      <strong>Getting to the venue.</strong> Uluwatu has one main road in and out and
-      traffic builds up quickly. Leave plenty of time — details on transport nearer the day.
-    </div>
+    <div class="hero-cta"><button class="btn" data-goto="rsvp">RSVP</button></div>
+  </div>
+
+  <div class="quick">
+    <button class="quick-card" data-goto="travel">
+      <span class="qc-label">Start here</span>
+      <span class="qc-title">Travel</span>
+      <span class="qc-sub">Passport, visa and the things worth sorting early</span>
+    </button>
+    <button class="quick-card" data-goto="stay">
+      <span class="qc-label">Book soon</span>
+      <span class="qc-title">Where to stay</span>
+      <span class="qc-sub">Ten places in and around Uluwatu</span>
+    </button>
+    <button class="quick-card" data-goto="guide">
+      <span class="qc-label">Before you go</span>
+      <span class="qc-title">Bali guide</span>
+      <span class="qc-sub">Packing, getting around, money and food</span>
+    </button>
   </div>
 </section>
 
-<!-- ═══════════════════════ BEFORE YOU BOOK ═══════════════════════ -->
-<section id="before">
-  <div class="wrap reveal">
-    <div class="section-label">Do these first</div>
-    <h2 class="sec-title">Before you book</h2>
-    <p class="sec-intro">
-      A few things are worth sorting early — especially your passport, which can take
-      weeks to replace if there's a problem.
-    </p>
+<!-- ─────────────────────── THE DAY ─────────────────────── -->
+<section class="panel" id="day" role="tabpanel" aria-labelledby="tab-day" tabindex="-1">
+  <div class="page-head">
+    <h1>The Day</h1>
+    <div class="page-head-meta"><strong>Saturday 5 June 2027</strong><br>Teja · Uluwatu</div>
+  </div>
 
-    <div class="step">
-      <div class="step-num">1</div>
-      <div>
-        <h3>Check your passport now</h3>
-        <p>
-          Your passport needs <strong>more than six months</strong> left before it expires,
-          and it can't be damaged — a torn or water-marked passport will be refused at the border.
-        </p>
-        <p>Check it today, not in May 2027. Renewals take time.</p>
-      </div>
-    </div>
+  <p class="lede">
+    We're getting married at Teja in Uluwatu — a clifftop restaurant on the southern
+    tip of Bali. Full running order to come.
+  </p>
 
-    <div class="step">
-      <div class="step-num">2</div>
-      <div>
-        <h3>Apply for your Visa on Arrival</h3>
-        <p>
-          Do this online before you fly — it's about <strong>A$45 per person</strong> and valid for 30 days.
-          Apply at <a href="https://evisa.imigrasi.go.id/" target="_blank" rel="noopener">evisa.imigrasi.go.id</a>.
-        </p>
-        <table class="kv">
-          <tr><td>Main purpose</td><td>General, Family or Social</td></tr>
-          <tr><td>Sub purpose</td><td>Tourist, Family Visit and Travel</td></tr>
-          <tr><td>Visa type</td><td>B1 — Tourist (Visa on Arrival)</td></tr>
-          <tr><td>Length of stay</td><td>Leave the pre-filled 30 days as is, however long you're staying — 30 days is the shortest visa available</td></tr>
-        </table>
-        <div class="alert">
-          <strong>Australian passport holders:</strong> once this is done online you can walk
-          straight through the e-gates on arrival. No need to queue at the visa desk.
-        </div>
-      </div>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>Ceremony <span class="tbc">TBC</span></h3>
+      <p><strong>0:00pm</strong><br>Teja Restaurant, Uluwatu</p>
+      <p>We'll share the exact address and a map pin closer to the date.</p>
     </div>
+    <div class="card">
+      <h3>Reception <span class="tbc">TBC</span></h3>
+      <p><strong>0:00pm until late</strong><br>Same venue</p>
+      <p>Dinner, drinks and dancing. Sunset is around 6:30pm.</p>
+    </div>
+    <div class="card">
+      <h3>Dress code <span class="tbc">TBC</span></h3>
+      <p>To be confirmed.</p>
+      <p>Whatever we land on, plan for warm, dry evening air and an outdoor clifftop
+      setting — think about your shoes on uneven ground.</p>
+    </div>
+  </div>
 
-    <div class="step">
-      <div class="step-num">3</div>
-      <div>
-        <h3>Complete your All Indonesia Arrival Card</h3>
-        <p>
-          Free, and completed <strong>within 72 hours of flying</strong> — not before.
-          You'll get a QR code; save it to your phone or print it.
-        </p>
-        <p><a href="https://allindonesia.imigrasi.go.id/" target="_blank" rel="noopener">allindonesia.imigrasi.go.id</a></p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">4</div>
-      <div>
-        <h3>Pay the Bali tourist levy</h3>
-        <p>
-          Every visitor to Bali pays a tourist fee of roughly <strong>A$14</strong>. Pay it
-          before you go, or on arrival if you forget.
-        </p>
-        <p><a href="https://lovebali.baliprov.go.id/" target="_blank" rel="noopener">lovebali.baliprov.go.id</a></p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">5</div>
-      <div>
-        <h3>Customs declaration <span class="tbc">Link to come</span></h3>
-        <p>Completed before you land. We'll add the link here.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">6</div>
-      <div>
-        <h3>Sort travel insurance</h3>
-        <p>
-          Worth having — if you get sick you can claim the doctor's visit back.
-        </p>
-        <div class="alert">
-          <strong>Riding a scooter?</strong> Standard travel insurance almost never covers
-          motorbikes. You'll need to add cover specifically, or you're riding uninsured.
-        </div>
-      </div>
-    </div>
+  <div class="alert" style="margin-top:2rem">
+    <strong>Getting to the venue.</strong> Uluwatu has one main road in and out and traffic
+    builds quickly. Leave plenty of time — transport details nearer the day.
   </div>
 </section>
 
-<!-- ═══════════════════════ FLIGHTS ═══════════════════════ -->
-<section id="flights">
-  <div class="wrap reveal">
-    <div class="section-label">Getting there</div>
-    <h2 class="sec-title">Flights</h2>
-    <p class="sec-intro">
-      You're flying into Denpasar (DPS). From the airport it's roughly 45 minutes to
-      an hour down to Uluwatu, depending on traffic.
-    </p>
+<!-- ─────────────────────── TRAVEL ─────────────────────── -->
+<section class="panel" id="travel" role="tabpanel" aria-labelledby="tab-travel" tabindex="-1">
+  <div class="page-head">
+    <h1>Travel</h1>
+    <div class="page-head-meta">Denpasar <strong>DPS</strong><br>≈1 hr to Uluwatu</div>
+  </div>
 
-    <div class="grid grid-2">
-      <div class="card card-white">
-        <div class="micro micro-t" style="margin-bottom:.75rem">Adelaide → Denpasar</div>
-        <h3>Jetstar, direct</h3>
-        <p style="color:var(--sage);font-size:.85rem;margin-bottom:.75rem">
-          Currently the only airline flying Adelaide–Bali direct.
-        </p>
-        <table class="kv">
-          <tr><td>Morning</td><td>6:15am → 9:10am</td></tr>
-          <tr><td>Evening</td><td>6:50pm → 9:50pm</td></tr>
-        </table>
-      </div>
+  <p class="lede">
+    A few things are worth sorting early — especially your passport, which can take
+    weeks to replace if there's a problem.
+  </p>
 
-      <div class="card card-white">
-        <div class="micro micro-t" style="margin-bottom:.75rem">Denpasar → Adelaide</div>
-        <h3>Coming home</h3>
-        <table class="kv">
-          <tr><td>Overnight</td><td>10:55pm → 6:10am</td></tr>
-          <tr><td>Daytime</td><td>10:15am → 5:30pm</td></tr>
-        </table>
-        <div class="alert" style="margin-bottom:0">
-          <strong>Taking the overnight flight?</strong> Book an extra night at your hotel.
-          You keep the room all day, and check out when you leave for the airport instead of
-          killing eight hours with your luggage.
-        </div>
+  <div class="section-label">Before you book</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div>
+      <h3>Check your passport now</h3>
+      <p>Your passport needs <strong>more than six months</strong> left before it expires,
+      and it can't be damaged — a torn or water-marked passport will be refused at the border.</p>
+      <p>Check it today, not in May 2027. Renewals take time.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div>
+      <h3>Apply for your Visa on Arrival</h3>
+      <p>Do this online before you fly — about <strong>A$45 per person</strong>, valid for 30 days.
+      Apply at <a href="https://evisa.imigrasi.go.id/" target="_blank" rel="noopener">evisa.imigrasi.go.id</a>.</p>
+      <table class="kv">
+        <tr><td>Main purpose</td><td>General, Family or Social</td></tr>
+        <tr><td>Sub purpose</td><td>Tourist, Family Visit and Travel</td></tr>
+        <tr><td>Visa type</td><td>B1 — Tourist (Visa on Arrival)</td></tr>
+        <tr><td>Length of stay</td><td>Leave the pre-filled 30 days as is, however long you're staying — 30 days is the shortest visa available</td></tr>
+      </table>
+      <div class="alert">
+        <strong>Australian passport holders:</strong> once this is done online you can walk
+        straight through the e-gates on arrival. No queueing at the visa desk.
       </div>
     </div>
+  </div>
 
-    <div class="card" style="margin-top:1rem">
-      <h3>Flying from Sydney or Melbourne? <span class="tbc">TBC</span></h3>
-      <p>We'll add return flight options from Sydney and Melbourne here.</p>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div>
+      <h3>Complete your All Indonesia Arrival Card</h3>
+      <p>Free, and completed <strong>within 72 hours of flying</strong> — not before.
+      You'll get a QR code; save it to your phone or print it.</p>
+      <p><a href="https://allindonesia.imigrasi.go.id/" target="_blank" rel="noopener">allindonesia.imigrasi.go.id</a></p>
     </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div>
+      <h3>Pay the Bali tourist levy</h3>
+      <p>Every visitor pays a tourist fee of roughly <strong>A$14</strong>. Pay before you go,
+      or on arrival if you forget.</p>
+      <p><a href="https://lovebali.baliprov.go.id/" target="_blank" rel="noopener">lovebali.baliprov.go.id</a></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div>
+      <h3>Customs declaration <span class="tbc">Link to come</span></h3>
+      <p>Completed before you land. We'll add the link here.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div>
+      <h3>Sort travel insurance</h3>
+      <p>Worth having — if you get sick you can claim the doctor's visit back.</p>
+      <div class="alert">
+        <strong>Riding a scooter?</strong> Standard travel insurance almost never covers
+        motorbikes. You'll need to add cover specifically, or you're riding uninsured.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Flights</div>
+
+  <div class="grid grid-2">
+    <div class="card card-white">
+      <h3>Adelaide → Denpasar</h3>
+      <p style="color:var(--sage);font-size:.85rem;margin-bottom:.5rem">
+        Jetstar, direct — currently the only airline flying it.</p>
+      <table class="kv">
+        <tr><td>Morning</td><td>6:15am → 9:10am</td></tr>
+        <tr><td>Evening</td><td>6:50pm → 9:50pm</td></tr>
+      </table>
+    </div>
+    <div class="card card-white">
+      <h3>Denpasar → Adelaide</h3>
+      <table class="kv">
+        <tr><td>Overnight</td><td>10:55pm → 6:10am</td></tr>
+        <tr><td>Daytime</td><td>10:15am → 5:30pm</td></tr>
+      </table>
+      <div class="alert" style="margin-bottom:0">
+        <strong>Taking the overnight flight?</strong> Book an extra night at your hotel.
+        You keep the room all day and check out when you leave for the airport, instead
+        of killing eight hours with your luggage.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h3>Flying from Sydney or Melbourne? <span class="tbc">TBC</span></h3>
+    <p>We'll add return flight options from Sydney and Melbourne here.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════ WHERE TO STAY ═══════════════════════ -->
-<section id="stay">
-  <div class="wrap reveal">
-    <div class="section-label">Accommodation</div>
-    <h2 class="sec-title">Where to stay</h2>
-    <p class="sec-intro">
-      We recommend staying in Uluwatu from <strong>Friday 4 to Monday 7 June</strong>.
-    </p>
+<!-- ─────────────────────── STAY ─────────────────────── -->
+<section class="panel" id="stay" role="tabpanel" aria-labelledby="tab-stay" tabindex="-1">
+  <div class="page-head">
+    <h1>Where to Stay</h1>
+    <div class="page-head-meta"><strong>Fri 4 — Mon 7 June</strong><br>Uluwatu</div>
+  </div>
 
-    <div class="alert" style="margin-bottom:2.5rem">
-      <strong>Please stay close by.</strong> Uluwatu has one road in and out, and at peak
-      times it can take almost two hours to get here from Seminyak. Staying nearby means
-      you're not spending the wedding weekend in a car.
-    </div>
+  <p class="lede">
+    We recommend staying in Uluwatu from <strong>Friday 4 to Monday 7 June</strong>.
+  </p>
 
-    <div class="filters">
-      <div class="filter-group" role="group" aria-label="Filter by price">
-        <span class="filter-group-label">Price</span>
-        <button class="chip" data-filter="price" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="price" data-value="budget" aria-pressed="false">Budget</button>
-        <button class="chip" data-filter="price" data-value="mid" aria-pressed="false">Mid range</button>
-        <button class="chip" data-filter="price" data-value="high" aria-pressed="false">Higher</button>
+  <div class="alert" style="margin-bottom:2.5rem">
+    <strong>Please stay close by.</strong> Uluwatu has one road in and out, and at peak times
+    it can take almost two hours to get here from Seminyak. Staying nearby means you're not
+    spending the wedding weekend in a car.
+  </div>
+
+  <div class="filter-group" role="group" aria-label="Filter by price">
+    <span class="filter-group-label">Price</span>
+    <button class="chip" data-filter="price" data-value="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="price" data-value="budget" aria-pressed="false">Budget</button>
+    <button class="chip" data-filter="price" data-value="mid" aria-pressed="false">Mid range</button>
+    <button class="chip" data-filter="price" data-value="high" aria-pressed="false">Higher</button>
+  </div>
+  <div class="filter-group" role="group" aria-label="Filter by distance">
+    <span class="filter-group-label">Distance</span>
+    <button class="chip" data-filter="distance" data-value="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="distance" data-value="walk" aria-pressed="false">Walking</button>
+    <button class="chip" data-filter="distance" data-value="drive" aria-pressed="false">Driving</button>
+  </div>
+  <div class="filter-group" role="group" aria-label="Filter by property type">
+    <span class="filter-group-label">Type</span>
+    <button class="chip" data-filter="type" data-value="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="type" data-value="hotel" aria-pressed="false">Hotel</button>
+    <button class="chip" data-filter="type" data-value="villa" aria-pressed="false">Villa</button>
+  </div>
+  <div class="filter-group" role="group" aria-label="Filter by who it suits">
+    <span class="filter-group-label">Good for</span>
+    <button class="chip" data-filter="suits" data-value="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="suits" data-value="couples" aria-pressed="false">Couples</button>
+    <button class="chip" data-filter="suits" data-value="families" aria-pressed="false">Families</button>
+    <button class="chip" data-filter="suits" data-value="adults" aria-pressed="false">Adults only</button>
+  </div>
+
+  <span class="filter-count" id="filterCount">Showing all 10 places</span>
+
+  <div class="stays" id="stays">
+    <article class="stay" data-price="budget" data-distance="walk" data-type="hotel" data-suits="couples families">
+      <div class="gallery">
+        <div class="gallery-track">
+          <img loading="lazy" alt="Blue Point Resort &amp; Spa, Uluwatu" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/815225258.jpg?k=bc4113198d280eb5b0f12034d320fa9653d99a381504f6895b2f4cc7eb84ca75&amp;o=">
+          <img loading="lazy" alt="Blue Point Resort &amp; Spa, Uluwatu" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/557261313.jpg?k=b2c9e13bbe448cdb78abb47f0ea41f73ee5401229b7728db7403a3d65a240cb6&amp;o=">
+          <img loading="lazy" alt="Blue Point Resort &amp; Spa, Uluwatu" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/557260854.jpg?k=379c93606c550d039b141e6681b366f78083c3553cb20beceba875e4cabfa82d&amp;o=">
+          <img loading="lazy" alt="Blue Point Resort &amp; Spa, Uluwatu" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/536728226.jpg?k=ecc596da42e6d042188399af7bc3ff885354d6f9ec25c98250ca98338cd70c1e&amp;o=">
+        </div>
+        <button class="gal-nav gal-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="gal-nav gal-next" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="gal-dots" aria-hidden="true"></div>
       </div>
-      <div class="filter-group" role="group" aria-label="Filter by distance">
-        <span class="filter-group-label">Distance</span>
-        <button class="chip" data-filter="distance" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="distance" data-value="walk" aria-pressed="false">Walking</button>
-        <button class="chip" data-filter="distance" data-value="drive" aria-pressed="false">Driving</button>
-      </div>
-      <div class="filter-group" role="group" aria-label="Filter by property type">
-        <span class="filter-group-label">Type</span>
-        <button class="chip" data-filter="type" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="type" data-value="hotel" aria-pressed="false">Hotel</button>
-        <button class="chip" data-filter="type" data-value="villa" aria-pressed="false">Villa</button>
-      </div>
-      <div class="filter-group" role="group" aria-label="Filter by who it suits">
-        <span class="filter-group-label">Good for</span>
-        <button class="chip" data-filter="suits" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="suits" data-value="couples" aria-pressed="false">Couples</button>
-        <button class="chip" data-filter="suits" data-value="families" aria-pressed="false">Families</button>
-        <button class="chip" data-filter="suits" data-value="adults" aria-pressed="false">Adults only</button>
-      </div>
-    </div>
-
-    <span class="filter-count" id="filterCount">Showing all 10 places</span>
-
-    <div class="stays" id="stays">
-
-      <article class="stay" data-price="budget" data-distance="walk" data-type="hotel" data-suits="couples families">
-        <div class="stay-name"><a href="https://www.booking.com/Share-63sSugd" target="_blank" rel="noopener">Blue Point Resort &amp; Spa</a></div>
+      <div class="stay-body">
+        <div class="stay-head">
+          <div class="stay-name"><a href="https://www.booking.com/Share-63sSugd" target="_blank" rel="noopener">Blue Point Resort &amp; Spa</a></div>
+          <div class="stay-score"><span class="score-num">7.7</span><span class="score-lab">Booking</span></div>
+        </div>
         <div class="stay-dist">150 m walk</div>
-        <div class="stay-tags">
-          <span class="tag">Budget</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-63sSugd" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+        <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <a class="stay-link" href="https://www.booking.com/Share-63sSugd" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="budget" data-distance="walk" data-type="hotel" data-suits="couples">
+    <article class="stay" data-price="budget" data-distance="walk" data-type="hotel" data-suits="couples">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-i3bSf9" target="_blank" rel="noopener">Surfside Uluwatu Resort</a></div>
-        <div class="stay-dist">700 m walk</div>
-        <div class="stay-tags">
-          <span class="tag">Budget</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-i3bSf9" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">700 m walk</div>
+      <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-i3bSf9" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="walk" data-type="hotel" data-suits="couples families">
+    <article class="stay" data-price="mid" data-distance="walk" data-type="hotel" data-suits="couples families">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-FYs57w" target="_blank" rel="noopener">Ria Uluwatu, Tropical Chic Hotel</a></div>
-        <div class="stay-dist">200 m walk</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-FYs57w" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">200 m walk</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-FYs57w" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="budget" data-distance="walk drive" data-type="hotel" data-suits="couples families">
+    <article class="stay" data-price="budget" data-distance="walk drive" data-type="hotel" data-suits="couples families">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-DJsbT2" target="_blank" rel="noopener">Sandat Mas Uluwatu</a></div>
-        <div class="stay-dist">1 km — a longer walk</div>
-        <div class="stay-tags">
-          <span class="tag">Budget</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-DJsbT2" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">1 km — a longer walk</div>
+      <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-DJsbT2" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="high" data-distance="walk" data-type="hotel" data-suits="couples adults">
+    <article class="stay" data-price="high" data-distance="walk" data-type="hotel" data-suits="couples adults">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-pc54ZeO" target="_blank" rel="noopener">Ulu Cliff House</a></div>
-        <div class="stay-dist">600 m walk</div>
-        <div class="stay-tags">
-          <span class="tag">Higher price</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Adults only</span><span class="tag">Couples</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-pc54ZeO" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">600 m walk</div>
+      <div class="stay-tags"><span class="tag">Higher price</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Adults only</span><span class="tag">Couples</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-pc54ZeO" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="walk" data-type="hotel" data-suits="couples">
+    <article class="stay" data-price="mid" data-distance="walk" data-type="hotel" data-suits="couples">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/hotel/id/yun-uluwatu.en-gb.html" target="_blank" rel="noopener">YUN Uluwatu</a></div>
-        <div class="stay-dist">500 m walk</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/hotel/id/yun-uluwatu.en-gb.html" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">500 m walk</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span></div>
+      <a class="stay-link" href="https://www.booking.com/hotel/id/yun-uluwatu.en-gb.html" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+    <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-6ULtuOJ" target="_blank" rel="noopener">SISI Wellness Villas</a></div>
-        <div class="stay-dist">20–25 min drive · A$3–5 Gojek</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Villa</span>
-          <span class="tag">2–3 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-6ULtuOJ" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">20–25 min drive · A$3–5 Gojek</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">2–3 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-6ULtuOJ" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="drive" data-type="hotel" data-suits="couples">
+    <article class="stay" data-price="mid" data-distance="drive" data-type="hotel" data-suits="couples">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-rdaVhSQ" target="_blank" rel="noopener">Sejati Boutique Hotel</a></div>
-        <div class="stay-dist">15 min drive</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Hotel</span>
-          <span class="tag">1 bedroom</span><span class="tag">Couples</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-rdaVhSQ" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">15 min drive</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">1 bedroom</span><span class="tag">Couples</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-rdaVhSQ" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+    <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-E8cipx" target="_blank" rel="noopener">The Young Villas</a></div>
-        <div class="stay-dist">15–20 min drive</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Villa</span>
-          <span class="tag">1–4 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-E8cipx" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">15–20 min drive</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">1–4 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-E8cipx" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+    <article class="stay" data-price="mid" data-distance="drive" data-type="villa" data-suits="couples families">
+      <div class="stay-body">
         <div class="stay-name"><a href="https://www.booking.com/Share-cdsm72w" target="_blank" rel="noopener">MODJO Villas Bingin</a></div>
-        <div class="stay-dist">20 min drive</div>
-        <div class="stay-tags">
-          <span class="tag">Mid range</span><span class="tag">Villa</span>
-          <span class="tag">4 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span>
-        </div>
-        <a class="stay-link" href="https://www.booking.com/Share-cdsm72w" target="_blank" rel="noopener">View on Booking.com →</a>
-      </article>
+      <div class="stay-dist">20 min drive</div>
+      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">4 bedrooms</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <a class="stay-link" href="https://www.booking.com/Share-cdsm72w" target="_blank" rel="noopener">View on Booking.com →</a>
+      </div>
+    </article>
 
-      <p class="empty-state" id="emptyState" hidden>
-        Nothing matches that combination. Try widening one of the filters.
-      </p>
-    </div>
+    <p class="empty-state" id="emptyState" hidden>Nothing matches that combination. Try widening one of the filters.</p>
+  </div>
 
-    <div class="card" style="margin-top:2rem">
-      <h3>More options coming <span class="tbc">TBC</span></h3>
-      <p>
-        We'll add a few more places to fill the gaps, plus the areas within Uluwatu
-        worth looking at if you'd rather book something yourself.
-      </p>
-    </div>
+  <div class="card" style="margin-top:2rem">
+    <h3>More options coming <span class="tbc">TBC</span></h3>
+    <p>We'll add a few more places to fill the gaps, plus the areas within Uluwatu worth
+    looking at if you'd rather book something yourself.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════ GOOD TO KNOW ═══════════════════════ -->
-<section id="know">
-  <div class="wrap reveal">
-    <div class="section-label">On the ground</div>
-    <h2 class="sec-title">Good to know</h2>
-    <p class="sec-intro">
-      The practical stuff — what to pack, how to get around, and what things cost.
+<!-- ─────────────────────── BALI GUIDE ─────────────────────── -->
+<section class="panel" id="guide" role="tabpanel" aria-labelledby="tab-guide" tabindex="-1">
+  <div class="page-head">
+    <h1>Bali Guide</h1>
+    <div class="page-head-meta">Dry season<br><strong>Sunset ≈ 6:30pm</strong></div>
+  </div>
+
+  <p class="lede">The practical stuff — what to pack, how to get around, what things cost,
+  and where to eat.</p>
+
+  <div class="section-label">Good to know</div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Set these up before you fly</h3>
+      <p><strong>Gojek</strong> — Bali's version of Uber, and how you'll get everywhere.
+      Download it and add your card before you leave; you can also pay cash.</p>
+      <p><strong>An eSIM</strong> — much easier than hunting for a local SIM.
+      Holafly and Simify both work well.</p>
+    </div>
+
+    <div class="card">
+      <h3>Worth packing</h3>
+      <ul>
+        <li>Hand sanitiser</li>
+        <li>Gastro-stop — not because you'll definitely get sick, but a change in food and climate can upset your stomach</li>
+        <li>Sunscreen — always more expensive overseas</li>
+        <li>Hydralyte for day to day</li>
+      </ul>
+      <p style="margin-top:.75rem"><strong>Pocari Sweat</strong> is the local electrolyte
+      drink — any convenience store or supermarket has it.</p>
+    </div>
+
+    <div class="card">
+      <h3>If you get sick</h3>
+      <p><a href="https://draribalidoctor.com/home" target="_blank" rel="noopener">Dr Ari</a>
+      is who we'd call. Keep your receipts — travel insurance will usually reimburse you.</p>
+      <p>You don't need any vaccinations or medication to travel to Bali. Just make sure
+      your standard tetanus and diphtheria shots are current.</p>
+    </div>
+
+    <div class="card">
+      <h3>Weather in June</h3>
+      <p>It's dry season — warm and dry through the day, cooler in the evening but
+      never cold.</p>
+      <p>The sun sets around <strong>6:30pm</strong> and it turns comfortable. Light trousers
+      are plenty. You won't need a jacket.</p>
+    </div>
+
+    <div class="card">
+      <h3>Cards and cash</h3>
+      <p>You can pay by card almost everywhere. We don't bother bringing cash — we just
+      withdraw rupiah from an ATM once we're there.</p>
+      <p>You can also change money easily at the airport when you land.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tipping</h3>
+      <p>It's customary to tip for service in Bali.</p>
+      <table class="tip-table">
+        <tr>
+          <td>Breakfast, lunch or dinner<br><span style="color:var(--sage);font-size:.8rem">for two people</span></td>
+          <td>Rp 20–30,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$1.70–2.50</span></td>
+        </tr>
+        <tr>
+          <td>Short car or scooter ride, Gojek</td>
+          <td>Rp 10–20,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$0.80–1.80</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="fx">
+    <label for="audInput">Australian dollars to rupiah</label>
+    <div class="fx-row">
+      <span style="font-family:var(--display);font-size:1.4rem;color:var(--sage)">A$</span>
+      <input id="audInput" type="text" inputmode="decimal" value="10" aria-describedby="fxNote">
+      <span class="fx-eq">≈</span>
+      <span class="fx-out" id="idrOutput">Rp 105,000</span>
+    </div>
+    <p class="fx-note" id="fxNote">
+      Approximate only — based on A$1 ≈ Rp <span id="rateLabel">10,500</span>, checked July 2026.
+      Rates move, so treat this as a rough guide rather than a quote.<br><br>
+      Quick mental maths: knock three zeros off the rupiah price and divide by about ten.
+      Rp 150,000 is roughly A$15.
     </p>
+  </div>
 
-    <div class="grid grid-2">
+  <div class="section-label">Eat &amp; drink <span class="tbc">Links to come</span></div>
 
-      <div class="card">
-        <h3>Set these up before you fly</h3>
-        <p><strong>Gojek</strong> — Bali's version of Uber, and how you'll get everywhere.
-        Download it and add your card before you leave; you can also pay cash.</p>
-        <p><strong>An eSIM</strong> — much easier than hunting for a local SIM.
-        Holafly and Simify both work well.</p>
-      </div>
+  <p class="lede">If you've been to Bali before you'll know the food is extraordinary.
+  These are our favourites and our friends' favourites in Uluwatu.</p>
 
-      <div class="card">
-        <h3>Worth packing</h3>
-        <ul style="margin-left:1.1rem;font-size:.92rem">
-          <li>Hand sanitiser</li>
-          <li>Gastro-stop — not because you'll definitely get sick, but a change in food and climate can upset your stomach</li>
-          <li>Sunscreen — always more expensive overseas</li>
-          <li>Hydralyte for day to day</li>
-        </ul>
-        <p style="margin-top:.75rem">
-          <strong>Pocari Sweat</strong> is the local electrolyte drink — any convenience
-          store or supermarket has it.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>If you get sick</h3>
-        <p>
-          <a href="https://draribalidoctor.com/home" target="_blank" rel="noopener">Dr Ari</a>
-          is who we'd call. Keep your receipts — travel insurance will usually reimburse you.
-        </p>
-        <p>
-          You don't need any vaccinations or medication to travel to Bali. Just make sure
-          your standard tetanus and diphtheria shots are current.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Weather in June</h3>
-        <p>
-          It's dry season — warm and dry through the day, cooler in the evening
-          but never cold.
-        </p>
-        <p>
-          The sun sets around <strong>6:30pm</strong> and it turns comfortable.
-          Light trousers are plenty. You won't need a jacket.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Cards and cash</h3>
-        <p>
-          You can pay by card almost everywhere. We don't bother bringing cash — we just
-          withdraw rupiah from an ATM once we're there.
-        </p>
-        <p>You can also change money easily at the airport when you land.</p>
-      </div>
-
-      <div class="card">
-        <h3>Tipping</h3>
-        <p>It's customary to tip for service in Bali.</p>
-        <table class="tip-table">
-          <tr>
-            <td>Breakfast, lunch or dinner<br><span style="color:var(--sage);font-size:.8rem">for two people</span></td>
-            <td>Rp 20–30,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$1.70–2.50</span></td>
-          </tr>
-          <tr>
-            <td>Short car or scooter ride, Gojek</td>
-            <td>Rp 10–20,000<br><span style="color:var(--sage);font-size:.8rem">≈ A$0.80–1.80</span></td>
-          </tr>
-        </table>
-      </div>
-
+  <div class="grid grid-2">
+    <div>
+      <div style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.75rem">Lunch &amp; dinner</div>
+      <div class="eat"><span class="eat-name">YUKI</span><span class="eat-dot"></span><span class="eat-kind">Japanese</span></div>
+      <div class="eat"><span class="eat-name">KALA Uluwatu</span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
+      <div class="eat"><span class="eat-name">Cashew Tree</span><span class="eat-dot"></span><span class="eat-kind">Fresh &amp; healthy</span></div>
+      <div class="eat"><span class="eat-name">Masonry</span><span class="eat-dot"></span><span class="eat-kind">Mediterranean</span></div>
+      <div class="eat"><span class="eat-name">Ulu Cliffhouse</span><span class="eat-dot"></span><span class="eat-kind">Clifftop</span></div>
+      <div class="eat"><span class="eat-name">Warung Local</span><span class="eat-dot"></span><span class="eat-kind">Indonesian</span></div>
+      <div class="eat"><span class="eat-name">Malini Uluwatu</span><span class="eat-dot"></span><span class="eat-kind">Seafood</span></div>
+      <div class="eat"><span class="eat-name">Alvi</span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
+      <div class="eat"><span class="eat-name">La Baracca Bali</span><span class="eat-dot"></span><span class="eat-kind">Italian</span></div>
     </div>
-
-    <!-- CURRENCY CONVERTER -->
-    <div class="fx" style="margin-top:1rem">
-      <label for="audInput">Australian dollars to rupiah</label>
-      <div class="fx-row">
-        <span style="font-family:var(--display);font-size:1.4rem;color:var(--sage)">A$</span>
-        <input id="audInput" type="text" inputmode="decimal" value="10" aria-describedby="fxNote">
-        <span class="fx-eq">≈</span>
-        <span class="fx-out" id="idrOutput">Rp 105,000</span>
-      </div>
-      <p class="fx-note" id="fxNote">
-        Approximate only — based on A$1 ≈ Rp <span id="rateLabel">10,500</span>, checked July 2026.
-        Rates move, so treat this as a rough guide rather than a quote.
-        <br><br>
-        Quick mental maths: knock three zeros off the rupiah price and divide by about ten.
-        Rp 150,000 is roughly A$15.
-      </p>
+    <div>
+      <div style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.75rem">Coffee &amp; easy lunch</div>
+      <div class="eat"><span class="eat-name">Revolver Espresso<span class="eat-star">Our pick</span></span><span class="eat-dot"></span><span class="eat-kind">Coffee</span></div>
+      <div class="eat"><span class="eat-name">Milk &amp; Madu</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
+      <div class="eat"><span class="eat-name">Suka</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
+      <div class="eat"><span class="eat-name">Baked</span><span class="eat-dot"></span><span class="eat-kind">Pastries &amp; coffee</span></div>
+      <div class="eat"><span class="eat-name">Alchemy</span><span class="eat-dot"></span><span class="eat-kind">Plant-based</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ EAT & DRINK ═══════════════════════ -->
-<section id="eat">
-  <div class="wrap reveal">
-    <div class="section-label">Uluwatu</div>
-    <h2 class="sec-title">Eat &amp; drink</h2>
-    <p class="sec-intro">
-      If you've been to Bali before you'll know the food is extraordinary. You won't be
-      short of options, but these are our favourites and our friends' favourites in Uluwatu.
-      <span class="tbc">Links to come</span>
-    </p>
+<!-- ─────────────────────── RSVP ─────────────────────── -->
+<section class="panel" id="rsvp" role="tabpanel" aria-labelledby="tab-rsvp" tabindex="-1">
+  <div class="page-head">
+    <h1>RSVP</h1>
+    <div class="page-head-meta">Reply by<br><strong>1 May 2027</strong></div>
+  </div>
 
-    <div class="grid grid-2">
-      <div>
-        <div class="micro micro-t" style="margin-bottom:1rem">Lunch &amp; dinner</div>
-        <div class="eats">
-          <div class="eat"><span class="eat-name">YUKI</span><span class="eat-dot"></span><span class="eat-kind">Japanese</span></div>
-          <div class="eat"><span class="eat-name">KALA Uluwatu</span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
-          <div class="eat"><span class="eat-name">Cashew Tree</span><span class="eat-dot"></span><span class="eat-kind">Fresh &amp; healthy</span></div>
-          <div class="eat"><span class="eat-name">Masonry</span><span class="eat-dot"></span><span class="eat-kind">Mediterranean</span></div>
-          <div class="eat"><span class="eat-name">Ulu Cliffhouse</span><span class="eat-dot"></span><span class="eat-kind">Clifftop</span></div>
-          <div class="eat"><span class="eat-name">Warung Local</span><span class="eat-dot"></span><span class="eat-kind">Indonesian</span></div>
-          <div class="eat"><span class="eat-name">Malini Uluwatu</span><span class="eat-dot"></span><span class="eat-kind">Seafood</span></div>
-          <div class="eat"><span class="eat-name">Alvi</span><span class="eat-dot"></span><span class="eat-kind">Greek</span></div>
-          <div class="eat"><span class="eat-name">La Baracca Bali</span><span class="eat-dot"></span><span class="eat-kind">Italian</span></div>
-        </div>
-      </div>
+  <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">
+    Please reply by <strong>1 May 2027</strong> <span class="tbc">Date TBC</span>
+    so we can confirm numbers with the venue.
+  </p>
 
-      <div>
-        <div class="micro micro-t" style="margin-bottom:1rem">Coffee &amp; easy lunch</div>
-        <div class="eats">
-          <div class="eat">
-            <span class="eat-name">Revolver Espresso<span class="eat-star">Our pick</span></span>
-            <span class="eat-dot"></span><span class="eat-kind">Coffee</span>
-          </div>
-          <div class="eat"><span class="eat-name">Milk &amp; Madu</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
-          <div class="eat"><span class="eat-name">Suka</span><span class="eat-dot"></span><span class="eat-kind">Café</span></div>
-          <div class="eat"><span class="eat-name">Baked</span><span class="eat-dot"></span><span class="eat-kind">Pastries &amp; coffee</span></div>
-          <div class="eat"><span class="eat-name">Alchemy</span><span class="eat-dot"></span><span class="eat-kind">Plant-based</span></div>
-        </div>
+  <form class="form" id="rsvpForm" novalidate>
+    <div class="form-msg" id="formMsg" role="alert"></div>
+
+    <div class="field">
+      <label for="fullName">Your full name <span class="req">*</span></label>
+      <input type="text" id="fullName" name="full_name" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <p class="field-hint">We'll send updates and the final details here.</p>
+    </div>
+
+    <div class="field">
+      <label for="phone">Mobile</label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel">
+      <p class="field-hint">Useful for anything last-minute while we're all in Bali.</p>
+    </div>
+
+    <div class="field">
+      <label>Will you be there? <span class="req">*</span></label>
+      <div class="attend">
+        <input type="radio" id="att-yes" name="attending" value="yes" required>
+        <label for="att-yes">Wouldn't miss it</label>
+        <input type="radio" id="att-no" name="attending" value="no">
+        <label for="att-no">Can't make it</label>
       </div>
     </div>
+
+    <div class="field">
+      <label for="guestNames">Who's coming with you?</label>
+      <input type="text" id="guestNames" name="guest_names">
+      <p class="field-hint">Full names of anyone else in your party, separated by commas. Leave blank if it's just you.</p>
+    </div>
+
+    <div class="field">
+      <label for="dietary">Dietary requirements or allergies</label>
+      <textarea id="dietary" name="dietary"></textarea>
+      <p class="field-hint">Include everyone in your party, and tell us who's who.</p>
+    </div>
+
+    <div class="field">
+      <label for="accommodation">Where are you staying?</label>
+      <input type="text" id="accommodation" name="accommodation">
+      <p class="field-hint">If you've booked already. It helps us plan transport.</p>
+    </div>
+
+    <div class="field">
+      <label for="song">A song that'll get you dancing</label>
+      <input type="text" id="song" name="song_request">
+    </div>
+
+    <div class="field">
+      <label for="message">Anything else?</label>
+      <textarea id="message" name="message"></textarea>
+    </div>
+
+    <div class="hp" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div style="text-align:center;margin-top:2rem">
+      <button type="submit" class="btn" id="submitBtn">Send RSVP</button>
+    </div>
+  </form>
+
+  <div class="form-done" id="formDone">
+    <svg width="56" height="35" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
+      <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
+      <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
+      <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
+    </svg>
+    <h3 id="doneTitle">RSVP sent</h3>
+    <p id="doneBody">Thank you — we've got it. We'll be in touch with the final details closer to the day.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════ RSVP ═══════════════════════ -->
-<section id="rsvp" class="rsvp-sec">
-  <div class="wrap reveal">
-    <div class="section-label">Let us know</div>
-    <h2 class="sec-title" style="text-align:center">RSVP</h2>
-    <p class="sec-intro" style="text-align:center;margin-left:auto;margin-right:auto">
-      Please reply by <strong>1 May 2027</strong> <span class="tbc">Date TBC</span> so we can
-      confirm numbers with the venue.
-    </p>
+</main>
 
-    <form class="form" id="rsvpForm" novalidate>
-      <div class="form-msg" id="formMsg" role="alert"></div>
-
-      <div class="field">
-        <label for="fullName">Your full name <span class="req">*</span></label>
-        <input type="text" id="fullName" name="full_name" autocomplete="name" required>
-      </div>
-
-      <div class="field">
-        <label for="email">Email <span class="req">*</span></label>
-        <input type="email" id="email" name="email" autocomplete="email" required>
-        <p class="field-hint">We'll send updates and the final details here.</p>
-      </div>
-
-      <div class="field">
-        <label for="phone">Mobile</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel">
-        <p class="field-hint">Useful for anything last-minute while we're all in Bali.</p>
-      </div>
-
-      <div class="field">
-        <label>Will you be there? <span class="req">*</span></label>
-        <div class="attend">
-          <input type="radio" id="att-yes" name="attending" value="yes" required>
-          <label for="att-yes">Wouldn't miss it</label>
-          <input type="radio" id="att-no" name="attending" value="no">
-          <label for="att-no">Can't make it</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="guestNames">Who's coming with you?</label>
-        <input type="text" id="guestNames" name="guest_names">
-        <p class="field-hint">Full names of anyone else in your party, separated by commas. Leave blank if it's just you.</p>
-      </div>
-
-      <div class="field">
-        <label for="dietary">Dietary requirements or allergies</label>
-        <textarea id="dietary" name="dietary"></textarea>
-        <p class="field-hint">Include everyone in your party, and tell us who's who.</p>
-      </div>
-
-      <div class="field">
-        <label for="accommodation">Where are you staying?</label>
-        <input type="text" id="accommodation" name="accommodation">
-        <p class="field-hint">If you've booked already. It helps us plan transport.</p>
-      </div>
-
-      <div class="field">
-        <label for="song">A song that'll get you dancing</label>
-        <input type="text" id="song" name="song_request">
-      </div>
-
-      <div class="field">
-        <label for="message">Anything else?</label>
-        <textarea id="message" name="message"></textarea>
-      </div>
-
-      <!-- spam honeypot — hidden from people, catches bots -->
-      <div class="hp" aria-hidden="true">
-        <label for="website">Leave this empty</label>
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-      </div>
-
-      <div style="text-align:center;margin-top:2rem">
-        <button type="submit" class="btn" id="submitBtn">Send RSVP</button>
-      </div>
-    </form>
-
-    <div class="form-done" id="formDone">
-      <svg width="60" height="38" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
-        <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
-        <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-      </svg>
-      <h3 id="doneTitle">RSVP sent</h3>
-      <p id="doneBody">Thank you — we've got it. We'll be in touch with the final details closer to the day.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="foot">
   <p class="foot-quote">"And so the adventure begins."</p>
-  <svg width="48" height="30" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
+  <svg width="44" height="28" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
     <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
     <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
     <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
   </svg>
   <p class="foot-meta">
-    Teja · Uluwatu · Bali<br>
-    Saturday 5 June 2027
+    Conor McInerney &amp; Georgie Morris<br>
+    Teja · Uluwatu · Saturday 5 June 2027
   </p>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONFIG — fill these in from your Supabase project settings
-   Settings → API → Project URL and anon/public key
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════ CONFIG ═══════════════ */
 const SUPABASE_URL   = 'https://secdnsfqzxlhweszxeci.supabase.co';
 const SUPABASE_ANON  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlY2Ruc2ZxenhsaHdlc3p4ZWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwMzYzODUsImV4cCI6MjEwMDYxMjM4NX0.RvquhwPggMVxbOBxmLLeOnI8LcypCyePfJpFwL4XUIM';
 const RSVP_TABLE     = 'rsvps';
+const AUD_TO_IDR     = 10500;   /* update before the trip */
 
-/* Exchange rate — update this occasionally, or before the trip */
-const AUD_TO_IDR = 10500;
+/* ═══════════════ TAB ROUTING ═══════════════
+   Each tab has its own URL hash (#stay, #rsvp) so pages can be
+   linked directly and the browser back button works.
+   ═══════════════════════════════════════════ */
+(function(){
+  const tabs   = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  const ids    = panels.map(p => p.id);
+
+  function show(id, push){
+    if(!ids.includes(id)) id = 'home';
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.getAttribute('aria-controls') === id)));
+    panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+
+    if(push && location.hash !== '#' + id){
+      history.pushState(null, '', '#' + id);
+    }
+    // bring the newly shown page into view, and move focus for screen readers
+    const panel = document.getElementById(id);
+    if(panel){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' });
+      panel.focus({ preventScroll:true });
+    }
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => show(t.getAttribute('aria-controls'), true)));
+
+  // any element with data-goto acts as an in-page link to a tab
+  document.querySelectorAll('[data-goto]').forEach(el => {
+    el.addEventListener('click', () => show(el.dataset.goto, true));
+  });
+
+  // keyboard: left/right arrows move between tabs
+  document.querySelector('[role="tablist"]').addEventListener('keydown', e => {
+    if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const i = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+    const next = e.key === 'ArrowRight'
+      ? (i + 1) % tabs.length
+      : (i - 1 + tabs.length) % tabs.length;
+    tabs[next].focus();
+    show(tabs[next].getAttribute('aria-controls'), true);
+    e.preventDefault();
+  });
+
+  window.addEventListener('hashchange', () => show(location.hash.slice(1), false));
+  show(location.hash.slice(1) || 'home', false);
+})();
 
 /* ═══════════════ ACCOMMODATION FILTER ═══════════════ */
 (function(){
@@ -1098,8 +1097,7 @@ const AUD_TO_IDR = 10500;
     for(const key in active){
       const want = active[key];
       if(want === 'all') continue;
-      const has = (el.dataset[key] || '').split(' ');
-      if(!has.includes(want)) return false;
+      if(!(el.dataset[key] || '').split(' ').includes(want)) return false;
     }
     return true;
   }
@@ -1112,20 +1110,72 @@ const AUD_TO_IDR = 10500;
       if(ok) shown++;
     });
     empty.hidden = shown > 0;
-    const allOpen = Object.values(active).every(v => v === 'all');
-    count.textContent = allOpen
+    count.textContent = Object.values(active).every(v => v === 'all')
       ? `Showing all ${stays.length} places`
       : `Showing ${shown} of ${stays.length} places`;
   }
 
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const group = chip.dataset.filter;
-      active[group] = chip.dataset.value;
-      document.querySelectorAll(`.chip[data-filter="${group}"]`)
-        .forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-      apply();
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    const group = chip.dataset.filter;
+    active[group] = chip.dataset.value;
+    document.querySelectorAll(`.chip[data-filter="${group}"]`)
+      .forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+    apply();
+  }));
+})();
+
+/* ═══════════════ PHOTO GALLERIES ═══════════════
+   Scroll-snap carousel. Swipe on touch, arrows on desktop.
+   Any .gallery with 2+ images gets dots automatically, so adding
+   photos to another property needs no JS changes.
+   ═══════════════════════════════════════════════ */
+(function(){
+  document.querySelectorAll('.gallery').forEach(gal => {
+    const track = gal.querySelector('.gallery-track');
+    const dots  = gal.querySelector('.gal-dots');
+    if(!track) return;
+
+    // drop any image that fails to load rather than showing a broken icon
+    track.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => { img.remove(); build(); });
     });
+
+    let dotEls = [];
+    function build(){
+      const imgs = [...track.querySelectorAll('img')];
+      dots.innerHTML = '';
+      dotEls = [];
+      if(imgs.length < 2){
+        gal.querySelectorAll('.gal-nav').forEach(b => b.style.display = 'none');
+        if(!imgs.length) gal.style.display = 'none';
+        return;
+      }
+      imgs.forEach((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'dot' + (i === 0 ? ' is-on' : '');
+        dots.appendChild(d);
+        dotEls.push(d);
+      });
+    }
+    build();
+
+    let raf = null;
+    track.addEventListener('scroll', () => {
+      if(raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        if(!dotEls.length) return;
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        dotEls.forEach((d, j) => d.classList.toggle('is-on', j === i));
+      });
+    }, { passive:true });
+
+    const step = dir => track.scrollBy({
+      left: dir * track.clientWidth,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+    gal.querySelector('.gal-prev')?.addEventListener('click', () => step(-1));
+    gal.querySelector('.gal-next')?.addEventListener('click', () => step(1));
   });
 })();
 
@@ -1136,11 +1186,11 @@ const AUD_TO_IDR = 10500;
   const label = document.getElementById('rateLabel');
   if(!input) return;
   label.textContent = AUD_TO_IDR.toLocaleString('en-AU');
-
   function convert(){
     const aud = parseFloat(input.value.replace(/[^0-9.]/g,''));
-    if(isNaN(aud) || aud < 0){ out.textContent = '—'; return; }
-    out.textContent = 'Rp ' + Math.round(aud * AUD_TO_IDR).toLocaleString('en-AU');
+    out.textContent = (isNaN(aud) || aud < 0)
+      ? '—'
+      : 'Rp ' + Math.round(aud * AUD_TO_IDR).toLocaleString('en-AU');
   }
   input.addEventListener('input', convert);
   convert();
@@ -1148,10 +1198,10 @@ const AUD_TO_IDR = 10500;
 
 /* ═══════════════ RSVP FORM → SUPABASE ═══════════════ */
 (function(){
-  const form  = document.getElementById('rsvpForm');
-  const msg   = document.getElementById('formMsg');
-  const done  = document.getElementById('formDone');
-  const btn   = document.getElementById('submitBtn');
+  const form = document.getElementById('rsvpForm');
+  const msg  = document.getElementById('formMsg');
+  const done = document.getElementById('formDone');
+  const btn  = document.getElementById('submitBtn');
   if(!form) return;
 
   function showError(text){
@@ -1164,8 +1214,7 @@ const AUD_TO_IDR = 10500;
     e.preventDefault();
     msg.classList.remove('is-shown','is-error');
 
-    // honeypot — a bot filled the hidden field
-    if(form.website.value){ return; }
+    if(form.website.value) return;   // honeypot
 
     const name      = form.full_name.value.trim();
     const email     = form.email.value.trim();
@@ -1174,11 +1223,6 @@ const AUD_TO_IDR = 10500;
     if(!name){ showError('Please add your name so we know who this is from.'); form.full_name.focus(); return; }
     if(!email || !/^\S+@\S+\.\S+$/.test(email)){ showError('That email address doesn\u2019t look right. Check it and try again.'); form.email.focus(); return; }
     if(!attending){ showError('Let us know whether you can make it.'); return; }
-
-    if(SUPABASE_URL.startsWith('YOUR_')){
-      showError('This form isn\u2019t connected yet — add your Supabase URL and key in the config block.');
-      return;
-    }
 
     btn.disabled = true;
     btn.textContent = 'Sending…';
@@ -1208,61 +1252,26 @@ const AUD_TO_IDR = 10500;
       });
 
       if(!res.ok){
-        const detail = await res.text();
-        console.error('Supabase responded', res.status, detail);
+        console.error('Supabase responded', res.status, await res.text());
         showError('Something went wrong sending that. Try again in a moment, or message us directly.');
-        btn.disabled = false;
-        btn.textContent = 'Send RSVP';
+        btn.disabled = false; btn.textContent = 'Send RSVP';
         return;
       }
 
-      // success — swap the form for a confirmation
       if(attending.value === 'no'){
         document.getElementById('doneTitle').textContent = 'RSVP sent';
-        document.getElementById('doneBody').textContent  =
+        document.getElementById('doneBody').textContent =
           'Thank you for letting us know — we\u2019ll miss you, and we\u2019ll raise a glass to you on the night.';
       }
       form.style.display = 'none';
       done.classList.add('is-shown');
-      done.scrollIntoView({behavior:'smooth', block:'center'});
 
     }catch(err){
       console.error(err);
       showError('We couldn\u2019t reach the server. Check your connection and try again.');
-      btn.disabled = false;
-      btn.textContent = 'Send RSVP';
+      btn.disabled = false; btn.textContent = 'Send RSVP';
     }
   });
-})();
-
-/* ═══════════════ SCROLL REVEAL + NAV HIGHLIGHT ═══════════════ */
-(function(){
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if(!reduce && 'IntersectionObserver' in window){
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
-      });
-    }, { rootMargin:'0px 0px -8% 0px', threshold:0.05 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  }else{
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
-  }
-
-  // highlight the section you're currently in
-  const links = [...document.querySelectorAll('.nav-scroll a')];
-  const secs  = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  if('IntersectionObserver' in window && secs.length){
-    const navIo = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if(en.isIntersecting){
-          links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id));
-        }
-      });
-    }, { rootMargin:'-45% 0px -45% 0px' });
-    secs.forEach(s => navIo.observe(s));
-  }
 })();
 </script>
 
