@@ -237,6 +237,15 @@ a.mast-names:hover{color:var(--terracotta)}
 .step p + p{margin-top:.6rem}
 .step ul{margin:.6rem 0 0 1.1rem;font-size:.94rem}
 
+.venue-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-bottom:2.5rem;
+}
+@media(min-width:44rem){ .venue-grid{grid-template-columns:repeat(4,1fr);gap:.65rem} }
+.venue-grid img{
+  width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px;
+  background:var(--card); display:block;
+}
+
 .alert{
   background:var(--blush); border-left:3px solid var(--terracotta);
   border-radius:0 4px 4px 0; padding:1rem 1.25rem; margin:1rem 0; font-size:.92rem;
@@ -535,6 +544,13 @@ a.mast-names:hover{color:var(--terracotta)}
     We're getting married at Teja in Uluwatu, a clifftop restaurant on the southern
     tip of Bali. Full running order to come.
   </p>
+
+  <div class="venue-grid">
+    <img loading="lazy" width="900" height="900" src="images/venue-1.jpg" alt="The Teja sign at the entrance">
+    <img loading="lazy" width="900" height="900" src="images/venue-2.jpg" alt="Teja's dining room, open to the trees">
+    <img loading="lazy" width="900" height="900" src="images/venue-3.jpg" alt="Martinis on a travertine table at Teja">
+    <img loading="lazy" width="900" height="900" src="images/venue-4.jpg" alt="Teja's terrace at golden hour">
+  </div>
 
   <div class="grid grid-3">
     <div class="card">
