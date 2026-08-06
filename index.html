@@ -47,21 +47,107 @@ a:hover{border-bottom-color:var(--umber)}
 .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
 /* ═══════════════════════════════════════════════════════════
-   MASTHEAD - compact, always visible
+   MASTHEAD - sits over the hero on Home, solid elsewhere
    ═══════════════════════════════════════════════════════════ */
 .mast{
-  text-align:center; padding:1.75rem var(--gut) 1.25rem;
+  text-align:center; padding:1.5rem var(--gut) 1.1rem;
+  position:relative; z-index:20; transition:background .3s;
 }
-.mast-emblem{margin:0 auto .75rem}
+body.on-home .mast{
+  position:absolute; top:0; left:0; right:0; background:transparent;
+}
+body.on-home .mast-names{color:var(--salt)}
+body.on-home .mast-meta{color:rgba(250,245,238,.75)}
+body.on-home .mast-emblem circle,
+body.on-home .mast-emblem path,
+body.on-home .mast-emblem line{stroke:var(--salt)}
+.mast-emblem{margin:0 auto .6rem}
 .mast-names{
   font-family:var(--display); font-style:italic; font-weight:300;
-  font-size:1.6rem; line-height:1; color:var(--soil);
-  border:none;
+  font-size:1.5rem; line-height:1; color:var(--soil); border:none;
 }
 a.mast-names:hover{color:var(--terracotta)}
 .mast-meta{
-  font-size:.58rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--sage); margin-top:.6rem;
+  font-size:.54rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--sage); margin-top:.5rem;
+}
+
+/* ── full-bleed hero on Home ── */
+.hero-full{
+  position:relative; margin:0 calc(50% - 50vw); width:100vw;
+  min-height:min(88vh,44rem); display:flex; align-items:center; justify-content:center;
+  overflow:hidden; text-align:center;
+}
+.hero-full > img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.hero-full::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(45,13,5,.52) 0%, rgba(45,13,5,.22) 42%, rgba(45,13,5,.62) 100%);
+}
+.hero-in{position:relative; z-index:2; color:var(--salt); padding:5rem 1.5rem 3.5rem}
+.hero-eyebrow{
+  font-size:.56rem; letter-spacing:.4em; text-transform:uppercase;
+  color:var(--blush); margin-bottom:1.5rem;
+}
+.hero-names{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(3.2rem,13vw,6.5rem); line-height:.92;
+  letter-spacing:-.02em; color:var(--salt);
+}
+.hero-amp{display:block; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--apricot); margin:.15rem 0}
+.hero-sub{
+  font-size:.56rem; letter-spacing:.3em; text-transform:uppercase;
+  color:rgba(250,245,238,.8); margin-top:1.5rem;
+}
+.hero-meta{
+  font-size:.6rem; letter-spacing:.3em; text-transform:uppercase;
+  line-height:2.2; margin-top:1.75rem; color:var(--salt);
+}
+.hero-meta strong{color:var(--apricot); font-weight:500}
+.hero-cta{margin-top:2.25rem}
+.hero-cta .btn{background:rgba(250,245,238,.12); border:1px solid rgba(250,245,238,.55); color:var(--salt); backdrop-filter:blur(3px)}
+.hero-cta .btn:hover{background:var(--terracotta); border-color:var(--terracotta)}
+
+/* ── quiet band under the hero ── */
+.band{padding:3.5rem var(--gut); text-align:center}
+.band-quiet{font-size:.56rem; letter-spacing:.32em; text-transform:uppercase; color:var(--terracotta)}
+.band-lede{
+  font-family:var(--display); font-size:clamp(1.1rem,2.4vw,1.35rem); line-height:1.85;
+  max-width:38rem; margin:1.4rem auto 0; color:var(--soil);
+}
+
+/* ── edge-to-edge photo strip ── */
+.strip{
+  margin:0 calc(50% - 50vw); width:100vw;
+  display:grid; grid-template-columns:1fr 1fr; gap:.3rem;
+}
+@media(min-width:44rem){ .strip{grid-template-columns:repeat(4,1fr)} }
+.strip img{width:100%; aspect-ratio:1/1; object-fit:cover}
+
+/* ── dark closing band ── */
+.band-dark{
+  margin:0 calc(50% - 50vw); width:100vw;
+  background:var(--soil); color:var(--sand);
+  padding:3.25rem var(--gut); text-align:center;
+}
+.band-dark .band-quiet{color:var(--apricot)}
+
+/* ═══ interior page banner ═══ */
+.page-band{
+  position:relative; margin:0 calc(50% - 50vw) 2.5rem; width:100vw;
+  height:13rem; overflow:hidden; display:flex; align-items:center; justify-content:center;
+}
+.page-band > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.page-band::after{content:''; position:absolute; inset:0; background:rgba(45,13,5,.46)}
+.page-band-in{position:relative; z-index:2; text-align:center; color:var(--salt); padding:0 1.5rem}
+.page-band-in h1{
+  font-family:var(--display); font-weight:300; font-style:italic;
+  font-size:clamp(2rem,6vw,2.9rem); line-height:1; letter-spacing:-.01em;
+}
+.page-band-in .pb-meta{
+  font-size:.52rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--blush); margin-top:.7rem;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -100,7 +186,8 @@ a.mast-names:hover{color:var(--terracotta)}
 /* ═══════════════════════════════════════════════════════════
    PANELS
    ═══════════════════════════════════════════════════════════ */
-.panel{display:none; padding:3rem 0 4.5rem}
+.panel{display:none; padding:0 0 4.5rem}
+.panel > .wrap-in{padding-top:2.5rem}
 .panel.is-active{display:block; animation:fade .45s ease}
 .panel:focus{outline:none}
 @keyframes fade{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
@@ -126,7 +213,7 @@ a.mast-names:hover{color:var(--terracotta)}
 .page-head-meta strong{color:var(--terracotta);font-weight:500}
 @media(max-width:34rem){ .page-head-meta{display:none} }
 
-.lede{max-width:46ch; opacity:.85; margin-bottom:2.5rem}
+.lede{max-width:none; opacity:.85; margin-bottom:2.5rem}
 
 .section-label{
   display:flex; align-items:center; gap:.75rem;
@@ -387,11 +474,12 @@ a.mast-names:hover{color:var(--terracotta)}
 }
 .stay-sleeps svg{flex:0 0 auto;opacity:.75}
 .stay-sleeps .sleeps-n{color:var(--umber);font-weight:400}
-.stay-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}
-.tag{
-  font-size:.58rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--sage); border:1px solid var(--line); padding:.2rem .55rem; border-radius:99px;
+.stay-suits{
+  display:flex; align-items:center; gap:.4rem; margin-top:auto;
+  font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--umber);
 }
+.stay-suits svg{flex:0 0 auto}
+.stay-spacer{margin-top:auto}
 .stay-link{
   font-size:.64rem; letter-spacing:.2em; text-transform:uppercase;
   color:var(--terracotta); margin-top:1rem; border:none; display:inline-block;
@@ -534,51 +622,77 @@ a.mast-names:hover{color:var(--terracotta)}
 
 <!-- ─────────────────────── HOME ─────────────────────── -->
 <section class="panel is-active" id="home" role="tabpanel" aria-labelledby="tab-home" tabindex="-1">
-  <div class="hero">
-    <div class="hero-eyebrow">We're getting married</div>
-    <h1 class="hero-names">Conor<span class="hero-amp">&amp;</span>Georgie</h1>
-    <div class="hero-full">Conor McInerney &amp; Georgie Morris</div>
 
-    <svg class="hero-rule" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
-      <line x1="0" y1="7" x2="128" y2="7" stroke="#A63820" stroke-width="0.7"/>
-      <circle cx="150" cy="7" r="4" stroke="#A63820" stroke-width="1"/>
-      <circle cx="150" cy="7" r="1.6" fill="#A63820"/>
-      <line x1="172" y1="7" x2="300" y2="7" stroke="#A63820" stroke-width="0.7"/>
-    </svg>
-
-    <div class="hero-meta">
-      <strong>Saturday 5 June 2027</strong><br>
-      Teja Restaurant · Uluwatu, Bali
+  <div class="hero-full">
+    <img src="images/venue-4.jpg" alt="Teja's terrace at golden hour">
+    <div class="hero-in">
+      <div class="hero-eyebrow">We're getting married</div>
+      <h1 class="hero-names">Conor<span class="hero-amp">&amp;</span>Georgie</h1>
+      <div class="hero-sub">Conor McInerney &amp; Georgie Morris</div>
+      <div class="hero-meta">
+        <strong>Saturday 5 June 2027</strong><br>
+        Teja · Uluwatu, Bali
+      </div>
+      <div class="hero-cta"><button class="btn" data-goto="rsvp">RSVP</button></div>
     </div>
-
-    <div class="hero-cta"><button class="btn" data-goto="rsvp">RSVP</button></div>
   </div>
 
-  <div class="quick">
-    <button class="quick-card" data-goto="travel">
-      <span class="qc-label">Start here</span>
-      <span class="qc-title">Travel</span>
-      <span class="qc-sub">Passport, visa and the things worth sorting early</span>
-    </button>
-    <button class="quick-card" data-goto="stay">
-      <span class="qc-label">Book soon</span>
-      <span class="qc-title">Where to stay</span>
-      <span class="qc-sub">Ten places in and around Uluwatu</span>
-    </button>
-    <button class="quick-card" data-goto="guide">
-      <span class="qc-label">Before you go</span>
-      <span class="qc-title">Bali guide</span>
-      <span class="qc-sub">Packing, getting around, money and food</span>
-    </button>
+  <div class="band">
+    <div class="band-quiet">Bali · Indonesia</div>
+    <p class="band-lede">
+      We're getting married on a clifftop in Uluwatu, and we'd love you there.
+      Everything you need is here: how to get in, where to stay, and what to do
+      with the days either side.
+    </p>
   </div>
+
+  <div class="strip">
+    <img loading="lazy" src="images/venue-1.jpg" alt="The Teja sign at the entrance">
+    <img loading="lazy" src="images/venue-2.jpg" alt="Teja's dining room, open to the trees">
+    <img loading="lazy" src="images/venue-3.jpg" alt="Martinis on a travertine table at Teja">
+    <img loading="lazy" src="images/food-1.jpg" alt="A spread of shared dishes">
+  </div>
+
+  <div class="wrap-in">
+    <div class="quick">
+      <button class="quick-card" data-goto="travel">
+        <span class="qc-label">Start here</span>
+        <span class="qc-title">Travel</span>
+        <span class="qc-sub">Passport, visa and the things worth sorting early</span>
+      </button>
+      <button class="quick-card" data-goto="stay">
+        <span class="qc-label">Book soon</span>
+        <span class="qc-title">Where to stay</span>
+        <span class="qc-sub">Fourteen places in and around Uluwatu</span>
+      </button>
+      <button class="quick-card" data-goto="guide">
+        <span class="qc-label">Before you go</span>
+        <span class="qc-title">Bali guide</span>
+        <span class="qc-sub">Packing, getting around, money and food</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="band-dark">
+    <div class="band-quiet">Saturday 5 June 2027</div>
+    <p style="font-family:var(--display);font-style:italic;font-size:1.7rem;margin:.75rem 0 0;color:var(--salt)">Will you join us?</p>
+    <div style="margin-top:1.5rem"><button class="btn" data-goto="rsvp">RSVP</button></div>
+  </div>
+
 </section>
 
 <!-- ─────────────────────── THE DAY ─────────────────────── -->
 <section class="panel" id="day" role="tabpanel" aria-labelledby="tab-day" tabindex="-1">
-  <div class="page-head">
-    <h1>The Day</h1>
-    <div class="page-head-meta"><strong>Saturday 5 June 2027</strong><br>Teja · Uluwatu</div>
+
+  <div class="page-band">
+    <img loading="lazy" src="images/venue-3.jpg" alt="">
+    <div class="page-band-in">
+      <h1>The Day</h1>
+      <div class="pb-meta">Saturday 5 June 2027 · Teja, Uluwatu</div>
+    </div>
   </div>
+
+  <div class="wrap-in">
 
   <p class="lede">
     We're getting married at Teja in Uluwatu, a clifftop restaurant on the southern
@@ -626,14 +740,22 @@ a.mast-names:hover{color:var(--terracotta)}
       <p>Transport details nearer the day.</p>
     </div>
   </div>
+  </div>
+
 </section>
 
 <!-- ─────────────────────── TRAVEL ─────────────────────── -->
 <section class="panel" id="travel" role="tabpanel" aria-labelledby="tab-travel" tabindex="-1">
-  <div class="page-head">
-    <h1>Travel</h1>
-    <div class="page-head-meta">Denpasar <strong>DPS</strong><br>≈1 hr to Uluwatu</div>
+
+  <div class="page-band">
+    <img loading="lazy" src="images/venue-1.jpg" alt="">
+    <div class="page-band-in">
+      <h1>Travel</h1>
+      <div class="pb-meta">Denpasar DPS · about an hour to Uluwatu</div>
+    </div>
   </div>
+
+  <div class="wrap-in">
 
   <p class="lede">
     A few things are worth sorting early, especially your passport, which can take
@@ -734,14 +856,22 @@ a.mast-names:hover{color:var(--terracotta)}
     <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener">Google Flights</a>
     or the airline directly when booking opens.
   </div>
+  </div>
+
 </section>
 
 <!-- ─────────────────────── STAY ─────────────────────── -->
 <section class="panel" id="stay" role="tabpanel" aria-labelledby="tab-stay" tabindex="-1">
-  <div class="page-head">
-    <h1>Where to Stay</h1>
-    <div class="page-head-meta"><strong>Fri 4 - Mon 7 June</strong><br>Uluwatu</div>
+
+  <div class="page-band">
+    <img loading="lazy" src="images/venue-2.jpg" alt="">
+    <div class="page-band-in">
+      <h1>Where to Stay</h1>
+      <div class="pb-meta">Friday 4 to Monday 7 June</div>
+    </div>
   </div>
+
+  <div class="wrap-in">
 
   <p class="lede">
     We recommend staying in Uluwatu from <strong>Friday 4 to Monday 7 June</strong>.
@@ -827,7 +957,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
         <div class="stay-dist">150 m walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-        <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
         <a class="stay-link" href="https://www.booking.com/Share-63sSugd" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -851,7 +981,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
         <div class="stay-dist">700 m walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-        <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">Couples</span></div>
+        <div class="stay-spacer"></div>
         <a class="stay-link" href="https://www.booking.com/Share-i3bSf9" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -875,7 +1005,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
         <div class="stay-dist">200 m walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-        <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
         <a class="stay-link" href="https://www.booking.com/Share-FYs57w" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -899,7 +1029,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">1 km, a longer walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-      <div class="stay-tags"><span class="tag">Budget</span><span class="tag">Hotel</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
       <a class="stay-link" href="https://www.booking.com/Share-DJsbT2" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -924,7 +1054,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">600 m walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-      <div class="stay-tags"><span class="tag">Higher price</span><span class="tag">Hotel</span><span class="tag">Adults only</span><span class="tag">Couples</span></div>
+      <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.4 9.6 A2.4 2.4 0 1 0 5.4 9.61" stroke="#7E230C" stroke-width="1.1"/><path d="M10.6 9.6 A2.4 2.4 0 1 0 10.6 9.61" stroke="#7E230C" stroke-width="1.1"/><path d="M6.6 7.4 8 5.2l1.4 2.2" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adults only</span></div>
       <a class="stay-link" href="https://www.booking.com/Share-pc54ZeO" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -952,7 +1082,7 @@ a.mast-names:hover{color:var(--terracotta)}
           A wellness retreat as much as a hotel: spa, sauna, yoga and a clifftop pool,
           open to day visitors as well as guests.
         </p>
-        <div class="stay-tags"><span class="tag">Higher price</span><span class="tag">Wellness</span><span class="tag">Couples</span><span class="tag">Adults only</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.4 9.6 A2.4 2.4 0 1 0 5.4 9.61" stroke="#7E230C" stroke-width="1.1"/><path d="M10.6 9.6 A2.4 2.4 0 1 0 10.6 9.61" stroke="#7E230C" stroke-width="1.1"/><path d="M6.6 7.4 8 5.2l1.4 2.2" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adults only</span></div>
         <a class="stay-link" href="https://www.booking.com/Share-83JKOy" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -976,7 +1106,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">500 m walk</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">Couples</span></div>
+      <div class="stay-spacer"></div>
       <a class="stay-link" href="https://www.booking.com/hotel/id/yun-uluwatu.en-gb.html" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -1000,7 +1130,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
         <div class="stay-dist">10-15 min drive &middot; ~3 km</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">Rooms, suites &amp; villas &middot; sleeps 2-4</span></div>
-        <div class="stay-tags"><span class="tag">Higher price</span><span class="tag">Resort</span><span class="tag">Villa</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
         <a class="stay-link" href="https://www.booking.com/Share-hvUscN" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -1029,7 +1159,7 @@ a.mast-names:hover{color:var(--terracotta)}
           <strong>Lots of stairs.</strong> No lift, and a steep site. Guests report 65+ steps from
           the street. Worth avoiding if anyone in your party has trouble with stairs.
         </div>
-        <div class="stay-tags"><span class="tag">Higher price</span><span class="tag">Resort</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
         <a class="stay-link" href="https://www.booking.com/hotel/id/seascape-luxury-resort-amp-spa-uluwatu-by-ini-vie-hospitality.en-gb.html" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -1057,7 +1187,7 @@ a.mast-names:hover{color:var(--terracotta)}
           The pick if you're travelling with children: separate kids' rooms, private pools,
           playgrounds and a washing machine in the villa.
         </p>
-        <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+        <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
         <a class="stay-link" href="https://www.booking.com/Share-KWaa7o" target="_blank" rel="noopener">View on Booking.com &#8594;</a>
       </div>
     </article>
@@ -1082,7 +1212,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">20-25 min drive · A$3-5 Gojek</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">2-3 bedrooms &middot; sleeps up to 6</span></div>
-      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
       <a class="stay-link" href="https://www.booking.com/Share-6ULtuOJ" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -1107,7 +1237,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">15 min drive</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1 bedroom &middot; sleeps 2</span></div>
-      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Hotel</span><span class="tag">Couples</span></div>
+      <div class="stay-spacer"></div>
       <a class="stay-link" href="https://www.booking.com/Share-rdaVhSQ" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -1132,7 +1262,7 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">15-20 min drive</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">1-4 bedrooms &middot; sleeps 1-8</span></div>
-      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
       <a class="stay-link" href="https://www.booking.com/Share-E8cipx" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
@@ -1156,21 +1286,29 @@ a.mast-names:hover{color:var(--terracotta)}
         </div>
       <div class="stay-dist">20 min drive</div>
         <div class="stay-sleeps"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5.5" cy="5" r="2.4" stroke="#A63820" stroke-width="1.1"/><circle cx="11" cy="6" r="1.9" stroke="#A63820" stroke-width="1.1"/><path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/><path d="M11 9.6c1.9 0 3.5 1.2 3.5 3.4" stroke="#A63820" stroke-width="1.1" stroke-linecap="round"/></svg><span class="sleeps-n">4 bedrooms &middot; sleeps up to 8</span></div>
-      <div class="stay-tags"><span class="tag">Mid range</span><span class="tag">Villa</span><span class="tag">Couples</span><span class="tag">Family</span></div>
+      <div class="stay-suits"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4.6" cy="4.4" r="2.1" stroke="#7E230C" stroke-width="1.1"/><circle cx="10.4" cy="4.9" r="1.8" stroke="#7E230C" stroke-width="1.1"/><circle cx="7.6" cy="10.4" r="1.4" stroke="#7E230C" stroke-width="1.1"/><path d="M1.4 12.4c0-1.9 1.5-3.1 3.2-3.1M14.6 12.6c0-1.8-1.4-2.9-3-2.9" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/><path d="M5.2 14.6c0-1.4 1.1-2.3 2.4-2.3s2.4.9 2.4 2.3" stroke="#7E230C" stroke-width="1.1" stroke-linecap="round"/></svg><span>Family friendly</span></div>
       <a class="stay-link" href="https://www.booking.com/Share-cdsm72w" target="_blank" rel="noopener">View on Booking.com →</a>
       </div>
     </article>
 
 <p class="empty-state" id="emptyState" hidden>Nothing matches that combination. Try widening one of the filters.</p>
   </div>
+  </div>
+
 </section>
 
 <!-- ─────────────────────── BALI GUIDE ─────────────────────── -->
 <section class="panel" id="guide" role="tabpanel" aria-labelledby="tab-guide" tabindex="-1">
-  <div class="page-head">
-    <h1>Bali Guide</h1>
-    <div class="page-head-meta">Dry season<br><strong>Sunset ≈ 6:30pm</strong></div>
+
+  <div class="page-band">
+    <img loading="lazy" src="images/food-2.jpg" alt="">
+    <div class="page-band-in">
+      <h1>Bali Guide</h1>
+      <div class="pb-meta">Dry season · sunset around 6:30pm</div>
+    </div>
   </div>
+
+  <div class="wrap-in">
 
   <p class="lede">The practical stuff: what to pack, how to get around, what things cost,
   and where to eat.</p>
@@ -1294,16 +1432,24 @@ a.mast-names:hover{color:var(--terracotta)}
       <tr><td class="et-n">Baked</td><td class="et-c">Pastries &amp; coffee</td><td class="et-l"><a href="https://www.instagram.com/baked.indonesia/?hl=en" target="_blank" rel="noopener" aria-label="Baked on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
       <tr><td class="et-n">Alchemy</td><td class="et-c">Plant-based</td><td class="et-l"><a href="https://www.instagram.com/alchemybali/?hl=en" target="_blank" rel="noopener" aria-label="Alchemy on Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="#A63820" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#A63820" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="#A63820"/></svg></a></td></tr>
     </table>
+  </div>
+
 </section>
 
 <!-- ─────────────────────── RSVP ─────────────────────── -->
 <section class="panel" id="rsvp" role="tabpanel" aria-labelledby="tab-rsvp" tabindex="-1">
-  <div class="page-head">
-    <h1>RSVP</h1>
-    <div class="page-head-meta">Reply by<br><strong>1 May 2027</strong></div>
+
+  <div class="page-band">
+    <img loading="lazy" src="images/food-3.jpg" alt="">
+    <div class="page-band-in">
+      <h1>RSVP</h1>
+      <div class="pb-meta">Please reply by 1 May 2027</div>
+    </div>
   </div>
 
-  <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">
+  <div class="wrap-in">
+
+  <p class="lede" style="text-align:center">
     Please reply by <strong>1 May 2027</strong> <span class="tbc">Date TBC</span>
     so we can confirm numbers with the venue.
   </p>
@@ -1385,6 +1531,8 @@ a.mast-names:hover{color:var(--terracotta)}
     <h3 id="doneTitle">RSVP sent</h3>
     <p id="doneBody">Thank you, we've got it. We'll be in touch with the final details closer to the day.</p>
   </div>
+  </div>
+
 </section>
 
 </main>
@@ -1422,6 +1570,8 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
     if(!ids.includes(id)) id = 'home';
     tabs.forEach(t => t.setAttribute('aria-selected', String(t.getAttribute('aria-controls') === id)));
     panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+    // Home has a full-bleed hero, so the masthead sits over it
+    document.body.classList.toggle('on-home', id === 'home');
 
     if(push && location.hash !== '#' + id){
       history.pushState(null, '', '#' + id);
