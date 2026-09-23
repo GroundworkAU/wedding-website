@@ -105,7 +105,7 @@ a:hover{border-bottom-color:var(--umber)}
 
 /* ── dark closing band ── */
 .band-dark{
-  margin:0 calc(50% - 50vw); width:100vw;
+  margin:4.5rem calc(50% - 50vw) 0; width:100vw;
   background:var(--soil); color:var(--sand);
   padding:3.25rem var(--gut); text-align:center;
 }
@@ -169,6 +169,7 @@ a:hover{border-bottom-color:var(--umber)}
    PANELS
    ═══════════════════════════════════════════════════════════ */
 .panel{display:none; padding:0 0 4.5rem}
+#home{padding-bottom:0}
 .panel > .wrap-in{padding-top:2.5rem}
 .panel.is-active{display:block; animation:fade .45s ease}
 .panel:focus{outline:none}
@@ -209,7 +210,7 @@ a:hover{border-bottom-color:var(--umber)}
    HOME
    ═══════════════════════════════════════════════════════════ */
 
-.quick{display:grid;gap:.75rem;margin-top:4rem}
+.quick{display:grid;gap:1rem;margin-top:3.5rem}
 @media(min-width:40rem){ .quick{grid-template-columns:repeat(3,1fr)} }
 .quick-card{
   background:var(--card); border-radius:6px; padding:1.35rem 1.5rem;
@@ -1489,7 +1490,7 @@ a:hover{border-bottom-color:var(--umber)}
     <div class="form-msg" id="formMsg" role="alert"></div>
 
     <div class="field">
-      <label>How many of you are replying? <span class="req">*</span></label>
+      <label>How many people are you RSVPing for? <span class="req">*</span></label>
       <div class="count">
         <input type="radio" id="pc1" name="party_size" value="1" checked><label for="pc1">1</label>
         <input type="radio" id="pc2" name="party_size" value="2"><label for="pc2">2</label>
@@ -1500,7 +1501,8 @@ a:hover{border-bottom-color:var(--umber)}
         <input type="radio" id="pc7" name="party_size" value="7"><label for="pc7">7</label>
         <input type="radio" id="pc8" name="party_size" value="8"><label for="pc8">8</label>
       </div>
-      <p class="field-hint">One reply covers your whole party. We only need one email address.</p>
+      <p class="field-hint">We'll send all the details for everyone you're RSVPing for
+      to your email address.</p>
     </div>
 
     <div id="guests"></div>
