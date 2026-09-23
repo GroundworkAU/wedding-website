@@ -1556,8 +1556,8 @@ a:hover{border-bottom-color:var(--umber)}
         <option value="4">4 people</option>
         <option value="5">5 people</option>
       </select>
-      <p class="field-hint">We'll send all the details for everyone you're RSVPing for
-      to your email address.</p>
+      <p class="field-hint" id="partyHint">We'll send all the details for everyone
+      you're RSVPing for to your email address.</p>
     </div>
 
     <div id="guests"></div>
@@ -1579,7 +1579,7 @@ a:hover{border-bottom-color:var(--umber)}
       <label>The wedding &mdash; Saturday 5 June <span class="req">*</span></label>
       <div class="attend">
         <input type="radio" id="att-yes" name="attending" value="yes" required>
-        <label for="att-yes">Yes, we'll be there</label>
+        <label for="att-yes" id="lblAttYes">Yes, we'll be there</label>
         <input type="radio" id="att-no" name="attending" value="no">
         <label for="att-no">Sorry, can't make it</label>
       </div>
@@ -1590,7 +1590,7 @@ a:hover{border-bottom-color:var(--umber)}
       <label>The welcome event &mdash; Thursday 3 June <span class="req">*</span></label>
       <div class="attend">
         <input type="radio" id="we-yes" name="welcome_event" value="yes">
-        <label for="we-yes">Yes, count us in</label>
+        <label for="we-yes" id="lblWeYes">Yes, count us in</label>
         <input type="radio" id="we-no" name="welcome_event" value="no">
         <label for="we-no">No, just the wedding</label>
       </div>
@@ -1949,8 +1949,18 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
     for(let i = have; i > want; i--) wrap.lastElementChild.remove();
   }
 
-  sel.addEventListener('change', render);
-  render();
+  function wording(){
+    const one = chosen() === 1;
+    const set = (id, txt) => { const el = document.getElementById(id); if(el) el.textContent = txt; };
+    set('lblAttYes', one ? "Yes, I'll be there"  : "Yes, we'll be there");
+    set('lblWeYes',  one ? 'Yes, count me in'    : 'Yes, count us in');
+    set('partyHint', one
+      ? "We'll send all the details to your email address."
+      : "We'll send all the details for everyone you're RSVPing for to your email address.");
+  }
+
+  sel.addEventListener('change', () => { render(); wording(); });
+  render(); wording();
 
   // expose the collected party for the submit handler
   window.__party = () => [...wrap.children].map(g => {
