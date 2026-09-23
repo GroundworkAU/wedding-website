@@ -276,6 +276,35 @@ a:hover{border-bottom-color:var(--umber)}
 .step p + p{margin-top:.6rem}
 .step ul{margin:.6rem 0 0 1.1rem;font-size:.94rem}
 
+.board{
+  columns:2; column-gap:.5rem; margin-top:1.25rem;
+}
+@media(min-width:44rem){ .board{columns:4; column-gap:.6rem} }
+.board img{
+  width:100%; height:auto; display:block; border-radius:4px;
+  break-inside:avoid; margin-bottom:.5rem; background:var(--card);
+}
+@media(min-width:44rem){ .board img{margin-bottom:.6rem} }
+.board-empty{
+  border:1px dashed var(--line); border-radius:6px; padding:2.5rem 1.5rem;
+  text-align:center; color:var(--sage); font-size:.85rem; margin-top:1.25rem;
+}
+.rules{display:grid;gap:.6rem;margin:1.25rem 0 0}
+@media(min-width:40rem){ .rules{grid-template-columns:1fr 1fr} }
+.rule-item{
+  display:flex; gap:.7rem; align-items:flex-start;
+  background:var(--card); border-radius:5px; padding:.9rem 1.1rem; font-size:.9rem;
+}
+.rule-item .mk{
+  flex:0 0 auto; width:1.1rem; height:1.1rem; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.62rem; margin-top:.15rem;
+}
+.rule-item.no .mk{background:var(--terracotta);color:var(--salt)}
+.rule-item.yes .mk{background:var(--sage);color:var(--salt)}
+.swatches{display:flex;gap:.3rem;margin-top:.5rem}
+.swatches i{width:1.5rem;height:1.5rem;border-radius:3px;border:1px solid var(--line);display:block}
+
 .venue-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));   /* 2 across on mobile */
@@ -283,7 +312,36 @@ a:hover{border-bottom-color:var(--umber)}
   align-items:start;                               /* stop items stretching */
 }
 @media(min-width:44rem){
-  .venue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
+  .board{
+  columns:2; column-gap:.5rem; margin-top:1.25rem;
+}
+@media(min-width:44rem){ .board{columns:4; column-gap:.6rem} }
+.board img{
+  width:100%; height:auto; display:block; border-radius:4px;
+  break-inside:avoid; margin-bottom:.5rem; background:var(--card);
+}
+@media(min-width:44rem){ .board img{margin-bottom:.6rem} }
+.board-empty{
+  border:1px dashed var(--line); border-radius:6px; padding:2.5rem 1.5rem;
+  text-align:center; color:var(--sage); font-size:.85rem; margin-top:1.25rem;
+}
+.rules{display:grid;gap:.6rem;margin:1.25rem 0 0}
+@media(min-width:40rem){ .rules{grid-template-columns:1fr 1fr} }
+.rule-item{
+  display:flex; gap:.7rem; align-items:flex-start;
+  background:var(--card); border-radius:5px; padding:.9rem 1.1rem; font-size:.9rem;
+}
+.rule-item .mk{
+  flex:0 0 auto; width:1.1rem; height:1.1rem; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.62rem; margin-top:.15rem;
+}
+.rule-item.no .mk{background:var(--terracotta);color:var(--salt)}
+.rule-item.yes .mk{background:var(--sage);color:var(--salt)}
+.swatches{display:flex;gap:.3rem;margin-top:.5rem}
+.swatches i{width:1.5rem;height:1.5rem;border-radius:3px;border:1px solid var(--line);display:block}
+
+.venue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
   .venue-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 .venue-grid img{
@@ -655,8 +713,8 @@ a:hover{border-bottom-color:var(--umber)}
     <div class="card">
       <h3>Reception</h3>
       <p><strong>Straight afterwards</strong><br>same venue</p>
-      <p>Dinner, drinks and dancing, with no need to go anywhere. The sun sets around
-      6:30pm, so we'll be well into the evening by the time it does.</p>
+      <p>Dinner, drinks and dancing, with no need to go anywhere. The sun sets just
+      after 6pm, so the ceremony and first drinks will run right through golden hour.</p>
     </div>
     <div class="card">
       <h3>After party</h3>
@@ -666,12 +724,41 @@ a:hover{border-bottom-color:var(--umber)}
     </div>
   </div>
 
-  <div class="grid grid-3" style="margin-top:1rem">
-    <div class="card">
-      <h3>Dress code <span class="tbc">TBC</span></h3>
-      <p>To be confirmed. Whatever we land on, plan for warm, dry evening air and an
-      outdoor clifftop setting, so think about your shoes on uneven ground.</p>
-    </div>
+
+  <div class="section-label">What to wear</div>
+  <h2 class="sec-h">Dress code</h2>
+
+  <div class="rules">
+    <div class="rule-item no"><span class="mk">&#10005;</span>
+      <div><strong>Please avoid white, cream and beige.</strong>
+      <div class="swatches" aria-hidden="true"><i style="background:#FFFFFF"></i><i style="background:#F5EAD8"></i><i style="background:#E3D5BE"></i></div></div></div>
+    <div class="rule-item yes"><span class="mk">&#10003;</span>
+      <div><strong>Black is welcome.</strong> Our bridesmaids are in black, and we would
+      still love you to wear it if that is what you feel best in.</div></div>
+  </div>
+
+  <p class="lede" style="margin-top:1.5rem">
+    Bali in June is mild once the sun goes down, just after 6pm, and usually sits at a
+    comfortable 24 degrees. You will not need a jacket. Do think about your shoes though,
+    since the venue is outdoors on a clifftop and the ground is uneven.
+  </p>
+
+  <div class="section-label" style="margin-top:2.5rem">Inspiration for her</div>
+  <div class="board">
+      <img loading="lazy" src="images/dress-1.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-2.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-3.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-4.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-5.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-6.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-7.webp" alt="Dress inspiration">
+      <img loading="lazy" src="images/dress-8.webp" alt="Dress inspiration">
+  </div>
+
+  <div class="section-label" style="margin-top:2.5rem">Inspiration for him <span class="tbc">Images to come</span></div>
+  <div class="board-empty">We will add a few ideas here shortly.</div>
+
+  <div class="grid grid-2" style="margin-top:1rem">
     <div class="card">
       <h3>Getting there</h3>
       <p>Uluwatu has one main road in and out and traffic builds quickly, so leave
@@ -1254,7 +1341,7 @@ a:hover{border-bottom-color:var(--umber)}
     <img loading="lazy" src="images/stone-terracotta.jpg" alt="Terracotta plaster">
     <div class="page-band-in">
       <h1>Bali Guide</h1>
-      <div class="pb-meta">Dry season · sunset around 6:30pm</div>
+      <div class="pb-meta">Dry season · sunset just after 6pm</div>
     </div>
   </div>
 
@@ -1308,8 +1395,8 @@ a:hover{border-bottom-color:var(--umber)}
       <h3>Weather in June</h3>
       <p>It's dry season: warm and dry through the day, cooler in the evening but
       never cold.</p>
-      <p>The sun sets around <strong>6:30pm</strong> and it turns comfortable. Light trousers
-      are plenty. You won't need a jacket.</p>
+      <p>The sun sets just after <strong>6pm</strong> and it turns comfortable, usually
+      around 24 degrees. Light trousers are plenty. You won't need a jacket.</p>
     </div>
 
     <div class="card">
