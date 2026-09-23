@@ -46,26 +46,6 @@ a:hover{border-bottom-color:var(--umber)}
 
 .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
-/* ═══════════════════════════════════════════════════════════
-   MASTHEAD - sits over the hero on Home, solid elsewhere
-   ═══════════════════════════════════════════════════════════ */
-.mast{
-  text-align:center; padding:1.5rem var(--gut) 1.1rem;
-  position:relative; z-index:20; background:var(--salt);
-}
-/* The hero already carries the names, date and venue, so the masthead
-   would just repeat them. Hide it on Home; keep it on every other page. */
-body.on-home .mast{display:none}
-.mast-emblem{margin:0 auto .6rem}
-.mast-names{
-  font-family:var(--display); font-style:italic; font-weight:300;
-  font-size:1.5rem; line-height:1; color:var(--soil); border:none;
-}
-a.mast-names:hover{color:var(--terracotta)}
-.mast-meta{
-  font-size:.54rem; letter-spacing:.3em; text-transform:uppercase;
-  color:var(--sage); margin-top:.5rem;
-}
 
 /* ── full-bleed hero on Home ── */
 .hero-full{
@@ -91,10 +71,6 @@ a.mast-names:hover{color:var(--terracotta)}
   letter-spacing:-.02em; color:var(--salt);
 }
 .hero-amp{display:block; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--apricot); margin:.15rem 0}
-.hero-sub{
-  font-size:.56rem; letter-spacing:.3em; text-transform:uppercase;
-  color:rgba(250,245,238,.8); margin-top:1.5rem;
-}
 .hero-meta{
   font-size:.6rem; letter-spacing:.3em; text-transform:uppercase;
   line-height:2.2; margin-top:1.75rem; color:var(--salt);
@@ -160,6 +136,10 @@ a.mast-names:hover{color:var(--terracotta)}
   overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
   width:100%; max-width:var(--max); margin:0 auto;
   padding:0 var(--gut); -webkit-overflow-scrolling:touch;
+}
+@media(min-width:48rem){
+  .tabs-scroll{justify-content:center}
+  .tab:first-child{padding-left:1.1rem}   /* undo the flush-left inset when centred */
 }
 .tabs-scroll::-webkit-scrollbar{display:none}
 .tab{
@@ -550,31 +530,19 @@ a.mast-names:hover{color:var(--terracotta)}
 .form-msg.is-error{background:var(--blush);border-left:3px solid var(--terracotta);color:var(--umber)}
 .form-done{display:none;text-align:center;padding:2rem 0}
 .form-done.is-shown{display:block}
-.form-done h3{font-family:var(--display);font-style:italic;font-weight:300;font-size:2.1rem;color:var(--soil);margin:1.5rem 0 .75rem}
+.form-done h3{font-family:var(--display);font-style:italic;font-weight:300;font-size:2.1rem;color:var(--soil);margin:0 0 .75rem}
 .form-done p{opacity:.85;max-width:32ch;margin:0 auto}
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */
 .foot{text-align:center;padding:3rem var(--gut);border-top:1px solid var(--line-soft)}
-.foot-quote{font-family:var(--display);font-style:italic;font-weight:300;font-size:1.35rem;color:var(--umber);margin-bottom:1.5rem}
-.foot-meta{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-top:1.25rem;line-height:2}
+.foot-meta{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);line-height:2}
 
 @media print{ .tabs{display:none} .panel{display:block!important} }
 </style>
 </head>
 <body>
-
-<!-- ═══════════════════════ MASTHEAD ═══════════════════════ -->
-<div class="mast">
-  <svg class="mast-emblem" width="48" height="30" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-    <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
-    <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-    <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-  </svg>
-  <a class="mast-names" href="#home">Conor &amp; Georgie</a>
-  <div class="mast-meta">Uluwatu, Bali · 5 June 2027</div>
-</div>
 
 <!-- ═══════════════════════ TABS ═══════════════════════ -->
 <nav class="tabs">
@@ -598,7 +566,6 @@ a.mast-names:hover{color:var(--terracotta)}
     <div class="hero-in">
       <div class="hero-eyebrow">We're getting married</div>
       <h1 class="hero-names">Conor<span class="hero-amp">&amp;</span>Georgie</h1>
-      <div class="hero-sub">Conor McInerney &amp; Georgie Morris</div>
       <div class="hero-meta">
         <strong>Saturday 5 June 2027</strong><br>
         Teja · Uluwatu, Bali
@@ -697,7 +664,7 @@ a.mast-names:hover{color:var(--terracotta)}
     </div>
   </div>
 
-  <div class="grid grid-2" style="margin-top:1rem">
+  <div class="grid grid-3" style="margin-top:1rem">
     <div class="card">
       <h3>Dress code <span class="tbc">TBC</span></h3>
       <p>To be confirmed. Whatever we land on, plan for warm, dry evening air and an
@@ -708,6 +675,15 @@ a.mast-names:hover{color:var(--terracotta)}
       <p>Uluwatu has one main road in and out and traffic builds quickly, so leave
       more time than you think you need for a 4:30pm arrival.</p>
       <p>Transport details nearer the day.</p>
+    </div>
+    <div class="card">
+      <h3>Hair and makeup</h3>
+      <p>If you'd like to be done professionally, we'd recommend
+      <a href="https://www.instagram.com/makeupbyluvita/" target="_blank" rel="noopener">Luvita<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-left:.3rem"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></svg></a>,
+      <a href="https://www.instagram.com/dollface_darlings/" target="_blank" rel="noopener">Dollface Darlings<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-left:.3rem"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></svg></a> or
+      <a href="https://www.instagram.com/eveandaustin/" target="_blank" rel="noopener">Eve &amp; Austin<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-left:.3rem"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></svg></a>.</p>
+      <p>Worth booking well ahead. They get busy, and a lot of guests will be after
+      the same morning.</p>
     </div>
   </div>
   </div>
@@ -1495,11 +1471,6 @@ a.mast-names:hover{color:var(--terracotta)}
   </form>
 
   <div class="form-done" id="formDone">
-    <svg width="56" height="35" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
-      <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
-      <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-      <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-    </svg>
     <h3 id="doneTitle">RSVP sent</h3>
     <p id="doneBody">Thank you, we've got it. We'll be in touch with the final details closer to the day.</p>
   </div>
@@ -1510,12 +1481,6 @@ a.mast-names:hover{color:var(--terracotta)}
 </main>
 
 <footer class="foot">
-  <p class="foot-quote">"And so the adventure begins."</p>
-  <svg width="44" height="28" viewBox="0 0 48 30" fill="none" style="margin:0 auto" aria-hidden="true">
-    <circle cx="24" cy="9" r="6" stroke="#A63820" stroke-width="0.9"/>
-    <path d="M15 20 Q24 14 33 20" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-    <line x1="11" y1="27" x2="37" y2="27" stroke="#A63820" stroke-width="0.9" stroke-linecap="round"/>
-  </svg>
   <p class="foot-meta">
     Conor McInerney &amp; Georgie Morris<br>
     Teja · Uluwatu · Saturday 5 June 2027
@@ -1542,8 +1507,6 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
     if(!ids.includes(id)) id = 'home';
     tabs.forEach(t => t.setAttribute('aria-selected', String(t.getAttribute('aria-controls') === id)));
     panels.forEach(p => p.classList.toggle('is-active', p.id === id));
-    // Home has a full-bleed hero, so the masthead sits over it
-    document.body.classList.toggle('on-home', id === 'home');
 
     if(push && location.hash !== '#' + id){
       history.pushState(null, '', '#' + id);
