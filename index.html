@@ -65,16 +65,19 @@ a:hover{border-bottom-color:var(--umber)}
 }
 .hero-full::after{
   content:''; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(45,13,5,.52) 0%, rgba(45,13,5,.22) 42%, rgba(45,13,5,.62) 100%);
+  background:linear-gradient(180deg, rgba(45,13,5,.60) 0%, rgba(45,13,5,.46) 45%, rgba(45,13,5,.72) 100%);
 }
-.hero-in{position:relative; z-index:2; color:var(--salt); padding:4rem 1.5rem 3.5rem}
+.hero-in{
+  position:relative; z-index:2; color:var(--salt); padding:4rem 1.5rem 3.5rem;
+  text-shadow:0 1px 3px rgba(45,13,5,.45), 0 2px 18px rgba(45,13,5,.5);
+}
 @media(max-width:47.99rem){
   /* push the wording down onto the darker lower half of the photo */
   .hero-in{padding-top:11rem; padding-bottom:2.5rem}
 }
 .hero-eyebrow{
   font-size:.56rem; letter-spacing:.4em; text-transform:uppercase;
-  color:var(--blush); margin-bottom:1.5rem;
+  color:#fff; margin-bottom:1.5rem;
 }
 .hero-names{
   font-family:var(--display); font-weight:300; font-style:italic;
@@ -661,7 +664,7 @@ a:hover{border-bottom-color:var(--umber)}
   </div>
   <div class="tabs-scroll" id="navList" role="tablist" aria-label="Wedding information">
     <button class="tab" role="tab" id="tab-home"   aria-controls="home"   aria-selected="true">Home</button>
-    <button class="tab" role="tab" id="tab-day"    aria-controls="day"    aria-selected="false">The Day</button>
+    <button class="tab" role="tab" id="tab-weekend" aria-controls="weekend" aria-selected="false">The Weekend</button>
     <button class="tab" role="tab" id="tab-travel" aria-controls="travel" aria-selected="false">Travel</button>
     <button class="tab" role="tab" id="tab-stay"   aria-controls="stay"   aria-selected="false">Stay</button>
     <button class="tab" role="tab" id="tab-guide"  aria-controls="guide"  aria-selected="false">Bali Guide</button>
@@ -732,22 +735,39 @@ a:hover{border-bottom-color:var(--umber)}
 </section>
 
 <!-- ─────────────────────── THE DAY ─────────────────────── -->
-<section class="panel" id="day" role="tabpanel" aria-labelledby="tab-day" tabindex="-1">
+<section class="panel" id="weekend" role="tabpanel" aria-labelledby="tab-weekend" tabindex="-1">
 
   <div class="page-band">
     <img loading="lazy" src="images/stone-travertine.jpg" alt="Travertine stone">
     <div class="page-band-in">
-      <h1>The Day</h1>
-      <div class="pb-meta">Saturday 5 June 2027 · Teja, Uluwatu</div>
+      <h1>The Weekend</h1>
+      <div class="pb-meta">Thursday 3 to Saturday 5 June 2027</div>
     </div>
   </div>
 
   <div class="wrap-in">
 
   <p class="lede">
-    We're getting married at Teja in Uluwatu, a clifftop restaurant on the southern
-    tip of Bali. Full running order to come.
+    There are two things to put in your diary. A welcome event on the Thursday, and the
+    wedding itself on the Saturday at Teja, a clifftop restaurant on the southern tip of Bali.
   </p>
+
+  <div class="section-label">Thursday 3 June</div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Welcome event <span class="tbc">Details to come</span></h3>
+      <p>We'll get everyone together on the Thursday evening, before the main day.</p>
+      <p>We'll confirm the time and place closer to the date, but let us know on your
+      RSVP whether you can make it so we can plan numbers.</p>
+    </div>
+    <div class="card">
+      <h3>Come for the whole thing</h3>
+      <p>We recommend being in Uluwatu from <strong>Thursday 3 to Monday 7 June</strong>,
+      which covers the welcome event, the wedding and a day to recover.</p>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:3rem">Saturday 5 June</div>
 
   <div class="venue-grid">
     <img loading="lazy" width="900" height="991" src="images/venue-1.jpg" alt="The Teja sign at the entrance">
