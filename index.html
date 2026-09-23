@@ -10,6 +10,11 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FAF5EE">
 
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
 <link rel="preload" as="image" href="images/hero-teja.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +26,7 @@
    ═══════════════════════════════════════════════════════════ */
 :root{
   --soil:#2D0D05; --umber:#7E230C; --terracotta:#A63820; --apricot:#E8905A;
-  --blush:#F0D5C0; --sand:#F5EAD8; --sage:#B8A898; --salt:#FAF5EE;
+  --blush:#F0D5C0; --sand:#F5EAD8; --sage:#746150; --salt:#FAF5EE;
   --card:#F0E8DC; --line:#D8C4A8; --line-soft:#EAE0D4;
 
   --display:'Cormorant Garamond',Georgia,serif;
@@ -555,6 +560,16 @@ a:hover{border-bottom-color:var(--umber)}
 }
 .guest .field{margin-bottom:.9rem}
 .guest .field:last-child{margin-bottom:0}
+.count{display:flex;flex-wrap:wrap;gap:.4rem}
+.count input{position:absolute;opacity:0;width:0;height:0}
+.count label{
+  margin:0; cursor:pointer; background:#fff; border:1px solid var(--line);
+  border-radius:3px; min-width:2.9rem; text-align:center;
+  padding:.7rem .4rem; color:var(--soil); font-size:.9rem;
+}
+.count input:checked + label{background:var(--terracotta);border-color:var(--terracotta);color:var(--salt)}
+.count input:focus-visible + label{outline:2px solid var(--terracotta);outline-offset:2px}
+
 .yn{display:flex;gap:.5rem}
 .yn input{position:absolute;opacity:0;width:0;height:0}
 .yn label{
@@ -708,7 +723,6 @@ a:hover{border-bottom-color:var(--umber)}
 
 
   <div class="section-label">What to wear</div>
-  <h2 class="sec-h">Dress code</h2>
 
   <div class="section-label" style="margin-top:2rem">For her</div>
   <div class="board">
@@ -1475,17 +1489,17 @@ a:hover{border-bottom-color:var(--umber)}
     <div class="form-msg" id="formMsg" role="alert"></div>
 
     <div class="field">
-      <label for="partySize">How many of you are replying? <span class="req">*</span></label>
-      <select id="partySize" name="party_size">
-        <option value="1">Just me</option>
-        <option value="2">2 people</option>
-        <option value="3">3 people</option>
-        <option value="4">4 people</option>
-        <option value="5">5 people</option>
-        <option value="6">6 people</option>
-        <option value="7">7 people</option>
-        <option value="8">8 people</option>
-      </select>
+      <label>How many of you are replying? <span class="req">*</span></label>
+      <div class="count">
+        <input type="radio" id="pc1" name="party_size" value="1" checked><label for="pc1">1</label>
+        <input type="radio" id="pc2" name="party_size" value="2"><label for="pc2">2</label>
+        <input type="radio" id="pc3" name="party_size" value="3"><label for="pc3">3</label>
+        <input type="radio" id="pc4" name="party_size" value="4"><label for="pc4">4</label>
+        <input type="radio" id="pc5" name="party_size" value="5"><label for="pc5">5</label>
+        <input type="radio" id="pc6" name="party_size" value="6"><label for="pc6">6</label>
+        <input type="radio" id="pc7" name="party_size" value="7"><label for="pc7">7</label>
+        <input type="radio" id="pc8" name="party_size" value="8"><label for="pc8">8</label>
+      </div>
       <p class="field-hint">One reply covers your whole party. We only need one email address.</p>
     </div>
 
@@ -1505,25 +1519,25 @@ a:hover{border-bottom-color:var(--umber)}
     </div>
 
     <div class="field">
-      <label>Will you be there? <span class="req">*</span></label>
+      <label>The wedding &mdash; Saturday 5 June <span class="req">*</span></label>
       <div class="attend">
         <input type="radio" id="att-yes" name="attending" value="yes" required>
-        <label for="att-yes">Wouldn't miss it</label>
+        <label for="att-yes">Yes, we'll be there</label>
         <input type="radio" id="att-no" name="attending" value="no">
-        <label for="att-no">Can't make it</label>
+        <label for="att-no">Sorry, can't make it</label>
       </div>
+      <p class="field-hint">Teja, Uluwatu. Arrive 4:30pm for a 5:00pm start.</p>
     </div>
 
     <div class="field">
-      <label>Will you join us at the welcome event? <span class="req">*</span></label>
+      <label>The welcome event &mdash; Thursday 3 June <span class="req">*</span></label>
       <div class="attend">
         <input type="radio" id="we-yes" name="welcome_event" value="yes">
-        <label for="we-yes">Count us in</label>
+        <label for="we-yes">Yes, count us in</label>
         <input type="radio" id="we-no" name="welcome_event" value="no">
-        <label for="we-no">Can't make it</label>
+        <label for="we-no">No, just the wedding</label>
       </div>
-      <p class="field-hint">Thursday 3 June 2027. Details to come, but let us know now
-      so we can plan numbers.</p>
+      <p class="field-hint">Details to come, but let us know now so we can plan numbers.</p>
     </div>
 
     <div class="field">
@@ -1803,9 +1817,10 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
 
 /* ═══════════════ RSVP: one block per guest ═══════════════ */
 (function(){
-  const sel  = document.getElementById('partySize');
-  const wrap = document.getElementById('guests');
-  if(!sel || !wrap) return;
+  const radios = [...document.querySelectorAll('input[name="party_size"]')];
+  const wrap   = document.getElementById('guests');
+  if(!radios.length || !wrap) return;
+  const chosen = () => parseInt((radios.find(r => r.checked) || radios[0]).value, 10);
 
   function block(i){
     const d = document.createElement('div');
@@ -1842,14 +1857,14 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
   }
 
   function render(){
-    const want = parseInt(sel.value, 10);
+    const want = chosen();
     const have = wrap.children.length;
     // keep what is already typed; only add or trim the difference
     for(let i = have; i < want; i++) wrap.appendChild(block(i));
     for(let i = have; i > want; i--) wrap.lastElementChild.remove();
   }
 
-  sel.addEventListener('change', render);
+  radios.forEach(r => r.addEventListener('change', render));
   render();
 
   // expose the collected party for the submit handler
@@ -1890,7 +1905,8 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
     if(!name){
       showError('Please add your name so we know who this is from.');
       const first=document.querySelector('[data-k="name"]'); if(first) first.focus(); return; }
-    const expected = parseInt(document.getElementById('partySize').value,10);
+    const pcEl = document.querySelector('input[name="party_size"]:checked');
+    const expected = pcEl ? parseInt(pcEl.value,10) : party.length;
     if(party.length < expected){
       showError(`You said ${expected} ${expected===1?'person':'people'}, but only `
         + `${party.length} ${party.length===1?'name is':'names are'} filled in.`); return; }
