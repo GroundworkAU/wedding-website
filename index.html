@@ -546,6 +546,26 @@ a:hover{border-bottom-color:var(--umber)}
 .attend input:checked + label{background:var(--terracotta);border-color:var(--terracotta);color:var(--salt)}
 .attend input:focus-visible + label{outline:2px solid var(--terracotta);outline-offset:3px}
 
+.guest{
+  background:var(--card); border-radius:5px; padding:1.1rem 1.25rem; margin-bottom:.75rem;
+}
+.guest-n{
+  font-size:.58rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--terracotta); margin-bottom:.6rem;
+}
+.guest .field{margin-bottom:.9rem}
+.guest .field:last-child{margin-bottom:0}
+.yn{display:flex;gap:.5rem}
+.yn input{position:absolute;opacity:0;width:0;height:0}
+.yn label{
+  margin:0; cursor:pointer; background:#fff; border:1px solid var(--line);
+  border-radius:3px; padding:.5rem 1.1rem; color:var(--soil);
+  font-size:.62rem; letter-spacing:.16em; text-transform:uppercase;
+}
+.yn input:checked + label{background:var(--terracotta);border-color:var(--terracotta);color:var(--salt)}
+.yn input:focus-visible + label{outline:2px solid var(--terracotta);outline-offset:2px}
+.diet-box[hidden]{display:none}
+
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-msg{padding:1rem 1.25rem;border-radius:3px;margin-bottom:1.5rem;font-size:.92rem;display:none}
 .form-msg.is-shown{display:block}
@@ -1455,9 +1475,22 @@ a:hover{border-bottom-color:var(--umber)}
     <div class="form-msg" id="formMsg" role="alert"></div>
 
     <div class="field">
-      <label for="fullName">Your full name <span class="req">*</span></label>
-      <input type="text" id="fullName" name="full_name" autocomplete="name" required>
+      <label for="partySize">How many of you are replying? <span class="req">*</span></label>
+      <select id="partySize" name="party_size">
+        <option value="1">Just me</option>
+        <option value="2">2 people</option>
+        <option value="3">3 people</option>
+        <option value="4">4 people</option>
+        <option value="5">5 people</option>
+        <option value="6">6 people</option>
+        <option value="7">7 people</option>
+        <option value="8">8 people</option>
+      </select>
+      <p class="field-hint">One reply covers your whole party. We only need one email address.</p>
     </div>
+
+    <div id="guests"></div>
+
 
     <div class="field">
       <label for="email">Email <span class="req">*</span></label>
@@ -1491,18 +1524,6 @@ a:hover{border-bottom-color:var(--umber)}
       </div>
       <p class="field-hint">Thursday 3 June 2027. Details to come, but let us know now
       so we can plan numbers.</p>
-    </div>
-
-    <div class="field">
-      <label for="guestNames">Who's coming with you?</label>
-      <input type="text" id="guestNames" name="guest_names">
-      <p class="field-hint">Full names of anyone else in your party, separated by commas. Leave blank if it's just you.</p>
-    </div>
-
-    <div class="field">
-      <label for="dietary">Dietary requirements or allergies</label>
-      <textarea id="dietary" name="dietary"></textarea>
-      <p class="field-hint">Include everyone in your party, and tell us who's who.</p>
     </div>
 
     <div class="field">
@@ -1779,6 +1800,67 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
   convert();
 })();
 
+
+/* ═══════════════ RSVP: one block per guest ═══════════════ */
+(function(){
+  const sel  = document.getElementById('partySize');
+  const wrap = document.getElementById('guests');
+  if(!sel || !wrap) return;
+
+  function block(i){
+    const d = document.createElement('div');
+    d.className = 'guest';
+    d.innerHTML = `
+      <div class="guest-n">${i === 0 ? 'You' : 'Guest ' + (i + 1)}</div>
+      <div class="field">
+        <label for="g${i}-name">Full name ${i === 0 ? '<span class="req">*</span>' : ''}</label>
+        <input type="text" id="g${i}-name" data-g="${i}" data-k="name"
+               autocomplete="${i === 0 ? 'name' : 'off'}">
+      </div>
+      <div class="field">
+        <label>Any dietary requirements?</label>
+        <div class="yn">
+          <input type="radio" id="g${i}-dy" name="g${i}-diet" value="yes">
+          <label for="g${i}-dy">Yes</label>
+          <input type="radio" id="g${i}-dn" name="g${i}-diet" value="no" checked>
+          <label for="g${i}-dn">No</label>
+        </div>
+      </div>
+      <div class="field diet-box" hidden>
+        <label for="g${i}-diet">What do we need to know?</label>
+        <input type="text" id="g${i}-diet" data-g="${i}" data-k="dietary"
+               placeholder="Vegetarian, coeliac, nut allergy...">
+      </div>`;
+    const box = d.querySelector('.diet-box');
+    d.querySelectorAll(`input[name="g${i}-diet"]`).forEach(r =>
+      r.addEventListener('change', () => {
+        box.hidden = r.value !== 'yes';
+        if(box.hidden) box.querySelector('input').value = '';
+        else box.querySelector('input').focus();
+      }));
+    return d;
+  }
+
+  function render(){
+    const want = parseInt(sel.value, 10);
+    const have = wrap.children.length;
+    // keep what is already typed; only add or trim the difference
+    for(let i = have; i < want; i++) wrap.appendChild(block(i));
+    for(let i = have; i > want; i--) wrap.lastElementChild.remove();
+  }
+
+  sel.addEventListener('change', render);
+  render();
+
+  // expose the collected party for the submit handler
+  window.__party = () => [...wrap.children].map(g => {
+    const name = g.querySelector('[data-k="name"]').value.trim();
+    const dietEl = g.querySelector('[data-k="dietary"]');
+    const diet = dietEl && !dietEl.closest('.diet-box').hidden ? dietEl.value.trim() : '';
+    return { name, dietary: diet || null };
+  });
+})();
+
 /* ═══════════════ RSVP FORM → SUPABASE ═══════════════ */
 (function(){
   const form = document.getElementById('rsvpForm');
@@ -1799,12 +1881,19 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
 
     if(form.website.value) return;   // honeypot
 
-    const name      = form.full_name.value.trim();
+    const party     = (window.__party ? window.__party() : []).filter(p => p.name);
+    const name      = party.length ? party[0].name : '';
     const email     = form.email.value.trim();
     const attending = form.querySelector('input[name="attending"]:checked');
     const welcome   = form.querySelector('input[name="welcome_event"]:checked');
 
-    if(!name){ showError('Please add your name so we know who this is from.'); form.full_name.focus(); return; }
+    if(!name){
+      showError('Please add your name so we know who this is from.');
+      const first=document.querySelector('[data-k="name"]'); if(first) first.focus(); return; }
+    const expected = parseInt(document.getElementById('partySize').value,10);
+    if(party.length < expected){
+      showError(`You said ${expected} ${expected===1?'person':'people'}, but only `
+        + `${party.length} ${party.length===1?'name is':'names are'} filled in.`); return; }
     if(!email || !/^\S+@\S+\.\S+$/.test(email)){ showError('That email address doesn\u2019t look right. Check it and try again.'); form.email.focus(); return; }
     if(!attending){ showError('Let us know whether you can make it.'); return; }
     if(attending.value === 'yes' && !welcome){
@@ -1815,12 +1904,16 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
 
     const payload = {
       full_name:     name,
+      party_size:    party.length,
+      party:         party,
       email:         email,
       phone:         form.phone.value.trim() || null,
       attending:     attending.value,
       welcome_event: welcome ? welcome.value : null,
-      guest_names:   form.guest_names.value.trim() || null,
-      dietary:       form.dietary.value.trim() || null,
+      // readable summaries so the Supabase table stays scannable
+      guest_names:   party.slice(1).map(p => p.name).join(', ') || null,
+      dietary:       party.filter(p => p.dietary)
+                          .map(p => `${p.name}: ${p.dietary}`).join('; ') || null,
       accommodation: form.accommodation.value.trim() || null,
       song_request:  form.song_request.value.trim() || null,
       message:       form.message.value.trim() || null
