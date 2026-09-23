@@ -68,6 +68,10 @@ a:hover{border-bottom-color:var(--umber)}
   background:linear-gradient(180deg, rgba(45,13,5,.52) 0%, rgba(45,13,5,.22) 42%, rgba(45,13,5,.62) 100%);
 }
 .hero-in{position:relative; z-index:2; color:var(--salt); padding:4rem 1.5rem 3.5rem}
+@media(max-width:47.99rem){
+  /* push the wording down onto the darker lower half of the photo */
+  .hero-in{padding-top:11rem; padding-bottom:2.5rem}
+}
 .hero-eyebrow{
   font-size:.56rem; letter-spacing:.4em; text-transform:uppercase;
   color:var(--blush); margin-bottom:1.5rem;
@@ -144,6 +148,39 @@ a:hover{border-bottom-color:var(--umber)}
   width:100%; max-width:var(--max); margin:0 auto;
   padding:0 var(--gut); -webkit-overflow-scrolling:touch;
 }
+.nav-bar{display:none}
+
+/* ── under 48rem the tabs collapse into a hamburger ── */
+@media(max-width:47.99rem){
+  .nav-bar{display:block; padding:0 var(--gut)}
+  .nav-toggle{
+    display:flex; align-items:center; gap:.7rem;
+    background:none; border:none; cursor:pointer;
+    padding:.95rem 0; width:100%; font-family:var(--body);
+  }
+  .burger{display:flex;flex-direction:column;justify-content:center;gap:4px;width:18px;height:14px}
+  .burger i{display:block;height:1.5px;background:var(--soil);border-radius:2px;transition:transform .25s, opacity .2s}
+  .nav-toggle[aria-expanded="true"] .burger i:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .burger i:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .burger i:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+  .nav-current{
+    font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--terracotta); font-weight:500;
+  }
+  .tabs-scroll{
+    display:none; flex-direction:column; overflow:visible;
+    padding:.25rem var(--gut) .85rem; border-top:1px solid var(--line-soft);
+  }
+  .tabs-scroll.is-open{display:flex}
+  .tab{
+    padding:.85rem 0; text-align:left; width:100%;
+    border-bottom:1px solid var(--line-soft); margin-bottom:0;
+  }
+  .tab:last-child{border-bottom:none}
+  .tab:first-child{padding-left:0}
+  .tab[aria-selected="true"]{border-bottom-color:var(--line-soft)}
+}
+
 @media(min-width:48rem){
   .tabs-scroll{justify-content:center}
   .tab:first-child{padding-left:1.1rem}   /* undo the flush-left inset when centred */
@@ -308,6 +345,10 @@ a:hover{border-bottom-color:var(--umber)}
   gap:.5rem; margin-bottom:2.5rem;
   align-items:start;                               /* stop items stretching */
 }
+@media(max-width:43.99rem){
+  /* a 3-up strip leaves a gap in a 2-column grid, so drop the third */
+  .venue-grid.is-three img:nth-child(3){display:none}
+}
 @media(min-width:44rem){
   .venue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
   .venue-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -325,7 +366,14 @@ a:hover{border-bottom-color:var(--umber)}
 }
 .alert strong{color:var(--umber);font-weight:500}
 
-.origin-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.origin-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-bottom:1.5rem}
+.origin-field{display:flex;align-items:center;gap:.6rem}
+.origin-field select{width:auto;min-width:9rem}
+@media(max-width:34rem){
+  .origin-bar{flex-direction:column;align-items:stretch}
+  .origin-field{justify-content:space-between}
+  .origin-field select{flex:0 0 62%}
+}
 .origin-bar label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
 .origin-bar select{
   font-family:var(--body); font-size:.9rem; font-weight:300;
@@ -604,7 +652,14 @@ a:hover{border-bottom-color:var(--umber)}
 
 <!-- ═══════════════════════ TABS ═══════════════════════ -->
 <nav class="tabs">
-  <div class="tabs-scroll" role="tablist" aria-label="Wedding information">
+  <div class="nav-bar">
+    <button class="nav-toggle" id="navToggle" type="button"
+            aria-expanded="false" aria-controls="navList" aria-label="Menu">
+      <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="nav-current" id="navCurrent">Home</span>
+    </button>
+  </div>
+  <div class="tabs-scroll" id="navList" role="tablist" aria-label="Wedding information">
     <button class="tab" role="tab" id="tab-home"   aria-controls="home"   aria-selected="true">Home</button>
     <button class="tab" role="tab" id="tab-day"    aria-controls="day"    aria-selected="false">The Day</button>
     <button class="tab" role="tab" id="tab-travel" aria-controls="travel" aria-selected="false">Travel</button>
@@ -859,6 +914,7 @@ a:hover{border-bottom-color:var(--umber)}
   <div class="section-label">Flights</div>
 
   <div class="origin-bar">
+    <div class="origin-field">
     <label for="originSelect">Flying from</label>
     <select id="originSelect">
       <option value="ADL" selected>Adelaide</option>
@@ -866,8 +922,11 @@ a:hover{border-bottom-color:var(--umber)}
       <option value="SYD">Sydney</option>
       <option value="BNE">Brisbane</option>
     </select>
-    <label for="airlineSelect" style="margin-left:.5rem">Airline</label>
+    </div>
+    <div class="origin-field">
+    <label for="airlineSelect">Airline</label>
     <select id="airlineSelect"></select>
+    </div>
   </div>
 
   <div id="routeOut"></div>
@@ -1410,10 +1469,9 @@ a:hover{border-bottom-color:var(--umber)}
       <span class="fx-out" id="idrOutput">Rp 105,000</span>
     </div>
     <p class="fx-note" id="fxNote">
-      Approximate only, based on A$1 ≈ Rp <span id="rateLabel">10,500</span>, checked July 2026.
+      Approximate only, based on A$1 ≈ Rp <span id="rateLabel">12,600</span>, checked September 2026.
       Rates move, so treat this as a rough guide rather than a quote.<br><br>
-      Quick mental maths: knock three zeros off the rupiah price and divide by about ten.
-      Rp 150,000 is roughly A$15.
+      Quick mental maths: Rp 10,000 is about 80 cents, and Rp 100,000 is about A$8.
     </p>
 
     <div class="fx-rule"></div>
@@ -1422,11 +1480,11 @@ a:hover{border-bottom-color:var(--umber)}
     <table class="fx-tip">
       <tr>
         <td>Breakfast, lunch or dinner<span class="sm">for two people</span></td>
-        <td>Rp 20-30,000<span class="sm">≈ A$1.70-2.50</span></td>
+        <td>Rp 20-30,000<span class="sm">≈ A$1.60-2.40</span></td>
       </tr>
       <tr>
         <td>Short car or scooter ride, Gojek</td>
-        <td>Rp 10-20,000<span class="sm">≈ A$0.80-1.80</span></td>
+        <td>Rp 10-20,000<span class="sm">≈ A$0.80-1.60</span></td>
       </tr>
     </table>
     <p class="fx-note" style="margin-top:1rem">It's customary to tip for service in Bali.</p>
@@ -1545,7 +1603,7 @@ a:hover{border-bottom-color:var(--umber)}
     <div class="field">
       <label for="accommodation">Where are you staying?</label>
       <input type="text" id="accommodation" name="accommodation">
-      <p class="field-hint">If you've booked already. It helps us plan transport.</p>
+      <p class="field-hint">If you've booked already, it helps us with planning.</p>
     </div>
 
     <div class="field">
@@ -1590,7 +1648,7 @@ a:hover{border-bottom-color:var(--umber)}
 const SUPABASE_URL   = 'https://secdnsfqzxlhweszxeci.supabase.co';
 const SUPABASE_ANON  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlY2Ruc2ZxenhsaHdlc3p4ZWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwMzYzODUsImV4cCI6MjEwMDYxMjM4NX0.RvquhwPggMVxbOBxmLLeOnI8LcypCyePfJpFwL4XUIM';
 const RSVP_TABLE     = 'rsvps';
-const AUD_TO_IDR     = 10500;   /* update before the trip */
+const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the trip */
 
 /* ═══════════════ TAB ROUTING ═══════════════
    Each tab has its own URL hash (#stay, #rsvp) so pages can be
@@ -1605,6 +1663,9 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
     if(!ids.includes(id)) id = 'home';
     tabs.forEach(t => t.setAttribute('aria-selected', String(t.getAttribute('aria-controls') === id)));
     panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+    const cur = document.getElementById('navCurrent');
+    const btn = tabs.find(t => t.getAttribute('aria-controls') === id);
+    if(cur && btn) cur.textContent = btn.textContent;
 
     if(push && location.hash !== '#' + id){
       history.pushState(null, '', '#' + id);
@@ -1619,6 +1680,31 @@ const AUD_TO_IDR     = 10500;   /* update before the trip */
   }
 
   tabs.forEach(t => t.addEventListener('click', () => show(t.getAttribute('aria-controls'), true)));
+
+  /* mobile hamburger */
+  const toggle = document.getElementById('navToggle');
+  const list   = document.getElementById('navList');
+  const label  = document.getElementById('navCurrent');
+  const setOpen = on => {
+    list.classList.toggle('is-open', on);
+    toggle.setAttribute('aria-expanded', String(on));
+  };
+  if(toggle){
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    // choosing a page closes the menu
+    tabs.forEach(t => t.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', e => {
+      if(!e.target.closest('.tabs')) setOpen(false);
+    });
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true'){
+        setOpen(false); toggle.focus();
+      }
+    });
+  }
 
   // any element with data-goto acts as an in-page link to a tab
   document.querySelectorAll('[data-goto]').forEach(el => {
