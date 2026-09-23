@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FAF5EE">
 
+<link rel="preload" as="image" href="images/hero-teja.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -54,7 +55,8 @@ a:hover{border-bottom-color:var(--umber)}
   overflow:hidden; text-align:center;
 }
 .hero-full > img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 54%;
 }
 .hero-full::after{
   content:''; position:absolute; inset:0;
@@ -562,7 +564,7 @@ a:hover{border-bottom-color:var(--umber)}
 <section class="panel is-active" id="home" role="tabpanel" aria-labelledby="tab-home" tabindex="-1">
 
   <div class="hero-full">
-    <img src="images/venue-4.jpg" alt="Teja's terrace at golden hour">
+    <img src="images/hero-teja.webp" fetchpriority="high" alt="Teja's terrace at golden hour, looking out to the ocean">
     <div class="hero-in">
       <div class="hero-eyebrow">We're getting married</div>
       <h1 class="hero-names">Conor<span class="hero-amp">&amp;</span>Georgie</h1>
