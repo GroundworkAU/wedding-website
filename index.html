@@ -606,7 +606,15 @@ a:hover{border-bottom-color:var(--umber)}
 .et-l a{border:none;display:inline-flex;vertical-align:middle;margin-left:.45rem;opacity:.6;transition:opacity .18s}
 .et-l a:hover{opacity:1}
 @media(max-width:30rem){
-  .et-c{display:none}
+  /* narrow screens: stack the cuisine under the name instead of dropping it */
+  .eat-tbl tr{
+    display:grid; grid-template-columns:1fr auto;
+    align-items:center; padding:.75rem 0;
+  }
+  .eat-tbl td{padding:0}
+  .et-n{grid-column:1; grid-row:1}
+  .et-c{grid-column:1; grid-row:2; padding-left:0!important; margin-top:.2rem}
+  .et-l{grid-column:2; grid-row:1 / span 2; width:auto}
 }
 
 /* ═══════════════════════════════════════════════════════════
