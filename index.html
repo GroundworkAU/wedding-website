@@ -321,10 +321,11 @@ a:hover{border-bottom-color:var(--umber)}
 .btn[disabled]{opacity:.5;cursor:not-allowed}
 
 .tbc{
-  display:inline-block; font-size:.55rem; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--apricot);
-  border:1px solid var(--apricot); border-radius:99px;
-  padding:.15rem .6rem; vertical-align:middle; margin-left:.5rem; font-weight:400;
+  display:inline-block; font-family:var(--body);
+  font-size:.6rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--terracotta);
+  border:1px solid var(--terracotta); border-radius:99px;
+  padding:.2rem .65rem; vertical-align:middle; margin-left:.5rem; font-weight:500;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -557,7 +558,7 @@ a:hover{border-bottom-color:var(--umber)}
    CURRENCY + TIPPING
    ═══════════════════════════════════════════════════════════ */
 .fx{background:var(--soil);border-radius:6px;padding:1.75rem;color:var(--sand);margin-top:1rem}
-.fx label{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:.6rem}
+.fx label{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--line);margin-bottom:.7rem}
 .fx-row{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
 .fx input{
   font-family:var(--display); font-size:2rem; font-weight:300;
@@ -565,20 +566,20 @@ a:hover{border-bottom-color:var(--umber)}
   color:var(--sand); width:6rem; padding:.2rem 0;
 }
 .fx input:focus{outline:none;border-bottom-color:var(--apricot)}
-.fx-eq{font-family:var(--display);font-size:1.4rem;color:var(--terracotta);font-style:italic}
+.fx-eq{font-family:var(--display);font-size:1.4rem;color:var(--apricot);font-style:italic}
 .fx-out{font-family:var(--display);font-size:2rem;font-weight:300;color:var(--apricot)}
-.fx-note{font-size:.68rem;color:var(--sage);margin-top:1.25rem;line-height:1.6}
+.fx-note{font-size:.82rem;color:var(--blush);margin-top:1.25rem;line-height:1.65}
 .fx-rule{height:1px;background:rgba(184,168,152,.28);margin:1.75rem 0 1.5rem}
 .fx-sub{
-  font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--sage); margin-bottom:.9rem;
+  font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--line); margin-bottom:.9rem;
 }
-.fx-tip{width:100%;border-collapse:collapse;font-size:.88rem}
+.fx-tip{width:100%;border-collapse:collapse;font-size:.95rem}
 .fx-tip tr{border-bottom:1px solid rgba(184,168,152,.18)}
 .fx-tip tr:last-child{border-bottom:none}
 .fx-tip td{padding:.7rem 0;vertical-align:top;color:var(--sand)}
 .fx-tip td:last-child{text-align:right;white-space:nowrap;color:var(--apricot)}
-.fx-tip .sm{color:var(--sage);font-size:.76rem;display:block}
+.fx-tip .sm{color:var(--line);font-size:.8rem;display:block;margin-top:.15rem}
 
 .tip-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:1rem}
 .tip-table tr{border-bottom:1px solid var(--line-soft)}
@@ -1411,14 +1412,15 @@ a:hover{border-bottom-color:var(--umber)}
 </div>
 <div class="card">
 <h3>Cards and cash</h3>
-<p>You can pay by card almost everywhere, and we don't bother bringing cash over, we just pull rupiah out of an ATM once we're there.</p>
+<p>You can pay by card &amp; cash almost everywhere. You can bring cash over and exchange, or take cash out at ATMs. We usually don't bring cash and use ATMs or pay by card.</p>
+<p>It is always useful having cash on hand for tipping.</p>
 <p>You can also change money easily at the airport when you land.</p>
 </div>
 </div>
 <div class="fx">
 <label for="audInput">Australian dollars to rupiah</label>
 <div class="fx-row">
-<span style="font-family:var(--display);font-size:1.4rem;color:var(--sage)">A$</span>
+<span style="font-family:var(--display);font-size:1.4rem;color:var(--line)">A$</span>
 <input aria-describedby="fxNote" id="audInput" inputmode="decimal" type="text" value="10"/>
 <span class="fx-eq">≈</span>
 <span class="fx-out" id="idrOutput">Rp 105,000</span>
