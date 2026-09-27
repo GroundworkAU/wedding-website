@@ -88,9 +88,6 @@ a:hover{border-bottom-color:var(--umber)}
   line-height:2.2; margin-top:1.75rem; color:var(--salt);
 }
 .hero-meta strong{color:var(--apricot); font-weight:500}
-.hero-cta{margin-top:2.25rem}
-.hero-cta .btn{background:rgba(250,245,238,.12); border:1px solid rgba(250,245,238,.55); color:var(--salt); backdrop-filter:blur(3px)}
-.hero-cta .btn:hover{background:var(--terracotta); border-color:var(--terracotta)}
 
 /* ── quiet band under the hero ── */
 .band{padding:3.5rem var(--gut); text-align:center}
@@ -249,22 +246,46 @@ a:hover{border-bottom-color:var(--umber)}
    ═══════════════════════════════════════════════════════════ */
 
 .quick{display:grid;gap:1rem;margin-top:3.5rem}
-@media(min-width:40rem){ .quick{grid-template-columns:repeat(3,1fr)} }
+@media(min-width:40rem){ .quick{grid-template-columns:repeat(2,1fr)} .quick-card{min-height:13.5rem} }
+@media(min-width:62rem){ .quick{grid-template-columns:repeat(4,1fr)} }
 .quick-card{
-  background:var(--card); border-radius:6px; padding:1.35rem 1.5rem;
+  position:relative; overflow:hidden; isolation:isolate;
+  min-height:10.5rem; display:flex; flex-direction:column; justify-content:flex-end;
+  background:var(--soil); border-radius:6px; padding:1.35rem 1.5rem;
   border:none; text-align:left; cursor:pointer; font-family:var(--body);
   transition:background .2s;
 }
-.quick-card:hover{background:var(--blush)}
+.quick-card .qc-bg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; border-radius:6px;
+  transition:transform .35s ease;
+}
+/* scrim: keeps the text readable whatever the photo is doing underneath */
+.quick-card::after{
+  content:''; position:absolute; inset:0; border-radius:6px;
+  background:linear-gradient(to top,
+    rgba(45,13,5,.82) 0%, rgba(45,13,5,.66) 45%, rgba(45,13,5,.42) 100%);
+  transition:background .25s;
+}
+.quick-card > span{ position:relative; z-index:1 }
+.quick-card:hover .qc-bg{ transform:scale(1.04) }
+.quick-card:hover::after{
+  background:linear-gradient(to top,
+    rgba(45,13,5,.88) 0%, rgba(45,13,5,.74) 45%, rgba(45,13,5,.52) 100%);
+}
+.quick-card:focus-visible{ outline:2px solid var(--apricot); outline-offset:3px }
+@media(prefers-reduced-motion:reduce){
+  .quick-card .qc-bg, .quick-card:hover .qc-bg{ transition:none; transform:none }
+}
 .quick-card .qc-label{
   font-size:.58rem; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--terracotta); display:block; margin-bottom:.5rem;
+  color:var(--apricot); display:block; margin-bottom:.5rem;
 }
 .quick-card .qc-title{
   font-family:var(--display); font-size:1.3rem; font-weight:400;
-  color:var(--soil); display:block; line-height:1.2; margin-bottom:.3rem;
+  color:var(--salt); display:block; line-height:1.2; margin-bottom:.3rem;
 }
-.quick-card .qc-sub{font-size:.82rem;color:var(--sage);display:block;line-height:1.5}
+.quick-card .qc-sub{font-size:.82rem;color:var(--blush);display:block;line-height:1.5}
 
 /* ═══════════════════════════════════════════════════════════
    BUTTONS
@@ -679,37 +700,45 @@ a:hover{border-bottom-color:var(--umber)}
 <strong>Saturday 5 June 2027</strong><br/>
         Teja · Uluwatu, Bali
       </div>
-<div class="hero-cta"><button class="btn" data-goto="rsvp">RSVP</button></div>
 </div>
 </div>
 <div class="band">
 <div class="band-quiet">Bali · Indonesia</div>
 <p class="band-lede">We're getting married in Uluwatu, and we'd really love you there.</p>
 </div>
+<div class="wrap-in">
+<div class="quick">
+<button class="quick-card" data-goto="weekend">
+<img alt="" aria-hidden="true" class="qc-bg" loading="lazy" src="images/stone-travertine.jpg"/>
+<span class="qc-label">The plan</span>
+<span class="qc-title">The Weekend</span>
+<span class="qc-sub">The welcome event, the wedding itself, and Sunday recovery.</span>
+</button>
+<button class="quick-card" data-goto="travel">
+<img alt="" aria-hidden="true" class="qc-bg" loading="lazy" src="images/stone-cream.jpg"/>
+<span class="qc-label">Start here</span>
+<span class="qc-title">Travel</span>
+<span class="qc-sub">Passports, visas, flights and the bits worth sorting early.</span>
+</button>
+<button class="quick-card" data-goto="stay">
+<img alt="" aria-hidden="true" class="qc-bg" loading="lazy" src="images/stone-marble.jpg"/>
+<span class="qc-label">Book soon</span>
+<span class="qc-title">Stay</span>
+<span class="qc-sub">Fourteen places to stay in and around Uluwatu.</span>
+</button>
+<button class="quick-card" data-goto="guide">
+<img alt="" aria-hidden="true" class="qc-bg" loading="lazy" src="images/stone-terracotta.jpg"/>
+<span class="qc-label">Before you go</span>
+<span class="qc-title">Bali Guide</span>
+<span class="qc-sub">Getting around, money, and where to eat and drink.</span>
+</button>
+</div>
+</div>
 <div class="strip">
 <img alt="The Teja sign at the entrance" loading="lazy" src="images/venue-1.jpg"/>
 <img alt="Teja's dining room, open to the trees" loading="lazy" src="images/venue-2.jpg"/>
 <img alt="Martinis on a travertine table at Teja" loading="lazy" src="images/venue-3.jpg"/>
 <img alt="A spread of shared dishes" loading="lazy" src="images/food-1.jpg"/>
-</div>
-<div class="wrap-in">
-<div class="quick">
-<button class="quick-card" data-goto="travel">
-<span class="qc-label">Start here</span>
-<span class="qc-title">Travel</span>
-<span class="qc-sub">Passport, visa and the things worth sorting early</span>
-</button>
-<button class="quick-card" data-goto="stay">
-<span class="qc-label">Book soon</span>
-<span class="qc-title">Where to stay</span>
-<span class="qc-sub">Fourteen places in and around Uluwatu</span>
-</button>
-<button class="quick-card" data-goto="guide">
-<span class="qc-label">Before you go</span>
-<span class="qc-title">Bali guide</span>
-<span class="qc-sub">Packing, getting around, money and food</span>
-</button>
-</div>
 </div>
 <div class="band-dark">
 <div class="band-quiet">Saturday 5 June 2027</div>
@@ -723,7 +752,7 @@ a:hover{border-bottom-color:var(--umber)}
 <img alt="Travertine stone" loading="lazy" src="images/stone-travertine.jpg"/>
 <div class="page-band-in">
 <h1>The Weekend</h1>
-<div class="pb-meta">Thursday 3 June to Saturday 5 June 2027</div>
+<div class="pb-meta">Thursday 3 June to Sunday 6 June 2027</div>
 </div>
 </div>
 <div class="wrap-in">
@@ -735,6 +764,12 @@ a:hover{border-bottom-color:var(--umber)}
 </div>
 </div>
 <div class="section-label" style="margin-top:3rem">Saturday 5 June</div>
+<div class="grid grid-2">
+<div class="card">
+<h3>The Wedding</h3>
+<p>It's all happening at Teja in Uluwatu, from the ceremony through to the after party.</p>
+</div>
+</div>
 <div class="venue-grid">
 <img alt="The Teja sign at the entrance" height="991" loading="lazy" src="images/venue-1.jpg" width="900"/>
 <img alt="Teja's dining room, open to the trees" height="991" loading="lazy" src="images/venue-2.jpg" width="900"/>
@@ -755,6 +790,13 @@ a:hover{border-bottom-color:var(--umber)}
       <h3>After party</h3>
       <p><strong>Until the early hours</strong><br>the rooftop bar at Teja</p>
     </div>
+</div>
+<div class="section-label" style="margin-top:3rem">Sunday 6 June</div>
+<div class="grid grid-2">
+<div class="card">
+<h3>Recovery <span class="tbc">Details to come</span></h3>
+<p>We'll put something low key on for anyone who's still around on the Sunday.</p>
+</div>
 </div>
 <div class="section-label">What to wear</div>
 <div class="section-label" style="margin-top:2rem">For her</div>
@@ -1460,6 +1502,16 @@ a:hover{border-bottom-color:var(--umber)}
 <p class="field-hint">Details to come, but let us know now so we can plan numbers.</p>
 </div>
 <div class="field">
+<label>Recovery — Sunday 6 June <span class="req">*</span></label>
+<div class="attend">
+<input id="rec-yes" name="recovery_event" type="radio" value="yes"/>
+<label for="rec-yes" id="lblRecYes">Yes, count us in</label>
+<input id="rec-no" name="recovery_event" type="radio" value="no"/>
+<label for="rec-no" id="lblRecNo">No, we'll be gone by then</label>
+</div>
+<p class="field-hint">Something low key the day after. Details to come.</p>
+</div>
+<div class="field">
 <label for="accommodation">Where are you staying?</label>
 <input id="accommodation" name="accommodation" type="text"/>
 <p class="field-hint">If you've booked already, it helps us with planning.</p>
@@ -1523,9 +1575,18 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
     // bring the newly shown page into view, and move focus for screen readers
     const panel = document.getElementById(id);
     if(panel){
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' });
+      // Jump rather than animate. Swapping panels changes the page height and
+      // the mobile menu collapses immediately after this runs; either one
+      // interrupts a smooth scroll and leaves you stranded mid-page.
+      const toTop = () => {
+        window.scrollTo(0, 0);
+        if(document.documentElement) document.documentElement.scrollTop = 0;
+        if(document.body) document.body.scrollTop = 0;
+      };
+      toTop();
       panel.focus({ preventScroll:true });
+      if(window.requestAnimationFrame) window.requestAnimationFrame(toTop);
+      setTimeout(toTop, 60);
     }
   }
 
@@ -1807,6 +1868,8 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
     const set = (id, txt) => { const el = document.getElementById(id); if(el) el.textContent = txt; };
     set('lblAttYes', one ? "Yes, I'll be there"  : "Yes, we'll be there");
     set('lblWeYes',  one ? 'Yes, count me in'    : 'Yes, count us in');
+    set('lblRecYes', one ? 'Yes, count me in'    : 'Yes, count us in');
+    set('lblRecNo',  one ? "No, I'll be gone by then" : "No, we'll be gone by then");
     set('partyHint', one
       ? "We'll send all the details to your email address."
       : "We'll send all the details for everyone you're RSVPing for to your email address.");
@@ -1849,6 +1912,7 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
     const email     = form.email.value.trim();
     const attending = form.querySelector('input[name="attending"]:checked');
     const welcome   = form.querySelector('input[name="welcome_event"]:checked');
+    const recovery  = form.querySelector('input[name="recovery_event"]:checked');
 
     if(!name){
       showError('Please add your name so we know who this is from.');
@@ -1862,6 +1926,8 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
     if(!attending){ showError('Let us know whether you can make it.'); return; }
     if(attending.value === 'yes' && !welcome){
       showError('Let us know about the welcome event on Thursday 3 June too.'); return; }
+    if(attending.value === 'yes' && !recovery){
+      showError('Let us know about recovery on Sunday 6 June too.'); return; }
 
     btn.disabled = true;
     btn.textContent = 'Sending…';
@@ -1874,6 +1940,7 @@ const AUD_TO_IDR     = 12600;   /* checked September 2026 - update before the tr
       phone:         form.phone.value.trim() || null,
       attending:     attending.value,
       welcome_event: welcome ? welcome.value : null,
+      recovery_event: recovery ? recovery.value : null,
       // readable summaries so the Supabase table stays scannable
       guest_names:   party.slice(1).map(p => p.name).join(', ') || null,
       dietary:       party.filter(p => p.dietary)
