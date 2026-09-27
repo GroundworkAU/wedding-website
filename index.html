@@ -239,15 +239,32 @@ a:hover{border-bottom-color:var(--umber)}
   color:var(--sage); font-weight:500; margin:3rem 0 1.25rem;
 }
 .section-label:first-of-type{margin-top:0}
+
+/* a section break: outranks the small labels nested under it */
+.section-head{
+  font-family:var(--display); font-weight:400; font-size:1.75rem;
+  color:var(--soil); line-height:1.2;
+  margin:3.5rem 0 1.5rem; padding-top:2.75rem;
+  border-top:1px solid var(--line);
+}
 .section-label::after{content:'';flex:1;height:1px;background:var(--line)}
 
 /* ═══════════════════════════════════════════════════════════
    HOME
    ═══════════════════════════════════════════════════════════ */
 
-.quick{display:grid;gap:1rem;margin-top:3.5rem}
-@media(min-width:40rem){ .quick{grid-template-columns:repeat(2,1fr)} .quick-card{min-height:13.5rem} }
-@media(min-width:62rem){ .quick{grid-template-columns:repeat(4,1fr)} }
+.quick{display:grid;gap:1rem;margin-top:1.5rem}
+@media(min-width:40rem){ .quick{grid-template-columns:repeat(2,1fr)} }
+@media(min-width:62rem){
+  .quick{
+    grid-template-columns:repeat(4,1fr);
+    /* break out of the 62rem reading column so the copy isn't cramped */
+    width:min(calc(100vw - 3rem), 74rem);
+    margin-left:calc(50% - min(50vw - 1.5rem, 37rem));
+  }
+}
+/* this row carries its own spacing, so the panel's default padding is dropped */
+.panel > .quick-wrap{ padding-top:0; padding-bottom:3.5rem }
 .quick-card{
   position:relative; overflow:hidden; isolation:isolate;
   min-height:10.5rem; display:flex; flex-direction:column; justify-content:flex-end;
@@ -274,6 +291,7 @@ a:hover{border-bottom-color:var(--umber)}
     rgba(45,13,5,.88) 0%, rgba(45,13,5,.74) 45%, rgba(45,13,5,.52) 100%);
 }
 .quick-card:focus-visible{ outline:2px solid var(--apricot); outline-offset:3px }
+@media(min-width:40rem){ .quick-card{min-height:13.5rem} }
 @media(prefers-reduced-motion:reduce){
   .quick-card .qc-bg, .quick-card:hover .qc-bg{ transition:none; transform:none }
 }
@@ -364,7 +382,7 @@ a:hover{border-bottom-color:var(--umber)}
 .venue-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));   /* 2 across on mobile */
-  gap:.5rem; margin-bottom:2.5rem;
+  gap:.5rem; margin:1.75rem 0 2.5rem;
   align-items:start;                               /* stop items stretching */
 }
 @media(max-width:43.99rem){
@@ -706,7 +724,7 @@ a:hover{border-bottom-color:var(--umber)}
 <div class="band-quiet">Bali · Indonesia</div>
 <p class="band-lede">We're getting married in Uluwatu, and we'd really love you there.</p>
 </div>
-<div class="wrap-in">
+<div class="wrap-in quick-wrap">
 <div class="quick">
 <button class="quick-card" data-goto="weekend">
 <img alt="" aria-hidden="true" class="qc-bg" loading="lazy" src="images/stone-travertine.jpg"/>
@@ -798,8 +816,8 @@ a:hover{border-bottom-color:var(--umber)}
 <p>We'll put something low key on for anyone who's still around on the Sunday.</p>
 </div>
 </div>
-<div class="section-label">What to wear</div>
-<div class="section-label" style="margin-top:2rem">For her</div>
+<div class="section-head">What to wear</div>
+<div class="section-label" style="margin-top:0">For her</div>
 <div class="board">
 <img alt="Dress inspiration" loading="lazy" src="images/dress-1.webp"/>
 <img alt="Dress inspiration" loading="lazy" src="images/dress-2.webp"/>
@@ -809,6 +827,14 @@ a:hover{border-bottom-color:var(--umber)}
 <img alt="Dress inspiration" loading="lazy" src="images/dress-6.webp"/>
 <img alt="Dress inspiration" loading="lazy" src="images/dress-7.webp"/>
 <img alt="Dress inspiration" loading="lazy" src="images/dress-8.webp"/>
+<img alt="Dress inspiration" loading="lazy" src="images/dress-9.webp"/>
+<img alt="Dress inspiration" loading="lazy" src="images/dress-10.webp"/>
+<img alt="Dress inspiration" loading="lazy" src="images/dress-11.webp"/>
+<img alt="Dress inspiration" loading="lazy" src="images/dress-12.webp"/>
+</div>
+<div class="dress-notes">
+<p>Full length is what we've got in mind, so a long dress or a set rather than something short.</p>
+<p>Heels or mules both work well, it's an easy venue to walk around.</p>
 </div>
 <div class="section-label" style="margin-top:2.5rem">For him <span class="tbc">Images to come</span></div>
 <div class="board-empty">We will add a few ideas here shortly.</div>
